@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Logging;
+using OccultMerchant.items;
 
 namespace OccultMerchant.Controllers
 {
@@ -16,24 +19,48 @@ namespace OccultMerchant.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
+        
         private readonly ILogger<WeatherForecastController> _logger;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
+           
         }
+        
+        
 
-        [HttpGet]
+        [HttpGet("/weatherforecast")]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            return Enumerable.Range(1, 9).Select(index => new WeatherForecast
                 {
                     Date = DateTime.Now.AddDays(index),
                     TemperatureC = rng.Next(-20, 55),
                     Summary = Summaries[rng.Next(Summaries.Length)]
                 })
                 .ToArray();
+        }
+
+        [HttpGet("/giveMeWeapons")]
+        public IEnumerable<Weapons> getWeapons ()
+        {
+            
+            SqliteConnection connection = new SqliteConnection("Data Source=../ItemsDatabase.sqlite");
+            connection.Open();
+            SqliteCommand command = connection.CreateCommand();
+            command.CommandText = @"SELECT * FROM 'Weapons';";
+            List<Weapons> list = new List<Weapons>();
+            
+            using (SqliteDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    list.Add(Weapons.fromDatabase(reader));
+                }
+            }
+            return list;
         }
     }
 }

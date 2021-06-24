@@ -1,1 +1,6 @@
-<p>omni-list works!</p>
+
+<p *ngIf="data.weapons.length == 0"><em>Loading...</em></p>
+
+<p *ngFor="let w of data.weapons">
+  {{w.name}}
+</p>

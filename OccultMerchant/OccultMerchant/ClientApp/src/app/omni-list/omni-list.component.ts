@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {FetchDataService} from '../fetch-data.service'
 @Component({
   selector: 'app-omni-list',
   templateUrl: './omni-list.component.html',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OmniListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public data: FetchDataService) {
+    this.data.giveMeWeapons();
+    console.log("Sono Vivo");
+    console.log(this.data.weapons);
+  }
 
   ngOnInit(): void {
   }
+
+
 
 }

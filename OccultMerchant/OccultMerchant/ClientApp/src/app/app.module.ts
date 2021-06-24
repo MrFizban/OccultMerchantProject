@@ -28,6 +28,7 @@ import { OmniListComponent } from './omni-list/omni-list.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'omni-list', component: OmniListComponent },
     ])
   ],
   providers: [],
