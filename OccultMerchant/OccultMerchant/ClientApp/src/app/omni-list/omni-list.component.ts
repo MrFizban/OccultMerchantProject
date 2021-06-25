@@ -38,17 +38,19 @@ export class OmniListComponent implements OnInit {
 
     this.data.giveMeWeapons().subscribe(result => {
       //this.weapons = result;
-      result.forEach((value, index) => {
+      result.forEach((value, index,array) => {
         let tmp : Weapons = new Weapons(value['id'],value['name'],value['description'],value['source'],new Price(value['price'].value,value['price'].coin),
           new Dice(value['dmgM'].number,value['dmgM'].value), value['critical'],value['typeWeapons'],value['range'],value['proficiency']);
         this.weapons.push(tmp);
+        this.selectedRow = this.weapons[0];
       });
       console.log(this.weapons);
     }, error => console.error(error));
     console.log("Sono Vivo");
 
 
-
+    this.add = true;
+    this.edit = true;
 
   }
 
@@ -92,7 +94,8 @@ export class OmniListComponent implements OnInit {
 
   saveFunction(){
     if(this.add){
-      this.data.updateWeapons(this.selectedRow).subscribe();
+      console.log("saving");
+      this.data.updateWeapons(this.selectedRow);
       this.selectedRow = null
       this.add = false;
     }

@@ -1,5 +1,5 @@
 import {Inject, Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Weapons} from "./Items/Weapons"
 import { Observable, throwError } from 'rxjs';
 
@@ -31,9 +31,11 @@ export class FetchDataService {
   }
 
   updateWeapons(wpn:Weapons){
-    console.log("post angular");
-    console.log(wpn)
-    return this.http.post<Weapons>(this._baseUrl + 'putWeapons', wpn);
+    console.log(wpn);
+    const headers: HttpHeaders = new  HttpHeaders();
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post(this._baseUrl + 'giveMeWeapons', wpn, {headers:headers} ).subscribe();
+
   }
 
 

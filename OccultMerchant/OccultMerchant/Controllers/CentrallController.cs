@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.Sqlite;
@@ -63,13 +65,23 @@ namespace OccultMerchant.Controllers
             return list;
         }
         
-        [HttpPost]
-        [Route("/putWeapons")]
-        public async Task Test([FromBody]Weapons accounts)
+        [HttpPost("/giveMeWeapons")]
+        public bool Test([FromBody]Weapons value)
         {
-            var tmp = accounts;
             Console.WriteLine("post request");
-            
+            return true;
+        }
+
+        public class cosa
+        {
+            private string word { get; set;}
+        }
+        [HttpPost("/parola")]
+        public string parola([FromBody]string value)
+        {
+            Console.WriteLine("post request");
+            return "ok";
+
         }
         
     }

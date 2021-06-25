@@ -32,9 +32,8 @@ namespace OccultMerchant.items
         }
 
         public Weapons(int id, string _name, string _description, string _source, Price _price, Dice dmgM, string critical, 
-            WeaponsType typeWeapons, int range, string proficiency) : base(_name, _description, _source, _price)
+            WeaponsType typeWeapons, int range, string proficiency) : base( id, _name, _description, _source, _price)
         {
-            this.id = id;
             this.dmgM = dmgM;
             this.critical = critical;
             this.typeWeapons = typeWeapons;

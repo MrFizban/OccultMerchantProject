@@ -28,7 +28,7 @@ namespace OccultMerchant.items
             };
         }
 
-        public Spell(string _name, string _description, string _source, Price _price, List<CasterClass> castersPossibility) : base(_name, _description, _source, _price)
+        public Spell(int id,string _name, string _description, string _source, Price _price, List<CasterClass> castersPossibility) : base(id, _name, _description, _source, _price)
         {
             this.castersPossibility = castersPossibility;
         }
