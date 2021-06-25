@@ -10,12 +10,13 @@ namespace OccultMerchant.items
     }
     public class Weapons : Base
     {
+        public int id { get; set; }
         // il danno dell arma di taglia media
         public Dice dmgM { get; set; }
         // il range del critico e il moltiplicatore
         public string critical { get; set; }
         // il tipo di danno fisico dell arma
-        public WeaponsType type { get; set; }
+        public WeaponsType typeWeapons { get; set; }
         // il possibile range dell arma
         public int range { get; set; }
         // la proficiency richiesta per usare l'arma 
@@ -25,17 +26,18 @@ namespace OccultMerchant.items
         {
             this.dmgM = new Dice(1, 4);
             this.critical = "18-20/x5";
-            this.type = WeaponsType.bludgeoning;
+            this.typeWeapons = WeaponsType.bludgeoning;
             this.range = 9;
             this.proficiency = "Exotic";
         }
 
-        public Weapons(string _name, string _description, string _source, Price _price, Dice dmgM, string critical, 
-            WeaponsType type, int range, string proficiency) : base(_name, _description, _source, _price)
+        public Weapons(int id, string _name, string _description, string _source, Price _price, Dice dmgM, string critical, 
+            WeaponsType typeWeapons, int range, string proficiency) : base(_name, _description, _source, _price)
         {
+            this.id = id;
             this.dmgM = dmgM;
             this.critical = critical;
-            this.type = type;
+            this.typeWeapons = typeWeapons;
             this.range = range;
             this.proficiency = proficiency;
         }
@@ -57,7 +59,7 @@ namespace OccultMerchant.items
             var range = reader.GetInt32(5);
             var source = reader.GetString(6);
             var proficiency = reader.GetString(7);
-            return new Weapons(name,description,source,new Price(),new Dice(dmgM),
+            return new Weapons(id,name,description,source,new Price(),new Dice(dmgM),
                 critical,WeaponsType.bludgeoning,range,proficiency);
         }
     }

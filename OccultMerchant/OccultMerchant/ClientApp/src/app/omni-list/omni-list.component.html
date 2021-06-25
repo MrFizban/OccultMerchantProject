@@ -1,6 +1,56 @@
 
-<p *ngIf="data.weapons.length == 0"><em>Loading...</em></p>
+<p *ngIf="weapons.length == 0"><em>Loading...</em></p>
 
-<p *ngFor="let w of data.weapons">
-  {{w.name}}
-</p>
+<div *ngIf="weapons.length > 0">
+  <table #tableId mat-table
+         [dataSource]="weapons" multiTemplateDataRows
+         class="mat-elevation-z8">
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of columnList">
+      <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf=" selectedRow != element || !edit">
+          {{element[column]}}
+        </div>
+        <div *ngIf="  selectedRow == element && edit">
+          <input [(ngModel)]="element[column]" [placeholder]="column">
+        </div>
+      </td>
+
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="columnList.length">
+        <div class="example-element-detail"
+             [@detailExpand]="element == selectedRow ? 'expanded' : 'collapsed'">
+          <div *ngIf="!edit" class="example-element-description">
+            {{element.description}}
+          </div>
+          <div *ngIf="edit" class="example-element-description">
+            <textarea [(ngModel)]="element['description']" placeholder="descrimption" class="description"></textarea>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="columnList"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnList;"
+        class="example-element-row"
+        [class.example-expanded-row]="selectedRow === element"
+        (click)="selectRowFunction(element)">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+
+  </table>
+
+  <div >
+    <button *ngIf="!add" mat-raised-button (click)="addWeapons()">add</button>
+    <button *ngIf="selectedRow && !add" mat-raised-button (click)="editWeapons()">edit </button>
+    <button *ngIf="selectedRow && add" mat-raised-button (click)="editWeapons()">save </button>
+    <button *ngIf="edit" mat-raised-button (click)="saveFunction()" color="warn">Save</button>
+    <button *ngIf="edit || add" mat-raised-button (click)="deleteFunction()" color="warn">delete</button>
+  </div>
+</div>

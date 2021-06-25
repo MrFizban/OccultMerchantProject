@@ -12,7 +12,7 @@ namespace OccultMerchant.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class CentrallController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
@@ -20,9 +20,9 @@ namespace OccultMerchant.Controllers
         };
 
         
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<CentrallController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public CentrallController(ILogger<CentrallController> logger)
         {
             _logger = logger;
            
@@ -46,13 +46,13 @@ namespace OccultMerchant.Controllers
         [HttpGet("/giveMeWeapons")]
         public IEnumerable<Weapons> getWeapons ()
         {
-            
+            System.Console.WriteLine("get request");
             SqliteConnection connection = new SqliteConnection("Data Source=../ItemsDatabase.sqlite");
             connection.Open();
             SqliteCommand command = connection.CreateCommand();
             command.CommandText = @"SELECT * FROM 'Weapons';";
             List<Weapons> list = new List<Weapons>();
-            
+               
             using (SqliteDataReader reader = command.ExecuteReader())
             {
                 while (reader.Read())
@@ -62,5 +62,15 @@ namespace OccultMerchant.Controllers
             }
             return list;
         }
+        
+        [HttpPost]
+        [Route("/putWeapons")]
+        public async Task Test([FromBody]Weapons accounts)
+        {
+            var tmp = accounts;
+            Console.WriteLine("post request");
+            
+        }
+        
     }
 }
