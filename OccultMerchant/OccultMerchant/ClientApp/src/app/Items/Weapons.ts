@@ -2,12 +2,12 @@ import {Dice} from "../Items/Dice"
 import {Price} from "./Price";
 import {Base} from "./Base"
 export enum WeaponsType {
-  bludgeoning="bludgeoning",
-  piercing ="piercing",
-  slashing = "slashing"
+  bludgeoning,
+  piercing ,
+  slashing
 }
 
-export class Weapons{
+export class Weapons extends Object{
 
   constructor(
     public id: number ,
@@ -21,17 +21,22 @@ export class Weapons{
     public range: number = 0,
     public proficiency: string = ""
   ) {
+    super();
+  }
 
+  public clone(): any {
+    var cloneObj = new Weapons(0) ;
+    for (var attribut in this) {
+      if (typeof this[attribut] === "object") {
+        // @ts-ignore
+        cloneObj[attribut] = this[attribut].clone();
+      } else {
+        // @ts-ignore
+        cloneObj[attribut] = this[attribut];
+      }
+    }
+    return cloneObj;
   }
 
 
-  ToString():string{
-    console.log(this.name);
-    return this.critical;
-  }
-
-  cose(): string{
-    console.log("Cose :)");
-    return "Cose :)";
-  }
 }

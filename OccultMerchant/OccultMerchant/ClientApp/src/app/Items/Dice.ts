@@ -10,4 +10,18 @@ export  class Dice {
   toString(): string {
     return this.number + "d" + this.value;
   }
+
+  public clone(): any {
+    var cloneObj = new Dice() ;
+    for (var attribut in this) {
+      if (typeof this[attribut] === "object") {
+        // @ts-ignore
+        cloneObj[attribut] = this[attribut].clone();
+      } else {
+        // @ts-ignore
+        cloneObj[attribut] = this[attribut];
+      }
+    }
+    return cloneObj;
+  }
 }

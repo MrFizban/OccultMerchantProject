@@ -30,11 +30,23 @@ export class FetchDataService {
     return this.http.get<Weapons[]>(this._baseUrl + 'giveMeWeapons');
   }
 
-  updateWeapons(wpn:Weapons){
-    console.log(wpn);
+  addWeapons(wpn:Weapons){
     const headers: HttpHeaders = new  HttpHeaders();
     headers.set('Content-Type', 'application/json; charset=utf-8');
-    return this.http.post(this._baseUrl + 'giveMeWeapons', wpn, {headers:headers} ).subscribe();
+    return this.http.post<Weapons>(this._baseUrl + 'giveMeWeapons', wpn, {headers:headers} );
+
+  }
+
+  updateWeapond(wpn:Weapons){
+    const headers: HttpHeaders = new  HttpHeaders();
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.put<Weapons>(this._baseUrl + 'giveMeWeapons', wpn, {headers:headers} ).subscribe();
+  }
+
+  deleteWeapons(wpn:Weapons){
+    const headers: HttpHeaders = new  HttpHeaders();
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.delete(this._baseUrl + 'giveMeWeapons/' + wpn.id.toString(), );
 
   }
 

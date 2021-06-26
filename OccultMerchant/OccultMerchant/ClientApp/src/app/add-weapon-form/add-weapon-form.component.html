@@ -1,0 +1,85 @@
+<form [formGroup]="omniList.formController">
+  <mat-form-field appearance="outline">
+    <mat-label>name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>critical</mat-label>
+    <input matInput formControlName="critical">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>range</mat-label>
+    <input matInput formControlName="range">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>source</mat-label>
+    <input matInput formControlName="source">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>proficiency</mat-label>
+    <input matInput formControlName="proficiency">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>type</mat-label>
+    <mat-select formControlName="type">
+      <mat-option [value]="omniList.weapontypeEnum.bludgeoning">bludgeoning</mat-option>
+      <mat-option [value]="omniList.weapontypeEnum.piercing">piercing</mat-option>
+      <mat-option [value]="omniList.weapontypeEnum.slashing">slashing</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>category</mat-label>
+    <input matInput formControlName="category">
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field  appearance="outline">
+    <mat-label>description</mat-label>
+    <textarea class="descriptionAdd" matInput formControlName="description"></textarea>
+  </mat-form-field>
+
+  <mat-card formGroupName="dmgM">
+    <mat-card-header>Price</mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>number</mat-label>
+        <input matInput formControlName="number">
+      </mat-form-field> <br>
+      <mat-form-field appearance="outline">
+        <mat-label>number</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let dice of omniList.states" [value]="dice">
+            d{{dice}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card formGroupName="price">
+    <mat-card-header>Price</mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>value</mat-label>
+        <input matInput formControlName="value">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>coin</mat-label>
+        <mat-select formControlName="coin">
+          <mat-option [value]="omniList.coinEnum.PlatinumCoin">PlatinumCoin</mat-option>
+          <mat-option [value]="omniList.coinEnum.GoldCoin">GoldCoin</mat-option>
+          <mat-option [value]="omniList.coinEnum.SilverCoin">SilverCoin</mat-option>
+          <mat-option [value]="omniList.coinEnum.CopperCoin">CopperCoin</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+</form>

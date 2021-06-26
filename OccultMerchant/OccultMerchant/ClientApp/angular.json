@@ -150,5 +150,10 @@
       }
     }
   },
-  "defaultProject": "OccultMerchant"
+  "defaultProject": "OccultMerchant",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "css"
+    }
+  }
 }
