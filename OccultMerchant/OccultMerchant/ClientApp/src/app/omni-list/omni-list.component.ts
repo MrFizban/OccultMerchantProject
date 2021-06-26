@@ -1,12 +1,13 @@
-import { Component, OnInit , ViewChild} from '@angular/core';
+import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FetchDataService} from '../fetch-data.service'
 import {Weapons, WeaponsType} from "../Items/Weapons";
 import {MatTable, MatTableModule} from "@angular/material/table";
 
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Dice} from '../Items/Dice'
-import {Price} from "../Items/Price";
+import {CoinType, Price} from "../Items/Price";
 import {any} from "codelyzer/util/function";
+import {FormGroup, FormControl} from "@angular/forms";
 @Component({
   selector: 'app-omni-list',
   templateUrl: './omni-list.component.html',
@@ -22,17 +23,36 @@ import {any} from "codelyzer/util/function";
 export class OmniListComponent implements OnInit {
 
   @ViewChild("tableId",{static:false}) public tab: MatTable<any>;
-
+  public coinEnum = CoinType;
   public weapons : Weapons[] = new Array<Weapons>();
-  public columnList : Array<string> = ['name','dmgM', 'price', 'critical', 'description',  'proficiency', 'range', 'source', 'typeWeapons'];
-  public selectedRow: any;
+  public columnList : Array<string> = ['name','dmgM', 'price', 'critical', 'range', 'proficiency'];
+  public selectedRow: Weapons;
+  private backupRow: Weapons;
   // boolean per attivare la modifica della riga selezionata
   public edit: boolean = false;
   // booleant per attivare l'aggiunta di una riga;
   public add: boolean = false;
+  @ViewChild('botton',{static:false}) private editrow: ElementRef;
 
-
-  constructor(public data: FetchDataService) {}
+  public states = ["d2","d4", "d6", "d8", "d10", "d12", "d20", "d100"];
+  public formController: FormGroup = new FormGroup(
+    {
+      "name": new FormControl(''),
+      description: new FormControl(''),
+      critical: new FormControl(''),
+      range: new FormControl(''),
+      source: new FormControl(''),
+      proficiency: new FormControl(''),
+      type: new FormControl(''),
+      category: new FormControl(''),
+      price: new FormGroup({
+        value: new FormControl(),
+        coin: new FormControl()
+      })
+    }
+  );
+  constructor(public data: FetchDataService, ) {
+  }
 
   ngOnInit(): void {
 
@@ -42,17 +62,13 @@ export class OmniListComponent implements OnInit {
         let tmp : Weapons = new Weapons(value['id'],value['name'],value['description'],value['source'],new Price(value['price'].value,value['price'].coin),
           new Dice(value['dmgM'].number,value['dmgM'].value), value['critical'],value['typeWeapons'],value['range'],value['proficiency']);
         this.weapons.push(tmp);
-        this.selectedRow = this.weapons[0];
       });
       console.log(this.weapons);
     }, error => console.error(error));
     console.log("Sono Vivo");
 
-
-    this.add = true;
-    this.edit = true;
-
   }
+
 
   selectRowFunction(element:Weapons){
     if(!this.edit){
@@ -61,27 +77,29 @@ export class OmniListComponent implements OnInit {
   }
 
   editWeapons(){
-    this.edit = !this.edit;
+    if(!this.edit){
+      this.edit = true;
+      console.log(this.selectedRow);
+      this.backupRow = this.selectedRow.clone();
+      console.log(this.backupRow);
+
+    } else {
+      this.edit = false;
+      console.log(this.selectedRow);
+      console.log(this.backupRow);
+     this.weapons[this.weapons.indexOf(this.selectedRow)]= this.backupRow.clone();
+     this.tab.renderRows();
+    }
   }
 
   addWeapons(){
     let weapon : Weapons = new Weapons(this.weapons.length);
-    this.weapons.push(weapon)
-    this.tab.renderRows();
-    this.selectedRow = weapon;
+    console.log(weapon);
     this.add = true;
-    this.edit = true;
   }
 
   deleteFunction(){
-    if(this.add){
-      this.weapons.pop();
-      this.tab.renderRows();
-      this.selectedRow = null;
-      this.edit = false;
-      this.add = false;
-    }
-    else if(this.edit)
+    if(this.edit)
     {
       let i: number = this.weapons.indexOf(this.selectedRow);
       console.log(this.weapons[i]);
@@ -90,16 +108,21 @@ export class OmniListComponent implements OnInit {
       this.edit = false;
       this.add = false;
     }
-  }
-
-  saveFunction(){
     if(this.add){
-      console.log("saving");
-      this.data.updateWeapons(this.selectedRow);
-      this.selectedRow = null
       this.add = false;
     }
   }
+
+  saveFunction(){
+    if(this.edit){
+      console.log("saving");
+      this.data.updateWeapond(this.selectedRow);
+      this.selectedRow = null
+      this.edit = false;
+    }
+  }
+
+
 
   cancellFunciotn(){
     if(this.edit){

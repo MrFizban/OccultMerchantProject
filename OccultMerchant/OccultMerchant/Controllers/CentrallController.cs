@@ -49,40 +49,25 @@ namespace OccultMerchant.Controllers
         public IEnumerable<Weapons> getWeapons ()
         {
             System.Console.WriteLine("get request");
-            SqliteConnection connection = new SqliteConnection("Data Source=../ItemsDatabase.sqlite");
-            connection.Open();
-            SqliteCommand command = connection.CreateCommand();
-            command.CommandText = @"SELECT * FROM 'Weapons';";
-            List<Weapons> list = new List<Weapons>();
-               
-            using (SqliteDataReader reader = command.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    list.Add(Weapons.fromDatabase(reader));
-                }
-            }
-            return list;
+            return Weapons.weaponsList();
         }
         
         [HttpPost("/giveMeWeapons")]
-        public bool Test([FromBody]Weapons value)
+        public HttpResponseMessage inserWeapon([FromBody]Weapons value)
         {
             Console.WriteLine("post request");
-            return true;
+            value.insertToDatabase();
+            return new HttpResponseMessage(HttpStatusCode.Accepted);
         }
 
-        public class cosa
+        [HttpPut("/giveMeWeapons")]
+        public HttpResponseMessage upsateWeapon([FromBody]Weapons value)
         {
-            private string word { get; set;}
+            Console.WriteLine("put request");
+            value.updateToDatabase();
+            return new HttpResponseMessage(HttpStatusCode.Accepted);
         }
-        [HttpPost("/parola")]
-        public string parola([FromBody]string value)
-        {
-            Console.WriteLine("post request");
-            return "ok";
-
-        }
+      
         
     }
 }
