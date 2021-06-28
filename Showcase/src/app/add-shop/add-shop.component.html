@@ -1,0 +1,22 @@
+<p>add-shop works!</p>
+<form [formGroup]="omniList.shopFormGroup">
+  <mat-form-field appearance="outline">
+    <mat-label>name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>space</mat-label>
+    <input matInput formControlName="space">
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>isActiva</mat-label>
+    <mat-select formControlName="isActive">
+      <mat-option [value]="false">false</mat-option>
+      <mat-option [value]="true">true</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<div *ngFor="let row of omniList.selectedRowForShop" style="margin: 3px; background: #1b6ec2" (click)="omniList.selectedRowForShop.delete(row)">{{row.name}}  {{row.quantity}} </div>

@@ -1,0 +1,71 @@
+<table #idtable mat-table
+       [dataSource]="data.shopList" multiTemplateDataRows
+       class="mat-elevation-z8">
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnList">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let element">
+      <div *ngIf="!edit || element !== selectedRow">
+        {{element[column]}}
+      </div>
+      <div *ngIf="edit && element === selectedRow">
+        <div *ngIf="column != 'isActive'">
+          <input [(ngModel)]="element[column]">
+        </div>
+        <div *ngIf="column == 'isActive'">
+          <select [(ngModel)]="element['isActive']">
+            <option [ngValue]="true">true</option>
+            <option [ngValue]="false">false</option>
+          </select>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnList.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == selectedRow ? 'expanded' : 'collapsed'">
+        <div *ngIf="!edit">
+          <p *ngIf="element.weaponsItems.length == 0"> Empty!</p>
+          <table class="items">
+            <tr *ngFor="let item of element.weaponsItems">
+              <td>{{item.name}}</td>
+              <td>{{item.quantity}}</td>
+            </tr>
+          </table>
+        </div>
+        <div *ngIf="edit">
+          <table class="items">
+            <tr *ngFor="let item of element.weaponsItems">
+              <td><input [(ngModel)]="item.name">{{item.name}}</td>
+              <td><input [(ngModel)]="item.quantity"></td>
+              <td>
+                <button mat-icon-button color="warn" (click)="deleteitem(item,element)">
+                  <mat-icon>delete_forever</mat-icon>
+                </button>
+              </td>
+            </tr>
+            <tr><button mat-raised-button [routerLink]="['/omni-list',data.shopList.indexOf(element),true]">add item</button></tr>
+          </table>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnList"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnList;"
+      class="example-element-row"
+      [class.example-expanded-row]="selectedRow === element"
+      (click)="selectedRow = selectedRow === element && !edit ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
+
+<div class="sticky">
+    <!-- aggiunta nuva riga -->
+    <button *ngIf="!edit" mat-raised-button (click)="edit = !edit">edit</button>
+    <button *ngIf="edit" mat-raised-button (click)="edit = !edit">cansell</button>
+    <button *ngIf="edit" mat-raised-button (click)="updateShop()">save</button>
+    <button *ngIf="selectedRow" mat-raised-button (click)="deleteShop()">delete</button>
+</div>
