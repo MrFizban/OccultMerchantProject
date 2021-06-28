@@ -29,7 +29,13 @@ tr.example-element-row:not(.example-expanded-row):active {
   background: #df0000;
 }
 
-.example-element-row td {
+
+.example-expanded-row-blue td{
+  font-weight: bold;
+  background: #0366d6;
+}
+
+.example-element-row  {
   border-bottom-width: 0;
 }
 

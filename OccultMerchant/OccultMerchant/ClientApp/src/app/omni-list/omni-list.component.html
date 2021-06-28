@@ -18,14 +18,14 @@
           <div *ngIf="column == 'dmgM' ">
             <input [(ngModel)]="element['dmgM'].number" [style.width.%]="20" required>
             <select [(ngModel)]="element['dmgM'].value" require>
-              <option value="1">d2</option>
-              <option value="4">d4</option>
-              <option value="6">d6</option>
-              <option value="8">d8</option>
-              <option value="10">d10</option>
-              <option value="12">d12</option>
-              <option value="20">d20</option>
-              <option value="100">d100</option>
+              <option [ngValue]="1">d2</option>
+              <option [ngValue]="4">d4</option>
+              <option [ngValue]="6">d6</option>
+              <option [ngValue]="8">d8</option>
+              <option [ngValue]="10">d10</option>
+              <option [ngValue]="12">d12</option>
+              <option [ngValue]="20">d20</option>
+              <option [ngValue]="100">d100</option>
             </select>
           </div>
           <div *ngIf="column == 'price' ">
@@ -84,17 +84,20 @@
 </div>
 
   <div class="sticky">
-    <div *ngIf="add">
-       <app-add-weapon-form [omniList]="this"></app-add-weapon-form>
-    </div>
+     <app-add-weapon-form *ngIf="add"  [omniList]="this"></app-add-weapon-form>
+    <app-add-shop [omniList]="this" *ngIf="shop"></app-add-shop>
   <div >
     <!-- aggiunta nuva riga -->
-    <button *ngIf="!add && !edit" mat-raised-button (click)="addWeapons()">add</button>
+    <button *ngIf="!add && !edit && !shop" mat-raised-button (click)="add = true">add Weapon</button>
+    <button *ngIf="!add && !edit && !shop" mat-raised-button (click)="shop = true">add Shop</button>
+    <button *ngIf="shop" mat-raised-button (click)="cancellShop()">cancell</button>
     <!-- attiva la form per l'edit -->
     <button *ngIf="selectedRow && !add" mat-raised-button (click)="editWeapons()">{{edit ? "cancell" : "edit"}} </button>
     <button *ngIf="edit" mat-raised-button (click)="saveFunction()" color="warn">Save</button>
     <button *ngIf="add" mat-raised-button (click)="insertWeapons()">Save </button>
-
+    <button *ngIf="shop && !editShop" mat-raised-button (click)="addShop()">Save </button>
+    <button *ngIf="editShop" mat-raised-button (click)="updateShop()">Update </button>
+    <button *ngIf="editShop" [routerLink]="['/shop-manager']">return to shops</button>
     <button *ngIf="selectedRow" mat-raised-button (click)="deleteFunction()" color="warn">delete</button>
     <button *ngIf="add" mat-raised-button (click)="resetAddFunction()" color="warn">delete</button>
   </div>

@@ -8,6 +8,8 @@ import {Dice} from '../Items/Dice'
 import {CoinType, Price} from "../Items/Price";
 import {any} from "codelyzer/util/function";
 import {FormGroup, FormControl} from "@angular/forms";
+import {Item, Shop} from "../Items/Shop";
+import {ActivatedRoute} from "@angular/router";
 @Component({
   selector: 'app-omni-list',
   templateUrl: './omni-list.component.html',
@@ -34,10 +36,13 @@ export class OmniListComponent implements OnInit {
   public edit: boolean = false;
   // booleant per attivare l'aggiunta di una riga;
   public add: boolean = false;
+  public shop: boolean = false;
   @ViewChild('botton',{static:false}) private editrow: ElementRef;
 
+  public idShop: number = -1;
+  public editShop: boolean = false;
   public states = ["2","4", "6", "8", "10", "12", "20", "100"];
-  public formController: FormGroup = new FormGroup(
+  public weaponsFormGroup: FormGroup = new FormGroup(
     {
       "name": new FormControl(''),
       description: new FormControl(''),
@@ -57,7 +62,18 @@ export class OmniListComponent implements OnInit {
       })
     }
   );
-  constructor(public data: FetchDataService, ) {
+
+  public shopFormGroup : FormGroup = new FormGroup({
+    name: new FormControl(""),
+    space: new FormControl(0),
+    isActive: new FormControl(false)
+  });
+
+
+
+  public selectedRowForShop: Set<Item> = new Set<Item>();
+
+  constructor(public data: FetchDataService,private route: ActivatedRoute ) {
   }
 
   ngOnInit(): void {
@@ -72,12 +88,21 @@ export class OmniListComponent implements OnInit {
       console.log(this.weapons);
     }, error => console.error(error));
     console.log("Sono Vivo");
+    this.idShop = Number(this.route.snapshot.paramMap.get('shop'));
+    this.editShop = Boolean(this.route.snapshot.paramMap.get('shop'));
 
+    if(this.idShop){
+      this.editShopItems();
+    }
+    console.log("route:\t" + this.idShop + ":" + this.editShop);
   }
 
 
   selectRowFunction(element:Weapons){
-    if(!this.edit){
+    if(this.shop){
+      this.selectedRowForShop.add(new Item(element.id,element.name, 0));
+      console.log(this.selectedRowForShop);
+    } else if(!this.edit){
       this.selectedRow = this.selectedRow === element ? null : element
     }
   }
@@ -98,23 +123,18 @@ export class OmniListComponent implements OnInit {
     }
   }
 
-  addWeapons(){
-    this.add = true;
-
-  }
-
   insertWeapons(){
     let weapon : Weapons = new Weapons(this.weapons.length);
-    console.log("price:\t" + this.formController.get(["price","value"]).value)
-    weapon.name = this.formController.get("name").value;
-    weapon.description = this.formController.get("description").value;
-    weapon.source = this.formController.get("source").value;
-    weapon.price =  new Price(this.formController.get(["price","value"]).value,this.formController.get(["price","coin"]).value )
-    weapon.dmgM = new Dice(this.formController.get(["dmgM","number"]).value,this.formController.get(["price","value"]).value);
-    weapon.critical  = this.formController.get("critical").value;
-    weapon.range = parseInt(this.formController.get("range").value);
-    weapon.typeWeapons = (this.formController.get("type").value);
-    weapon.proficiency = this.formController.get("proficiency").value;
+    console.log("price:\t" + this.weaponsFormGroup.get(["price","value"]).value)
+    weapon.name = this.weaponsFormGroup.get("name").value;
+    weapon.description = this.weaponsFormGroup.get("description").value;
+    weapon.source = this.weaponsFormGroup.get("source").value;
+    weapon.price =  new Price(this.weaponsFormGroup.get(["price","value"]).value,this.weaponsFormGroup.get(["price","coin"]).value )
+    weapon.dmgM = new Dice(this.weaponsFormGroup.get(["dmgM","number"]).value,this.weaponsFormGroup.get(["price","value"]).value);
+    weapon.critical  = this.weaponsFormGroup.get("critical").value;
+    weapon.range = parseInt(this.weaponsFormGroup.get("range").value);
+    weapon.typeWeapons = (this.weaponsFormGroup.get("type").value);
+    weapon.proficiency = this.weaponsFormGroup.get("proficiency").value;
     console.log(weapon)
     this.data.addWeapons(weapon).subscribe(result =>{
       this.weapons.push(weapon);
@@ -142,7 +162,7 @@ export class OmniListComponent implements OnInit {
   }
 
   resetAddFunction(){
-    this.formController = new FormGroup(
+    this.weaponsFormGroup = new FormGroup(
       {
         "name": new FormControl(''),
         description: new FormControl(''),
@@ -175,12 +195,41 @@ export class OmniListComponent implements OnInit {
   }
 
 
+  addShop(){
+    let shopTmp : Shop = new Shop(0);
+    shopTmp.name = this.shopFormGroup.get('name').value
+    shopTmp.space = this.shopFormGroup.get('space').value
+    shopTmp.isActive = this.shopFormGroup.get('isActive').value
+    this.selectedRowForShop.forEach(value => shopTmp.weaponsItems.push(new Item(value.id,value.name,0)));
+    this.data.insertShop(shopTmp).subscribe();
+  }
 
-  cancellFunciotn(){
-    if(this.edit){
-      this.selectedRow = null;
-      this.edit = false;
-    }
+  editShopItems(){
+    this.shop = this.editShop;
+  this.shopFormGroup  = new FormGroup({
+      name: new FormControl(this.data.shopList[this.idShop].name),
+      space: new FormControl((this.data.shopList[this.idShop].space)),
+      isActive: new FormControl(this.data.shopList[this.idShop].isActive)
+    });
+    this.data.shopList[this.idShop].weaponsItems.forEach(value => this.selectedRowForShop.add(value))
+  }
+
+  updateShop(){
+    console.log("update shop")
+    let shop: Shop = new Shop(this.data.shopList[this.idShop].id);
+    this.selectedRowForShop.forEach(value => shop.weaponsItems.push(value));
+    this.data.addItemToShop(shop);
+
+  }
+
+  cancellShop(){
+    this.selectedRowForShop.clear();
+    this.shop = false;
+  }
+
+
+  deleteitem(item:Item,shop:Shop){
+
   }
 
 }

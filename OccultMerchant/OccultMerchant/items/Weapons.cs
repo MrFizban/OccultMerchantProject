@@ -65,7 +65,7 @@ namespace OccultMerchant.items
         /// </summary>
         /// <param name="reader">SqliteDataReader </param>
         /// <returns></returns>
-        private static Weapons fromDatabase(SqliteDataReader reader)
+        public static Weapons fromDatabase(SqliteDataReader reader)
         {
             var id = reader.GetInt32(0);
             var name = reader.GetString(1);
@@ -133,10 +133,12 @@ namespace OccultMerchant.items
         {
             var connection = DatabaseManager.getConnection();
             SqliteCommand command = connection.CreateCommand();
-            command.CommandText = @"DELETE FROM 'Weapons' WHERE id=@id";
+            command.CommandText = @"DELETE FROM 'ShopWeapons' WHERE idShop=@idShop and idWeapon=@idWeapon";
             command.Parameters.AddWithValue("@id", value.ToString());
             command.ExecuteNonQuery();
             DatabaseManager.closeConnection();
         }
+        
+        
     }
 }
