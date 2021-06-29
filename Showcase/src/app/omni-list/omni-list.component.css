@@ -1,0 +1,122 @@
+
+
+table {
+  margin: 0 auto;
+  width: 100%;
+  overflow: auto;
+}
+
+.container {
+  height: 60em;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: rgb(240, 13, 13);
+  color: black;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover td{
+  color:black;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #df0000;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+
+mat-card{
+  width: 70%;
+  background-color: grey;
+  margin: 5px;
+}
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+input {
+  width: 98%;
+  margin: 1% auto;
+}
+.description {
+  width: 300%;
+  margin: 1% auto;
+}
+
+.descriptionAdd{
+  width: 400%;
+}
+
+button {
+  margin: 1%;
+}
+
+mat-toolbar {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+}
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  background: white;
+}
+
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  margin: 5% ;
+  background-color: #0366d6;
+  border-radius: 5px;
+}
+
+
+mat-card {
+  width: 30%;
+}
+

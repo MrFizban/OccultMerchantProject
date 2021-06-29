@@ -60,7 +60,7 @@
               <div *ngIf="col == 'description'">
                 {{col}} <textarea [(ngModel)]="element['description']" placeholder="descrimption" class="description"></textarea>
               </div>
-              <div>
+              <div *ngIf="col != 'description'">
                 {{col}} <input [(ngModel)]="element[col]">
               </div>
             </div>
