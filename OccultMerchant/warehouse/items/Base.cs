@@ -6,7 +6,7 @@ namespace OccultMerchant.items
         public string description { get; set; }
         public string source { get; set; }
         public Price price { get; set; }
-        public int id { get; set; }
+        public long id { get; set; }
         public Base()
         {
             this.name = "Gianni";
@@ -15,7 +15,7 @@ namespace OccultMerchant.items
             this.price = new Price(42, CoinType.SilverCoin);
         }
 
-        public Base(int id, string _name, string _description, string _source, Price _price)
+        public Base(long id, string _name, string _description, string _source, Price _price)
         {
             this.id = id;
             this.name = _name;

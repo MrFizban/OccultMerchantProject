@@ -7,6 +7,7 @@ namespace OccultMerchant.Models
 {
     public static class DatabaseManager
     {
+        public static string connectionStrin = "Data Source=../ItemsDatabase.sqlite";
         private static SqliteConnection connection = new SqliteConnection("Data Source=../ItemsDatabase.sqlite");
         
         /// <summary>
