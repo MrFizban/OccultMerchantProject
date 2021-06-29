@@ -7012,19 +7012,19 @@
     ]
   },
   "packageFolders": {
-    "/home/mrfizban/.nuget/packages/": {}
+    "C:\\Users\\Lucia Predeli\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/Esperimenti.csproj",
+      "projectUniqueName": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Esperimenti\\Esperimenti.csproj",
       "projectName": "Esperimenti",
-      "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/Esperimenti.csproj",
-      "packagesPath": "/home/mrfizban/.nuget/packages/",
-      "outputPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/",
+      "projectPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Esperimenti\\Esperimenti.csproj",
+      "packagesPath": "C:\\Users\\Lucia Predeli\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Esperimenti\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/mrfizban/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Lucia Predeli\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -7036,8 +7036,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/OccultMerchant.csproj": {
-              "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/OccultMerchant.csproj"
+            "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\OccultMerchant\\OccultMerchant.csproj": {
+              "projectPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\OccultMerchant\\OccultMerchant.csproj"
             }
           }
         }
@@ -7069,7 +7069,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/5.0.301/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore.Storage;
-using OccultMerchant.Models;
+using warehouse.Database;
 
-namespace OccultMerchant.items
+namespace warehouse.items
 {
     public class Shop : Base
     {
@@ -41,7 +39,7 @@ namespace OccultMerchant.items
                     }
                     else
                     {
-                        command.CommandText = @"SELECT * FROM 'Shop' WHERE name=@name";
+                        command.CommandText = @"SELECT * FROM 'Shop' WHERE name='%@name%'";
                         command.Parameters.AddWithValue("@name", name);
                     }
 

@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
 using Microsoft.Data.Sqlite;
-using OccultMerchant.Models;
+using warehouse.Database;
 
-namespace OccultMerchant.items
+namespace warehouse.items
 {
     public enum WeaponsType
     {

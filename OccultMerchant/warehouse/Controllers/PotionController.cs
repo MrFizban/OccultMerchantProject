@@ -4,38 +4,38 @@ using System.Net;
 using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OccultMerchant.items;
+using warehouse.items;
 
-namespace OccultMerchant.Controllers
+namespace warehouse.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class PotionController: ControllerBase
     {
-        private readonly ILogger<CentrallController> _logger;
+        private readonly ILogger<PotionController> _logger;
 
-        public PotionController(ILogger<CentrallController> logger)
+        public PotionController(ILogger<PotionController> logger)
         {
             _logger = logger;
         }
 
 
-        [HttpGet("/shop/gettAll")]
-        public IEnumerable<Shop> GetAllPotion()
+        [HttpGet("/potion/gettAll")]
+        public IEnumerable<Potion> getAllPotion()
         {
             Console.WriteLine("[GET][SHOP] get all shop");
             return Potion.getAllPotion();
         }
         
-        [HttpGet("/shop/filter")]
-        public IEnumerable<Shop> GetPotionFilter([FromBody] Filter option)
+        [HttpGet("/potion/filter")]
+        public IEnumerable<Potion> getPotionFilter([FromBody] Filter option)
         {
             Console.WriteLine("[GET][SHOP] get filter by name");
             Console.WriteLine(option);
             return Potion.getAllPotion(option.name);
         }
 
-        [HttpPost("/shop")]
+        [HttpPost("/potion")]
         public HttpResponseMessage addPotionToDatabase([FromBody] Potion potion)
         {
             Console.WriteLine("[POST][SHOP] add shop");
@@ -43,7 +43,7 @@ namespace OccultMerchant.Controllers
             return new HttpResponseMessage(HttpStatusCode.Accepted);
         }
 
-        [HttpPut("/shop")]
+        [HttpPut("/potion")]
         public HttpResponseMessage updatePotionDatabase([FromBody] Potion potion)
         {
             Console.WriteLine("[PUT][SHOP] update shop");
@@ -51,7 +51,7 @@ namespace OccultMerchant.Controllers
             return new HttpResponseMessage(HttpStatusCode.Accepted);
         }
 
-        [HttpDelete("/shop/{id}")]
+        [HttpDelete("/potion/{id}")]
         public HttpResponseMessage deletePotionDatabase([FromQuery]int id)
         {
             Console.WriteLine("[DELETE][SHOP] delete shop");

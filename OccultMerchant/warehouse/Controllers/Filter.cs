@@ -1,4 +1,4 @@
-namespace OccultMerchant.Controllers
+namespace warehouse.Controllers
 {
     public class Filter
     {

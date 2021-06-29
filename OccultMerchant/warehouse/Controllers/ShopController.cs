@@ -4,9 +4,9 @@ using System.Net;
 using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OccultMerchant.items;
+using warehouse.items;
 
-namespace OccultMerchant.Controllers
+namespace warehouse.Controllers
 {
     [ApiController]
     [Route("[controller]")]

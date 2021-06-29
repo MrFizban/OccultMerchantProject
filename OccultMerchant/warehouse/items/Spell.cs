@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace OccultMerchant.items
+namespace warehouse.items
 {
     public struct CasterClass
     {

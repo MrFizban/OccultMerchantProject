@@ -1,4 +1,4 @@
-namespace OccultMerchant.items
+namespace warehouse.items
 {
     public class Base
     {

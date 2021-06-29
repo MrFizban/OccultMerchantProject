@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Logging;
-using OccultMerchant.items;
-using warehouse;
+using warehouse.items;
 
-namespace OccultMerchant.Controllers
+namespace warehouse.Controllers
 {
     [ApiController]
     [Route("[controller]")]

@@ -1,9 +1,7 @@
-using System;
 using System.Data;
-//using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.Data.Sqlite;
+using Microsoft.Data.Sqlite; //using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace OccultMerchant.Models
+namespace warehouse.Database
 {
     public static class DatabaseManager
     {
