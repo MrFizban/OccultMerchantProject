@@ -20,8 +20,6 @@ namespace OccultMerchant.Models
             {
                 connection.Open();
             }
-            Console.WriteLine(connection);
-            Console.WriteLine(connection.State.ToString());
             return connection;
         }
 

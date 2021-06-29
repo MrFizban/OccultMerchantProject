@@ -33,6 +33,13 @@ namespace OccultMerchant.items
             return $"[{value.ToString()}:{((int)this.coin).ToString()}]";
         }
 
+        public static Price fromString(string str)
+        {
+            string[] lista = str.Split( ':');
+            return new Price(int.Parse(lista[0].Substring(1)), (CoinType) int.Parse(lista[1].Remove(lista[1].Length-1)));
+
+        }
+
         
     }
 }
