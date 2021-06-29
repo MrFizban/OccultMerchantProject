@@ -12,9 +12,9 @@ namespace warehouse.Controllers
     [Route("[controller]")]
     public class ShopController : ControllerBase
     {
-        private readonly ILogger<CentrallController> _logger;
+        private readonly ILogger<ShopController> _logger;
 
-        public ShopController(ILogger<CentrallController> logger)
+        public ShopController(ILogger<ShopController> logger)
         {
             _logger = logger;
         }

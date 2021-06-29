@@ -4,29 +4,43 @@ using warehouse.Database;
 
 namespace warehouse.items
 {
-    public class Shop : Base
+    public enum WeaponsType
     {
-        public List<(Potion, int)> potionStore { get; set; }
+        bludgeoning,
+        piercing,
+        slashing        
+    }
+    public class Weapon : Base
+    {
+        
+        public Dice dmgM { get; set; }                  // il danno dell arma di taglia media
+        public string critical { get; set; }            // il range del critico e il moltiplicatore
+        public WeaponsType typeWeapons { get; set; }    // il tipo di danno fisico dell arma
+        public int range { get; set; }                  // il possibile range dell arma
+        public string proficiency { get; set; }         // la proficiency richiesta per usare l'arma
+        
+        public string category { get; set; }
 
-        public int Space { get; set; }
-
-        public Shop() : base()
+        public Weapon() : base()
         {
-            this.potionStore = new List<(Potion, int)>();
+            this.dmgM = new Dice(1, 4);
+            this.critical = "18-20/x5";
+            this.typeWeapons = WeaponsType.bludgeoning;
+            this.range = 9;
+            this.proficiency = "Exotic";
         }
 
-        public Shop(int id) : base()
+        public Weapon(long id, string _name, string _description, string _source, Price _price, Dice dmgM, string critical, WeaponsType typeWeapons, int range, string proficiency, string category) : base(id, _name, _description, _source, _price)
         {
-            this.id = id;
+            this.dmgM = dmgM;
+            this.critical = critical;
+            this.typeWeapons = typeWeapons;
+            this.range = range;
+            this.proficiency = proficiency;
+            this.category = category;
         }
 
-        public Shop(long id, string _name, string _description, string _source, Price _price,
-            List<(Potion, int)> potionStore) : base(id, _name, _description, _source, _price)
-        {
-            this.potionStore = potionStore;
-        }
-
-        public static List<Shop> getAllShop(string name = "")
+         public  static List<Shop> getAll(string name = "")
         {
             List<Shop> result = new List<Shop>();
             using (SqliteConnection connection = new SqliteConnection(DatabaseManager.connectionStrin))
@@ -72,14 +86,19 @@ namespace warehouse.items
                 using (SqliteCommand command = connection.CreateCommand())
                 {
                    
-                command.CommandText = @"INSERT INTO Shop(name,description,price,space,source) 
-                                        VALUES (@name,@description,@price,@space,@source)";
+                command.CommandText = @"INSERT INTO Weapons(name,description,dmgM,critical,range,source,proficiency,type,category,price) 
+                                        VALUES (@name,@description,@dmgM,@critical,@range,@source,@proficiency,@type,@category,@price)";
 
                 command.Parameters.AddWithValue("@name",this.name);
                 command.Parameters.AddWithValue("@description",this.description);
-                command.Parameters.AddWithValue("@source",this.source);
+                command.Parameters.AddWithValue("@dmgM",this.source);
+                command.Parameters.AddWithValue("@critical",this.price.ToString());
+                command.Parameters.AddWithValue("@range",this.range.ToString());
+                command.Parameters.AddWithValue("@source",this.source.ToString());
+                command.Parameters.AddWithValue("@proficiency",this.proficiency.ToString());
+                command.Parameters.AddWithValue("@type",this.typeWeapons.ToString());
+                command.Parameters.AddWithValue("@category",this.category.ToString());
                 command.Parameters.AddWithValue("@price",this.price.ToString());
-                command.Parameters.AddWithValue("@space",this.Space.ToString());
                 connection.Open();
                 command.ExecuteNonQuery();
                 }
@@ -94,15 +113,20 @@ namespace warehouse.items
                 using (SqliteCommand command = connection.CreateCommand())
                 {
                    
-                    command.CommandText = @"UPDATE 'Shop' SET name=@name,description=@description,space=@space,source=@source
+                    command.CommandText = @"UPDATE 'Weapons' SET name=@name,description=@description,dmgM=@dmgM,critical=@critical,range=@range,source=@source,proficiency=@proficiency,type=@type,category=@category,price=@price
                                             WHERE id=@id";
 
                     command.Parameters.AddWithValue("@id",this.id.ToString());
                     command.Parameters.AddWithValue("@name",this.name);
                     command.Parameters.AddWithValue("@description",this.description);
-                    command.Parameters.AddWithValue("@source",this.source);
+                    command.Parameters.AddWithValue("@dmgM",this.source);
+                    command.Parameters.AddWithValue("@critical",this.price.ToString());
+                    command.Parameters.AddWithValue("@range",this.range.ToString());
+                    command.Parameters.AddWithValue("@source",this.source.ToString());
+                    command.Parameters.AddWithValue("@proficiency",this.proficiency.ToString());
+                    command.Parameters.AddWithValue("@type",this.typeWeapons.ToString());
+                    command.Parameters.AddWithValue("@category",this.category.ToString());
                     command.Parameters.AddWithValue("@price",this.price.ToString());
-                    command.Parameters.AddWithValue("@space",this.Space.ToString());
                     connection.Open();
                     command.ExecuteNonQuery();
                 }
@@ -117,7 +141,7 @@ namespace warehouse.items
                 using (SqliteCommand command = connection.CreateCommand())
                 {
                    
-                    command.CommandText = @"DELETE FROM Shop WHERE id=@id";
+                    command.CommandText = @"DELETE FROM Weapons WHERE id=@id";
                     command.Parameters.AddWithValue("@id",id.ToString());
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -127,5 +151,3 @@ namespace warehouse.items
         }
     }
 }
-    
-    

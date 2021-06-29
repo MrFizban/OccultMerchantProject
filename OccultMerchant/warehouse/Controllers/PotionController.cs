@@ -23,14 +23,14 @@ namespace warehouse.Controllers
         [HttpGet("/potion/gettAll")]
         public IEnumerable<Potion> getAllPotion()
         {
-            Console.WriteLine("[GET][SHOP] get all shop");
+            Console.WriteLine("[GET][POTION] get all shop");
             return Potion.getAllPotion();
         }
         
         [HttpGet("/potion/filter")]
         public IEnumerable<Potion> getPotionFilter([FromBody] Filter option)
         {
-            Console.WriteLine("[GET][SHOP] get filter by name");
+            Console.WriteLine("[GET][POTION] get filter by name");
             Console.WriteLine(option);
             return Potion.getAllPotion(option.name);
         }
@@ -38,7 +38,7 @@ namespace warehouse.Controllers
         [HttpPost("/potion")]
         public HttpResponseMessage addPotionToDatabase([FromBody] Potion potion)
         {
-            Console.WriteLine("[POST][SHOP] add shop");
+            Console.WriteLine("[POST][POTION] add shop");
             potion.addToDatabase();
             return new HttpResponseMessage(HttpStatusCode.Accepted);
         }
@@ -46,7 +46,7 @@ namespace warehouse.Controllers
         [HttpPut("/potion")]
         public HttpResponseMessage updatePotionDatabase([FromBody] Potion potion)
         {
-            Console.WriteLine("[PUT][SHOP] update shop");
+            Console.WriteLine("[PUT][POTION] update shop");
             potion.saveToDatabase();
             return new HttpResponseMessage(HttpStatusCode.Accepted);
         }
@@ -54,7 +54,7 @@ namespace warehouse.Controllers
         [HttpDelete("/potion/{id}")]
         public HttpResponseMessage deletePotionDatabase([FromQuery]int id)
         {
-            Console.WriteLine("[DELETE][SHOP] delete shop");
+            Console.WriteLine("[DELETE][POTION] delete shop");
             Potion.deleteToDatabase(id);
             return new HttpResponseMessage(HttpStatusCode.Accepted);
         }

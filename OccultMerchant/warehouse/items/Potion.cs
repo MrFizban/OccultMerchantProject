@@ -51,7 +51,7 @@ namespace warehouse.items
                     {
                         command.CommandText = @"SELECT P.*,S.name FROM 'Potion' as P JOIN Spell S on S.id = P.spell WHERE P.name LIKE @name";
                         
-                        command.Parameters.AddWithValue("@name", name);
+                        command.Parameters.AddWithValue("@name", $"%{name}%");
                     }
 
                     connection.Open();
