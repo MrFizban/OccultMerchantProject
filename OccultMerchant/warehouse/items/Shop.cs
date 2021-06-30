@@ -1,18 +1,31 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Data.Sqlite;
 using warehouse.Database;
 
 namespace warehouse.items
 {
+    public struct PotionStore
+    {
+        public Potion potion { get; set; }
+        public int quantity { get; set; }
+
+       public PotionStore(Potion potion, int quantity)
+        {
+            this.potion = potion;
+            this.quantity = quantity;
+        }
+    }
     public class Shop : Base
     {
-        public List<(Potion, int)> potionStore { get; set; }
+        public List<PotionStore> potionStore { get; set; }
 
         public int Space { get; set; }
 
         public Shop() : base()
         {
-            this.potionStore = new List<(Potion, int)>();
+            this.potionStore = new List<PotionStore>();
         }
 
         public Shop(int id) : base()
@@ -21,12 +34,12 @@ namespace warehouse.items
         }
 
         public Shop(long id, string _name, string _description, string _source, Price _price,
-            List<(Potion, int)> potionStore) : base(id, _name, _description, _source, _price)
+            List<PotionStore> potionStore) : base(id, _name, _description, _source, _price)
         {
             this.potionStore = potionStore;
         }
 
-        public static List<Shop> getAllShop(string name = "")
+        public static List<Shop> getAll(string name = "")
         {
             List<Shop> result = new List<Shop>();
             using (SqliteConnection connection = new SqliteConnection(DatabaseManager.connectionStrin))
@@ -39,7 +52,7 @@ namespace warehouse.items
                     }
                     else
                     {
-                        command.CommandText = @"SELECT * FROM 'Shop' WHERE name=name";
+                        command.CommandText = @"SELECT * FROM 'Shop' WHERE name=@name";
                         command.Parameters.AddWithValue("@name", $"%{name}%");
                     }
 
@@ -49,12 +62,43 @@ namespace warehouse.items
                         while (reader.Read())
                         {
                             Shop tmp = new Shop();
-                            tmp.id = reader.GetInt64(0);
+                            tmp.id = reader.GetInt32(0);
                             tmp.name = reader.GetString(1);
                             tmp.description = reader.GetString(2);
                             tmp.source = reader.GetString(3);
                             tmp.price = Price.fromString(reader.GetString(4));
                             tmp.Space = reader.GetInt32(5);
+
+                            
+                            using (SqliteCommand shopPotion = connection.CreateCommand())
+                            {
+                                shopPotion.CommandText = @"SELECT ShopPotion.quantity, Potion.id 
+                                                            FROM ShopPotion 
+                                                                JOIN Potion  on Potion.id = ShopPotion.idPotion
+                                                            WHERE ShopPotion.idShop=@idShop";
+                                shopPotion.Parameters.AddWithValue("@idShop", tmp.id.ToString());
+                                using (SqliteDataReader shopPotioReader = shopPotion.ExecuteReader())
+                                {
+                                    Potion tmpPotion = new Potion();
+                                    int quantity = 0;
+                                    try
+                                    {
+                                        while (shopPotioReader.Read())
+                                        {
+                                            tmpPotion = Potion.getAll(id: shopPotioReader.GetInt32(1))[0];
+                                            quantity = shopPotioReader.GetInt32(0);
+                                        }
+                                    }
+                                    catch (System.InvalidOperationException e)
+                                    {
+                                        Console.Error.WriteLine("[DB ERROR]\t" + shopPotioReader.FieldCount);
+                                    }
+                                     tmp.potionStore.Add(new PotionStore(tmpPotion,quantity));
+                                }
+
+
+                            }
+                            
                             result.Add(tmp);
                         }
                     }

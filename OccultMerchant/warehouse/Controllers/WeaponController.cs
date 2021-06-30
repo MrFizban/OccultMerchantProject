@@ -22,18 +22,18 @@ namespace warehouse.Controllers
         
 
         [HttpGet("/weapon/gettAll")]
-        public IEnumerable<Potion> getAllPotion()
+        public IEnumerable<Weapon> getAllPotion()
         {
             Console.WriteLine("[GET][WEAPON] get all weapons");
-            return Potion.getAllPotion();
+            return Weapon.getAll();
         }
         
         [HttpGet("/weapon/filter")]
-        public IEnumerable<Potion> getPotionFilter([FromBody] Filter option)
+        public IEnumerable<Weapon> getPotionFilter([FromBody] Filter option)
         {
             Console.WriteLine("[GET][WEAPON] get filter by name");
             Console.WriteLine(option);
-            return Potion.getAllPotion(option.name);
+            return Weapon.getAll(option.name);
         }
 
         [HttpPost("/weapon")]

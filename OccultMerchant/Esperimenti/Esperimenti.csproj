@@ -6,7 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\OccultMerchant\OccultMerchant.csproj" />
+        <ProjectReference Include="..\OccultMerchant\OccultMerchant.csproj" />
+        <ProjectReference Include="..\warehouse\warehouse.csproj" />
     </ItemGroup>
 
 </Project>

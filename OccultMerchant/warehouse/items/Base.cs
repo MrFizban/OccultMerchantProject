@@ -24,6 +24,6 @@ namespace warehouse.items
             this.price = _price;
         }
 
-        public abstract static void codo();
+        
     }
 }

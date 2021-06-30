@@ -24,7 +24,7 @@ namespace warehouse.Controllers
         public IEnumerable<Shop> GetAllShop()
         {
             Console.WriteLine("[GET][SHOP] get all shop");
-            return Shop.getAllShop();
+            return Shop.getAll();
         }
         
         [HttpGet("/shop/filter")]
@@ -32,7 +32,7 @@ namespace warehouse.Controllers
         {
             Console.WriteLine("[GET][SHOP] get filter by name");
             Console.WriteLine(option);
-            return Shop.getAllShop(option.name);
+            return Shop.getAll(option.name);
         }
 
         [HttpPost("/shop")]

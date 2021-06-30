@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Routing.Template;
 using Microsoft.Data.Sqlite;
 using warehouse.Database;
 
@@ -40,20 +42,20 @@ namespace warehouse.items
             this.category = category;
         }
 
-         public  static List<Shop> getAll(string name = "")
+         public  static List<Weapon> getAll(string name = "")
         {
-            List<Shop> result = new List<Shop>();
+            List<Weapon> result = new List<Weapon>();
             using (SqliteConnection connection = new SqliteConnection(DatabaseManager.connectionStrin))
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
                     if (name == "")
                     {
-                        command.CommandText = @"SELECT * FROM 'Shop'";
+                        command.CommandText = @"SELECT * FROM 'Weapon'";
                     }
                     else
                     {
-                        command.CommandText = @"SELECT * FROM 'Shop' WHERE name=name";
+                        command.CommandText = @"SELECT * FROM 'Weapon' WHERE name=name";
                         command.Parameters.AddWithValue("@name", $"%{name}%");
                     }
 
@@ -62,13 +64,18 @@ namespace warehouse.items
                     {
                         while (reader.Read())
                         {
-                            Shop tmp = new Shop();
+                            Weapon tmp = new Weapon();
                             tmp.id = reader.GetInt64(0);
                             tmp.name = reader.GetString(1);
                             tmp.description = reader.GetString(2);
-                            tmp.source = reader.GetString(3);
-                            tmp.price = Price.fromString(reader.GetString(4));
-                            tmp.Space = reader.GetInt32(5);
+                            tmp.dmgM = new Dice(reader.GetString(3));
+                            tmp.critical = reader.GetString(4);
+                            tmp.range = reader.GetInt32(5);
+                            tmp.source = reader.GetString(6);
+                            tmp.proficiency = reader.GetString(7);
+                            tmp.typeWeapons = (WeaponsType) reader.GetInt32(8);
+                            tmp.category = reader.GetString(9);
+                            tmp.price = Price.fromString(reader.GetString(10));
                             result.Add(tmp);
                         }
                     }
@@ -86,7 +93,7 @@ namespace warehouse.items
                 using (SqliteCommand command = connection.CreateCommand())
                 {
                    
-                command.CommandText = @"INSERT INTO Weapons(name,description,dmgM,critical,range,source,proficiency,type,category,price) 
+                command.CommandText = @"INSERT INTO Weapon(name,description,dmgM,critical,range,source,proficiency,type,category,price) 
                                         VALUES (@name,@description,@dmgM,@critical,@range,@source,@proficiency,@type,@category,@price)";
 
                 command.Parameters.AddWithValue("@name",this.name);
@@ -113,7 +120,7 @@ namespace warehouse.items
                 using (SqliteCommand command = connection.CreateCommand())
                 {
                    
-                    command.CommandText = @"UPDATE 'Weapons' SET name=@name,description=@description,dmgM=@dmgM,critical=@critical,range=@range,source=@source,proficiency=@proficiency,type=@type,category=@category,price=@price
+                    command.CommandText = @"UPDATE Weapon SET name=@name,description=@description,dmgM=@dmgM,critical=@critical,range=@range,source=@source,proficiency=@proficiency,type=@type,category=@category,price=@price
                                             WHERE id=@id";
 
                     command.Parameters.AddWithValue("@id",this.id.ToString());
@@ -141,7 +148,7 @@ namespace warehouse.items
                 using (SqliteCommand command = connection.CreateCommand())
                 {
                    
-                    command.CommandText = @"DELETE FROM Weapons WHERE id=@id";
+                    command.CommandText = @"DELETE FROM Weapon WHERE id=@id";
                     command.Parameters.AddWithValue("@id",id.ToString());
                     connection.Open();
                     command.ExecuteNonQuery();

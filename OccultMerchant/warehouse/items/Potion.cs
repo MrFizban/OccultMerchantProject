@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Data.Sqlite;
 using warehouse.Database;
@@ -30,13 +31,13 @@ namespace warehouse.items
             this.levell = 3;
         }
 
-        public Potion(long id, string _name, string _description, string _source, Price _price, SpellName spellName, int levell) : base(id, _name, _description, _source, _price)
+        public Potion(int id, string _name, string _description, string _source, Price _price, SpellName spellName, int levell) : base(id, _name, _description, _source, _price)
         {
             this.spellName = spellName;
             this.levell = levell;
         }
 
-        public static List<Potion> getAllPotion(string name = "")
+        public static List<Potion> getAll(long id = 0, string name = "")
         {
             List<Potion> result = new List<Potion>();
             using (SqliteConnection connection = new SqliteConnection(DatabaseManager.connectionStrin))
@@ -47,12 +48,17 @@ namespace warehouse.items
                     {
                         command.CommandText = @"SELECT P.*,S.name FROM 'Potion' as P JOIN Spell S on S.id = P.spell";
                     }
+                    else if (id > 0)
+                    {
+                        command.CommandText = @"SELECT P.*,S.name FROM 'Potion' as P JOIN Spell S on S.id = P.spell WHERE P.id = @id";
+                        command.Parameters.AddWithValue("@id", id.ToString());
+                    }
                     else
                     {
                         command.CommandText = @"SELECT P.*,S.name FROM 'Potion' as P JOIN Spell S on S.id = P.spell WHERE P.name LIKE @name";
                         
                         command.Parameters.AddWithValue("@name", $"%{name}%");
-                    }
+                    } 
 
                     connection.Open();
                     using (SqliteDataReader reader = command.ExecuteReader())
@@ -77,15 +83,16 @@ namespace warehouse.items
             return result;
         }
 
-        public void addToDatabase()
+        public int addToDatabase()
         {
+            int result = 0;
             using (SqliteConnection connection = new SqliteConnection(DatabaseManager.connectionStrin))
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
                    
                 command.CommandText = @"INSERT INTO Potion(name,description, source, price, spell, levell) 
-                                        VALUES (@name,@description,@source,@price,@spell,@levell)";
+                                        VALUES (@name,@description,@source,@price,@spell,@levell);";
 
                 command.Parameters.AddWithValue("@name",this.name);
                 command.Parameters.AddWithValue("@description",this.description);
@@ -95,9 +102,14 @@ namespace warehouse.items
                 command.Parameters.AddWithValue("@levell",this.levell.ToString());
                 connection.Open();
                 command.ExecuteNonQuery();
+                command.CommandText = "SELECT  last_insert_rowid()";
+                result = Convert.ToInt32((long) command.ExecuteScalar());
+                Console.WriteLine($"id:\t{result}");
                 }
             }
-            
+
+            return result;
+
         }
 
         public void saveToDatabase()
@@ -130,7 +142,7 @@ namespace warehouse.items
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
-                   
+                    Console.WriteLine("id:\t" + id.ToString());
                     command.CommandText = @"DELETE FROM Potion WHERE id=@id";
                     command.Parameters.AddWithValue("@id",id.ToString());
                     connection.Open();

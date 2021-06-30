@@ -14,6 +14,11 @@ namespace OccultMerchant.items
             this.spellLevel = spellLevel;
             this.casterName = casterName;
         }
+
+        public override string ToString()
+        {
+            return $"[{this.spellLevel.ToString()}:{this.casterName}]";
+        }
     }
     public class Spell : Base
     {
