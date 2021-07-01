@@ -16,6 +16,7 @@ namespace warehouse
 {
     public class Startup
     {
+        readonly string allowSpecificOrigins = "_allowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,6 +28,12 @@ namespace warehouse
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "warehouse", Version = "v1"}); });
         }
 
@@ -40,10 +47,13 @@ namespace warehouse
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "warehouse v1"));
             }
 
+                       
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            
+            app.UseCors();
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });

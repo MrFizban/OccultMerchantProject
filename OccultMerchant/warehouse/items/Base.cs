@@ -1,6 +1,6 @@
-namespace OccultMerchant.items
+namespace warehouse.items
 {
-    public class Base
+    public abstract class Base
     {
         public string name { get; set; }
         public string description { get; set; }
@@ -23,5 +23,7 @@ namespace OccultMerchant.items
             this.source = _source;
             this.price = _price;
         }
+
+        
     }
 }

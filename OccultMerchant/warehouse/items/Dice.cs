@@ -1,6 +1,6 @@
 using System;
 
-namespace OccultMerchant.items
+namespace warehouse.items
 {
     public struct Dice
     {

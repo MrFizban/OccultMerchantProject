@@ -1,1 +1,63 @@
-<p>potion-list works!</p>
+<table mat-table #idTable
+       [dataSource]="potions" multiTemplateDataRows
+       class="mat-elevation-z8">
+
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnList">
+    <div *ngIf="column != 'spellName'">
+      <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+    </div>
+    <div *ngIf="column == 'spellName'">
+      <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+      <td mat-cell *matCellDef="let element"> {{element['spellName']['name']}} </td>
+    </div>
+  </ng-container>
+
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnList.length">
+      <div class="example-element-detail">
+        <!--[@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"-->
+        <mat-card class="inside" #card *ngIf="expandedElement === element">
+            <p>description: {{element.description}}</p>
+          <p>source: {{element.source}}</p>
+        </mat-card>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnList"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnList;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="extendelement(element)">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
+
+<div style="height: 0px">
+  <mat-card class="outside" #card2
+            [style.left.px]="pos.left"
+            [style.top.px]="pos.top"
+            *ngIf="expandedElement"
+            fxLayout="column" fxLayoutAlign="center">
+    <mat-card-content>
+      <button mat-icon-button color="warn" (click)="delete()">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+      <button mat-icon-button (click)="editForm.editForm(expandedElement)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+<div class="sticky">
+  <app-potion-editor #editorForm  [parent]="this" [potion]="newPotion" ></app-potion-editor>
+
+
+
+</div>

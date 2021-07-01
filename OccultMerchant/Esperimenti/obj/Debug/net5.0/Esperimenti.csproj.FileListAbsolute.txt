@@ -125,3 +125,17 @@
 /home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/Debug/net5.0/ref/Esperimenti.dll
 /home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/Debug/net5.0/Esperimenti.pdb
 /home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/Debug/net5.0/Esperimenti.genruntimeconfig.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/warehouse.deps.json
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/warehouse.runtimeconfig.json
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/warehouse.runtimeconfig.dev.json
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/warehouse
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Microsoft.DotNet.PlatformAbstractions.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Sqlite.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Microsoft.Extensions.DependencyModel.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Microsoft.OpenApi.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Swashbuckle.AspNetCore.Swagger.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/warehouse.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/warehouse.pdb

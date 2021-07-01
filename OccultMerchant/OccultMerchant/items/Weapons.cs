@@ -45,7 +45,7 @@ namespace OccultMerchant.items
         {
             var connection = DatabaseManager.getConnection();
             SqliteCommand command = connection.CreateCommand();
-            command.CommandText = @"SELECT * FROM 'Weapons';";
+            command.CommandText = @"SELECT * FROM Weapon;";
             List<Weapons> list = new List<Weapons>();
                
             using (SqliteDataReader reader = command.ExecuteReader())
@@ -89,7 +89,7 @@ namespace OccultMerchant.items
             var connection = DatabaseManager.getConnection();
             SqliteCommand command = connection.CreateCommand();
             command.CommandText =
-                @"INSERT INTO 'Weapons'(name,description,dmgM,critical,range,source,proficiency,type,price) 
+                @"INSERT INTO Weapon(name,description,dmgM,critical,range,source,proficiency,type,price) 
                 VALUES (@name,@description,@dmgM,@critical,@range,@source,@proficiency,@type,@price);";
             command.Parameters.AddWithValue("@name", this.name);
             command.Parameters.AddWithValue("@description", this.description);
@@ -110,7 +110,7 @@ namespace OccultMerchant.items
             var connection = DatabaseManager.getConnection();
             SqliteCommand command = connection.CreateCommand();
             command.CommandText =
-                @"UPDATE 'Weapons' 
+                @"UPDATE Weapon 
                   SET name=@name,description=@description,dmgM=@dmgM,critical=@critical,range=@range,
                     source=@source,proficiency=@proficiency,type=@type,price=@price
                   WHERE id=@id;";
@@ -133,7 +133,7 @@ namespace OccultMerchant.items
         {
             var connection = DatabaseManager.getConnection();
             SqliteCommand command = connection.CreateCommand();
-            command.CommandText = @"DELETE FROM 'Weapons' WHERE id=@id";
+            command.CommandText = @"DELETE FROM Weapon WHERE id=@id";
             command.Parameters.AddWithValue("@id", value.ToString());
             command.ExecuteNonQuery();
             DatabaseManager.closeConnection();

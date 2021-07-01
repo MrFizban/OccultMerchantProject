@@ -1,6 +1,6 @@
 using System;
 
-namespace OccultMerchant.items
+namespace warehouse.items
 {
     public enum CoinType
     {
@@ -31,6 +31,13 @@ namespace OccultMerchant.items
         public override string ToString()
         {
             return $"[{value.ToString()}:{((int)this.coin).ToString()}]";
+        }
+
+        public static Price fromString(string str)
+        {
+            string[] lista = str.Split( ':');
+            return new Price(int.Parse(lista[0].Substring(1)), (CoinType) int.Parse(lista[1].Remove(lista[1].Length-1)));
+
         }
 
         

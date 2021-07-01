@@ -106,6 +106,8 @@ mat-toolbar {
   position: sticky;
   bottom: 0;
   background: white;
+  width: 70%;
+  margin: 0 auto;
 }
 
 
