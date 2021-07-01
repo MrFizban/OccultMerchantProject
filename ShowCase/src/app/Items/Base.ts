@@ -12,7 +12,11 @@ export class Price
    constructor(public value:number = 0, public coin: CoinType = CoinType.CopperCoin) {}
 
     public toString(){
-     return this.value.toString() + ":" + this.coin.toString();
+     return this.value.toString() + " " + CoinType[this.coin];
+    }
+
+    private coinToString(){
+
     }
 }
 

@@ -30,10 +30,10 @@ import {Position} from "../Items/Position";
     ]),
     ]
 })
-export class PotionListComponent implements OnInit,OnChanges,AfterContentChecked, AfterViewChecked {
+export class PotionListComponent implements OnInit {
 
   public potions: Array<Potion> = new Array<Potion>();
-  public columnList: Array<string> = ['name','spellName','price'];
+  public columnList: Array<string> = ['name','spellName','levell','price',];
 
   @ViewChild("idTable") table!: MatTable<any>;
   @ViewChild("card",{read:ElementRef}) card!:ElementRef;
@@ -42,11 +42,10 @@ export class PotionListComponent implements OnInit,OnChanges,AfterContentChecked
   public pos: Position = {left:1000,top:1000};
   public show: boolean = false;
   expandedElement: Potion | null = null;
-  addNewVisible: boolean = true;
-  public newPotion: Potion = new Potion(0,"gianni");
+  public newPotion: Potion = new Potion(0);
 
 
-  constructor(private fetcData:FetchDataService, private change: ChangeDetectorRef) {
+  constructor(private fetcData:FetchDataService, public change: ChangeDetectorRef) {
     this.pos.left
   }
 
@@ -64,16 +63,6 @@ export class PotionListComponent implements OnInit,OnChanges,AfterContentChecked
       console.log(this.potions)
     });
   }
-  ngOnChanges(){
-   // this.swicthshow();
-  }
-
-  ngAfterContentChecked() {
-  }
-
-  ngAfterViewChecked() {
-    //this.swicthshow();
-  }
 
   swicthshow(){
     if(this.expandedElement != null) {
@@ -90,7 +79,7 @@ export class PotionListComponent implements OnInit,OnChanges,AfterContentChecked
   }
 
   extendelement(element:Potion){
-    if(!this.addNewVisible) {
+    if(!this.editForm.editFormVisible) {
       if (this.expandedElement != element) {
         this.expandedElement = element;
 
@@ -101,17 +90,6 @@ export class PotionListComponent implements OnInit,OnChanges,AfterContentChecked
     }
   }
 
-  addNew(){
-    if(!this.addNewVisible) {
-      this.newPotion = new Potion();
-      this.expandedElement = null;
-      this.addNewVisible = true;
-    }else{
-      this.addNewVisible = false;
-      this.change.detectChanges();
-      this.addNew();
-    }
-  }
 
 
 
@@ -120,7 +98,7 @@ export class PotionListComponent implements OnInit,OnChanges,AfterContentChecked
     console.log(this.expandedElement!);
   this.fetcData.deletePotion(this.expandedElement!.id).subscribe(()=>{
     console.log(this.potions.length)
-    this.potions.splice(this.potions.indexOf(this.expandedElement!,0));
+    this.potions.splice(this.potions.indexOf(this.expandedElement!,0),1);
     this.expandedElement = null;
     this.table.renderRows();
     console.log(this.potions.length)
@@ -128,10 +106,5 @@ export class PotionListComponent implements OnInit,OnChanges,AfterContentChecked
   }
 
 
-  saveNewPotionButton(){
-    this.editForm.addToDatabase().subscribe(()=>{
-      this.potions.push(this.editForm.potion);
-      this.table.renderRows();
-    })
-  }
+
 }

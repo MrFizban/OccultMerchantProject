@@ -24,7 +24,10 @@ namespace warehouse.items
             foreach (string s in strListraw)
             {
                 var tmp = s.Split(":");
-                result.Add(new CasterClass(int.Parse(tmp[0].Substring(1)),tmp[1].Remove(tmp[1].Length-1)));
+                if (tmp.Length == 2)
+                {
+                    result.Add(new CasterClass(int.Parse(tmp[0].Substring(1)), tmp[1].Remove(tmp[1].Length - 1)));
+                }
             }
 
             return result;
@@ -97,7 +100,7 @@ namespace warehouse.items
             return result;
         }
         
-        public static string componentstoString(List<Component> lista)
+        public static string componentsToString(List<Component> lista)
         {
             string result = "[";
             foreach (Component component in lista)
@@ -151,6 +154,7 @@ namespace warehouse.items
             return result;
         }
 
+       
         public void addToDatabase()
         {
             using (SqliteConnection connection = new SqliteConnection(DatabaseManager.connectionStrin))
@@ -166,7 +170,7 @@ namespace warehouse.items
                 command.Parameters.AddWithValue("@source",this.source);
                 command.Parameters.AddWithValue("@price",this.price.ToString());
                 command.Parameters.AddWithValue("@casterPossibility",CasterClass.ListToString(this.castersPossibility));
-                command.Parameters.AddWithValue("@componentList",this.componentList.ToString());
+                command.Parameters.AddWithValue("@componentList",Spell.componentsToString(this.componentList));
                 connection.Open();
                 command.ExecuteNonQuery();
                 }
@@ -184,12 +188,13 @@ namespace warehouse.items
                     command.CommandText = @"UPDATE 'Spell' SET name=@name,description=@description,source=@source,price=@price,casterPossibility=@casterPossibility,componentList=@componentList
                                             WHERE id=@id";
 
+                    command.Parameters.AddWithValue("@id",this.id.ToString());
                     command.Parameters.AddWithValue("@name",this.name);
                     command.Parameters.AddWithValue("@description",this.description);
                     command.Parameters.AddWithValue("@source",this.source);
                     command.Parameters.AddWithValue("@price",this.price.ToString());
                     command.Parameters.AddWithValue("@casterPossibility",CasterClass.ListToString(this.castersPossibility));
-                    command.Parameters.AddWithValue("@componentList",this.componentList.ToString());
+                    command.Parameters.AddWithValue("@componentList",Spell.componentsToString( this.componentList));
                     connection.Open();
                     command.ExecuteNonQuery();
                 }

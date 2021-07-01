@@ -20,7 +20,8 @@
       <div class="example-element-detail">
         <!--[@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"-->
         <mat-card class="inside" #card *ngIf="expandedElement === element">
-
+            <p>description: {{element.description}}</p>
+          <p>source: {{element.source}}</p>
         </mat-card>
       </div>
     </td>
@@ -45,7 +46,7 @@
       <button mat-icon-button color="warn" (click)="delete()">
         <mat-icon>delete_forever</mat-icon>
       </button>
-      <button mat-icon-button>
+      <button mat-icon-button (click)="editForm.editForm(expandedElement)">
         <mat-icon>edit</mat-icon>
       </button>
     </mat-card-content>
@@ -55,20 +56,8 @@
 
 
 <div class="sticky">
-  <app-potion-editor #editorForm *ngIf="addNewVisible" [potion]="newPotion" [list]="potions"></app-potion-editor>
+  <app-potion-editor #editorForm  [parent]="this" [potion]="newPotion" ></app-potion-editor>
 
-  <div style="width: 90%;margin: 0 auto;">
-    <button mat-raised-button color="primary" (click)="saveNewPotionButton()"
-            *ngIf="addNewVisible" style="margin: 5px ">
-      Save
-    </button>
-    <button mat-raised-button color="primary" style="margin: 5px "
-            (click)="addNew()">{{addNewVisible ? "reset" : "Add Potion"}}</button>
-    <button mat-raised-button color="primary" (click)="addNewVisible = false"
-            *ngIf="addNewVisible" style="margin: 5px ">
-      cancell
-    </button>
 
-  </div>
 
 </div>

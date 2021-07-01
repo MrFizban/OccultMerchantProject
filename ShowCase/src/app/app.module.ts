@@ -23,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { AppRoutingModule } from './app-routing.module';
 import { SpellEditorComponent } from './spell-list/spell-editor/spell-editor.component';
+import { IAmErrorComponent } from './iam-error/iam-error.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SpellEditorComponent } from './spell-list/spell-editor/spell-editor.com
     ShopViewComponent,
     PotionEditorComponent,
     SpellEditorComponent,
+    IAmErrorComponent,
   ],
   imports: [
     BrowserModule,

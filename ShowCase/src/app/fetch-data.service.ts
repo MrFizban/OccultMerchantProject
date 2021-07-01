@@ -14,15 +14,15 @@ export class FetchDataService {
   private getAllRequest(url:string, filter: any){
     let headers: HttpHeaders = new  HttpHeaders();
     headers.set('Content-Type', 'application/json; charset=utf-8');
-    return this.http.get<Array<any>>(url,{headers:headers});
+    return this.http.get<Array<any>>( this.baseurl +url,{headers:headers});
   }
 
   getAllPotion(){
-   return  this.getAllRequest(this.baseurl +"potion/gettAll",{})
+   return  this.getAllRequest("potion/gettAll",{})
   }
 
   getAllSpell() {
-    return  this.getAllRequest(this.baseurl +"spell/gettAll",{})
+    return  this.getAllRequest("spell/gettAll",{})
   }
 
   private postRequest(url:string, body:any){
@@ -34,8 +34,23 @@ export class FetchDataService {
   postPotion(body:Potion){
    return this.postRequest("potion",body)
   }
+  postSpell(body: Spell) {
+    return this.postRequest("spell",body);
+  }
 
-  private updateRequest(url:string,body:any){}
+  private updateRequest(url:string,body:any){
+    let headers: HttpHeaders = new  HttpHeaders();
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.put(this.baseurl + url, body);
+  }
+
+  updatePotion(potion: Potion) {
+    return this.updateRequest("potion", potion);
+  }
+
+  updateSpell(spells: Spell) {
+    return this.updateRequest("spell", spells);
+  }
 
   private deleteRequest(url:string,id:number){
     console.log("id:\t" + id);
@@ -54,9 +69,8 @@ export class FetchDataService {
 
   }
 
-  postSpell(body: Spell) {
-    return this.postRequest("potion",body);
-  }
+
+
 
 
 }

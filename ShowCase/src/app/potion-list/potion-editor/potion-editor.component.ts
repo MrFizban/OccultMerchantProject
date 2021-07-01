@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FormControl, FormGroup, FormGroupName} from "@angular/forms";
 import {CoinType, Price} from "../../Items/Base";
-import {Potion} from "../../Items/Potion";
+import {Potion, SpellName} from "../../Items/Potion";
 import {FetchDataService} from "../../fetch-data.service";
+import {PotionListComponent} from "../potion-list.component";
 
 @Component({
   selector: 'app-potion-editor',
@@ -12,7 +13,7 @@ import {FetchDataService} from "../../fetch-data.service";
 export class PotionEditorComponent implements OnInit {
 
   @Input("potion") public potion!:Potion;
-  @Input("list") public list!: Array<Potion>;
+  @Input("parent") public parent!: PotionListComponent;
   public showTime: boolean = false;
   public enumCoynType =  CoinType;
 
@@ -31,6 +32,7 @@ export class PotionEditorComponent implements OnInit {
     spellName: new FormControl(),
     levell: new FormControl()
   });
+  public editFormVisible: boolean = false;
 
   constructor(private fetchData:FetchDataService) { }
 
@@ -50,17 +52,65 @@ export class PotionEditorComponent implements OnInit {
     this.potion.spellName.id=3;
   }
 
-  editorSwitch(){
-    this.isEditing = !this.isEditing;
-  }
+
 
   addToDatabase(){
     let value = this.formController.value;
-    let tmp: Potion = new Potion(0,value['name'],value['description'],value['source'],
-      new Price(value['price']['value'], value['name']['coin'],),value['spellName'],value['levell']);
-    console.log(tmp);
-    this.potion = tmp;
-    return  this.fetchData.postPotion(tmp)
-   ;
+    this.editFormVisible = false;
+    if(this.potion.id == 0) {
+      let tmp: Potion = new Potion(0, value['name'], value['description'], value['source'],
+        new Price(value['price']['value'], value['name']['coin'],), new SpellName(3, value['spellName']), value['levell']);
+      this.potion = tmp;
+      return this.fetchData.postPotion(tmp).subscribe(() => {
+        this.parent.potions.push(this.potion);
+        this.parent.table.renderRows();
+      });
+    } else {
+      let index = this.parent.potions.indexOf(this.potion);
+      this.potion = new Potion(this.potion.id, value['name'], value['description'], value['source'],
+        new Price(value['price']['value'], value['name']['coin'],), new SpellName(3, value['spellName']), value['levell']);
+
+      return this.fetchData.updatePotion(this.potion).subscribe(() =>{
+        this.parent.potions[index] = this.potion;
+        this.parent.table.renderRows();
+      })
+    }
+
   }
+
+  addNew(){
+    if(!this.editFormVisible) {
+      this.potion = new Potion();
+      this.parent.expandedElement = null;
+      this.editFormVisible = true;
+    }else{
+      this.editFormVisible  = false;
+      this.parent.change.detectChanges();
+      this.addNew();
+    }
+  }
+
+  editForm(element:Potion){
+    if(!this.editFormVisible) {
+      this.potion = element;
+      this.parent.expandedElement = null;
+      this.editFormVisible = true;
+      this.formController.setValue({
+        name:this.potion.name,
+        description: this.potion.description,
+        source: this.potion.source,
+        price: {
+          value:this.potion.price.value,
+          coin: this.potion.price.coin
+        },
+        spellName: this.potion.spellName.name,
+        levell: this.potion.levell
+      })
+    }else {
+      this.editFormVisible  = false;
+      this.parent.change.detectChanges();
+      this.editForm(element);
+    }
+  }
+
 }

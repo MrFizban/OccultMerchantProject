@@ -1,14 +1,14 @@
 <mat-toolbar>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
   <span>My App</span>
   <span class="example-spacer"></span>
-  <button mat-button [routerLink]="['']" class="example-icon favorite-icon">
+  <button mat-button [routerLink]="['/potion']" class="example-icon favorite-icon">
     <h2>Potions</h2>
   </button>
   <button [routerLink]="['/shop']" mat-button class="example-icon favorite-icon">
     <h2>Shops</h2>
+  </button>
+  <button [routerLink]="['/spell']" mat-button class="example-icon favorite-icon">
+    <h2>Spells</h2>
   </button>
 </mat-toolbar>
 

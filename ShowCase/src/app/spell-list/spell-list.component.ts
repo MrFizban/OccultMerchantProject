@@ -1,8 +1,6 @@
 import {ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {CasterPossibility, Spell} from "../Items/Spell";
-import {Potion, SpellName} from "../Items/Potion";
 import {MatTable} from "@angular/material/table";
-import {PotionEditorComponent} from "../potion-list/potion-editor/potion-editor.component";
 import {FetchDataService} from "../fetch-data.service";
 import {Price} from "../Items/Base";
 import {Position} from "../Items/Position";
@@ -16,7 +14,7 @@ import {SpellEditorComponent} from "./spell-editor/spell-editor.component";
 export class SpellListComponent implements OnInit {
 
   public spells: Array<Spell> = new Array<Spell>();
-  public columnList: Array<string> = ['name','spellName','price'];
+  public columnList: Array<string> = ['name','levell','price'];
 
   @ViewChild("idTable") table!: MatTable<any>;
   @ViewChild("card",{read:ElementRef}) card!:ElementRef;
@@ -25,37 +23,22 @@ export class SpellListComponent implements OnInit {
   public pos: Position = {left:1000,top:1000};
   public show: boolean = false;
   expandedElement: Spell | null = null;
-  addNewVisible: boolean = true;
-  public newSpell: Spell = new Spell(0,"gianni");
+  public newSpell: Spell = new Spell(0);
 
 
-  constructor(private fetcData:FetchDataService, private change: ChangeDetectorRef) {
+  constructor(private fetcData:FetchDataService, public change: ChangeDetectorRef) {
     this.pos.left
   }
 
   ngOnInit(): void {
     this.fetcData.getAllSpell().subscribe((result:Array<any>)=>{
       result.forEach(value => {
-        console.log("value:\t" );
-        console.log(value);
-        console.log("spell:\t" + value['spellName']['name']);
-        console.log(value['spellName']['name'])
         this.spells.push(new Spell(value['id'],value['name'],value['description'],value['source'],
-          new Price(value['price']['value'], value['price']['coin']),new Array<CasterPossibility>(),value['level']));
+          new Price(value['price']['value'], value['price']['coin']),value['casterPossibility'],value['levell']))
       })
       this.table.renderRows();
       console.log(this.spells)
     });
-  }
-  ngOnChanges(){
-    // this.swicthshow();
-  }
-
-  ngAfterContentChecked() {
-  }
-
-  ngAfterViewChecked() {
-    //this.swicthshow();
   }
 
   swicthshow(){
@@ -73,7 +56,7 @@ export class SpellListComponent implements OnInit {
   }
 
   extendelement(element:Spell){
-    if(!this.addNewVisible) {
+    if(!this.editForm.editFormVisible) {
       if (this.expandedElement != element) {
         this.expandedElement = element;
 
@@ -84,17 +67,6 @@ export class SpellListComponent implements OnInit {
     }
   }
 
-  addNew(){
-    if(!this.addNewVisible) {
-      this.newSpell = new Spell();
-      this.expandedElement = null;
-      this.addNewVisible = true;
-    }else{
-      this.addNewVisible = false;
-      this.change.detectChanges();
-      this.addNew();
-    }
-  }
 
 
 
@@ -103,7 +75,7 @@ export class SpellListComponent implements OnInit {
     console.log(this.expandedElement!);
     this.fetcData.deleteSpell(this.expandedElement!.id).subscribe(()=>{
       console.log(this.spells.length)
-      this.spells.splice(this.spells.indexOf(this.expandedElement!,0));
+      this.spells.splice(this.spells.indexOf(this.expandedElement!,0),1);
       this.expandedElement = null;
       this.table.renderRows();
       console.log(this.spells.length)
@@ -111,10 +83,5 @@ export class SpellListComponent implements OnInit {
   }
 
 
-  saveNewSpellButton(){
-    this.editForm.addToDatabase().subscribe(()=>{
-      this.spells.push(this.editForm.spell);
-      this.table.renderRows();
-    })
-  }
+
 }
