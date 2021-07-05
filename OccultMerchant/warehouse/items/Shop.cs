@@ -170,7 +170,7 @@ namespace warehouse.items
         public void addPotions()
         {
             using (SqliteConnection connection = new SqliteConnection(DatabaseManager.connectionStrin))
-            {
+            { 
                 using (SqliteCommand command = connection.CreateCommand())
                 {
                     command.CommandText = @"INSERT INTO ShopPotion(idShop, idPotion,quantity) 
