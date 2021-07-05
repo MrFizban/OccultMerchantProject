@@ -1,4 +1,5 @@
 import {Base, Price} from "./Base";
+import {PotionStock} from "./Shop";
 
 export class SpellName{
   constructor(public id:number = 0,
@@ -17,4 +18,8 @@ export class Potion extends Base{
                ) {
     super(id,name,description,source,price);
   }
+
+
 }
+
+

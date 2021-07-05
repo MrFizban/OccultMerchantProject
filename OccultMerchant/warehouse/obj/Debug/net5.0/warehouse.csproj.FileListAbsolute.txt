@@ -108,3 +108,9 @@ C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/wareho
 C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/warehouse/obj/Debug/net5.0/warehouse.RazorTargetAssemblyInfo.cache
 C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/warehouse/obj/Debug/net5.0/warehouse.csproj.CopyComplete
 C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/warehouse/obj/Debug/net5.0/warehouse.genruntimeconfig.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/bin/Debug/net5.0/System.Net.Http.Formatting.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/bin/Debug/net5.0/System.Net.Http.Extensions.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/bin/Debug/net5.0/System.Net.Http.Primitives.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/bin/Debug/net5.0/Newtonsoft.Json.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/bin/Debug/net5.0/Newtonsoft.Json.Bson.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/bin/Debug/net5.0/Microsoft.Net.Http.Server.dll

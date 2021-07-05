@@ -1,0 +1,62 @@
+<div *ngIf="editFormVisible">
+
+  <mat-card style="background: #E91E63;">
+    <mat-card-header>
+      <mat-card-title>New Shop</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput [formControl]="name">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field style="width: 100%">
+          <mat-label>Description</mat-label>
+          <textarea matInput [formControl]="description"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field >
+          <mat-label>Space</mat-label>
+          <input matInput [formControl]="space">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>open/closed</mat-label>
+          <mat-select [formControl]="isActive">
+            <mat-option [value]="true">
+              Open
+            </mat-option>
+            <mat-option [value]="false">
+              Closed
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+<div style="width: 90%;margin: 0 auto;">
+  <button *ngIf="!editFormVisible" mat-raised-button (click)="editFormVisible = true">
+    Create shop
+  </button>
+
+  <button *ngIf="editFormVisible" mat-raised-button (click)="createShop()">
+    Save
+  </button>
+
+  <button *ngIf="editFormVisible" mat-raised-button (click)="cancell()">
+    cancell
+  </button>
+  <button  mat-raised-button (click)="parent.deleting = !parent.deleting" color="warn">
+    {{parent.deleting? "done" : "deleingo shop"}}
+  </button>
+
+
+</div>
+
+

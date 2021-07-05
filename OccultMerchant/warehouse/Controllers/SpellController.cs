@@ -30,12 +30,18 @@ namespace warehouse.Controllers
             return Spell.getAll();
         }
         
-        [HttpGet("/spell/filter")]
-        public IEnumerable<Spell> GetShopsFilter([FromBody] Filter option)
+        [HttpGet("/spell/{id}")]
+        public IEnumerable<Potion> getPotionId(int id)
         {
-            Console.WriteLine("[GET][SPELL] get filter by name");
-            Console.WriteLine(option);
-            return Spell.getAll(option.name);
+            Console.WriteLine("[GET][POTION] get filter by id");
+            return Potion.getAll(id = id);
+        }
+        
+        [HttpGet("/spell/{name}")]
+        public IEnumerable<Potion> getPotionName(int name)
+        {
+            Console.WriteLine("[GET][POTION] get filter by id");
+            return Potion.getAll(name = name);
         }
 
         [HttpPost("/spell")]

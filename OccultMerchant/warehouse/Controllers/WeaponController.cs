@@ -30,14 +30,19 @@ namespace warehouse.Controllers
             return Weapon.getAll();
         }
         
-        [HttpGet("/weapon/filter")]
-        public IEnumerable<Weapon> getPotionFilter([FromBody] Filter option)
+        [HttpGet("/weapon/{id}")]
+        public IEnumerable<Potion> getPotionId(int id)
         {
-            Console.WriteLine("[GET][WEAPON] get filter by name");
-            Console.WriteLine(option);
-            return Weapon.getAll(option.name);
+            Console.WriteLine("[GET][POTION] get filter by id");
+            return Potion.getAll(id = id);
         }
-
+        
+        [HttpGet("/weapon/{name}")]
+        public IEnumerable<Potion> getPotionName(int name)
+        {
+            Console.WriteLine("[GET][POTION] get filter by id");
+            return Potion.getAll(name = name);
+        }
         [HttpPost("/weapon")]
         public HttpResponseMessage addPotionToDatabase([FromBody] Weapon weapon)
         {

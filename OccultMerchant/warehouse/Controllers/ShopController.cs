@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -28,20 +29,44 @@ namespace warehouse.Controllers
             Console.WriteLine("[GET][SHOP] get all shop");
             return Shop.getAll();
         }
-        
-        [HttpGet("/shop/filter")]
-        public IEnumerable<Shop> GetShopsFilter([FromBody] Filter option)
+
+        [HttpGet("/shop/id/{id}")]
+        public Shop getPotionId(int id)
         {
-            Console.WriteLine("[GET][SHOP] get filter by name");
-            Console.WriteLine(option);
-            return Shop.getAll(option.name);
+            Console.WriteLine("[GET][POTION] get filter by id");
+            var res = Shop.getAll(id = id);
+            if (res.Count == 1)
+            {
+                return res[0];
+            }
+            else
+            {
+                Console.WriteLine(res.Count);
+            }
+
+            return null;
+        }
+
+        [HttpGet("/shop/name/{name}")]
+        public IEnumerable<Shop> getPotionName(int name)
+        {
+            Console.WriteLine("[GET][POTION] get filter by id");
+            return Shop.getAll(name = name);
         }
 
         [HttpPost("/shop")]
-        public HttpResponseMessage addShopToDatabase([FromBody] Shop shop)
+        public IActionResult addShopToDatabase([FromBody] Shop shop)
         {
             Console.WriteLine("[POST][SHOP] add shop");
             shop.addToDatabase();
+            return Ok(shop);
+        }
+
+        [HttpPost("/shop/addPotion")]
+        public HttpResponseMessage addPotion([FromBody] Shop shop)
+        {
+            Console.WriteLine("[POST][SHOP] add potions");
+            shop.addPotions();
             return new HttpResponseMessage(HttpStatusCode.Accepted);
         }
 
@@ -54,15 +79,18 @@ namespace warehouse.Controllers
         }
 
         [HttpDelete("/shop/{id}")]
-        public HttpResponseMessage deleteShopDatabase([FromQuery]int id)
+        public HttpResponseMessage deleteShopDatabase(int id)
         {
-            Console.WriteLine("[DELETE][SHOP] delete shop");
+            Console.WriteLine("[DELETE][SHOP] delete shop:\t" + id);
             Shop.deleteToDatabase(id);
             return new HttpResponseMessage(HttpStatusCode.Accepted);
         }
         
-        
-        
-        
+        [HttpDelete("/shop/potionStock/{idShop}/{idPotion}")]
+        public HttpResponseMessage deletePotionFromStock(int idShop, int idPotion)
+        {
+            Shop.deletePotioFromStock(idShop,idPotion);
+            return new HttpResponseMessage(HttpStatusCode.Accepted);
+        }
     }
 }

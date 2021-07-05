@@ -1,0 +1,14 @@
+mat-card{
+  background: #E91E63;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  background: white;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: gray;
+}

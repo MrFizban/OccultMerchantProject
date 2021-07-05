@@ -2,10 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Net.Http.Server;
+using warehouse.Database;
 using warehouse.items;
 
 namespace warehouse.Controllers
@@ -13,10 +19,10 @@ namespace warehouse.Controllers
     [ApiController]
     [Route("[controller]")]
     [EnableCors("MyPolicy")]
-    public class PotionController: ControllerBase
+    public class PotionController: ControllerBase 
     {
         private readonly ILogger<PotionController> _logger;
-
+        private Request request ;
         public PotionController(ILogger<PotionController> logger)
         {
             _logger = logger;
@@ -30,21 +36,29 @@ namespace warehouse.Controllers
             return Potion.getAll();
         }
         
-        [HttpGet("/potion/filter")]
-        public IEnumerable<Potion> getPotionFilter([FromBody] Filter option)
+        [HttpGet("/potion/id/{id}")]
+        public Potion getPotionId(int id)
         {
-            Console.WriteLine("[GET][POTION] get filter by name");
-            Console.WriteLine(option);
-            return Potion.getAll(name: option.name);
+            Console.WriteLine("[GET][POTION] get filter by id");
+            return Potion.getPotion(id);
+        }
+        
+        [HttpGet("/potion/{name}")]
+        public IEnumerable<Potion> getPotionName(int name)
+        {
+            Console.WriteLine("[GET][POTION] get filter by id");
+            return Potion.getAll(name = name);
         }
 
+        
         [HttpPost("/potion")]
-        public HttpResponseMessage addPotionToDatabase([FromBody] Potion potion)
+        public IActionResult addPotionToDatabase([FromBody] Potion potion)
         {
             Console.WriteLine("[POST][POTION] add potion");
-            HttpResponseMessage message = new HttpResponseMessage(HttpStatusCode.Accepted);
-            message.Content = new StringContent(potion.addToDatabase().ToString(), Encoding.UTF8, "application/json");
-            return message;
+            long tmp = potion.addToDatabase();
+
+            MyResponse response = new MyResponse(HttpStatusCode.Created, tmp);
+            return Ok(potion);
         }
 
         [HttpPut("/potion")]

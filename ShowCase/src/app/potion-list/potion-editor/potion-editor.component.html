@@ -1,7 +1,7 @@
 <div *ngIf="editFormVisible">
   <mat-card style="background: #E91E63;">
     <mat-card-header>
-      <mat-card-title>Add Potion</mat-card-title>
+      <mat-card-title>{{potion.id == 0 ? "Add Potion" : "Edit Potion"}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="formController" fxLayout="column" style="margin: 10px auto">
@@ -19,9 +19,6 @@
           </mat-form-field>
           <span style="width: 100px"></span>
           <span style="width: 400px" fxFlexAlign="center">[{{potion.spellName.id}}:{{potion.spellName.name}}]</span>
-          <mat-card fxFlexAlign="center">
-            <button mat-button>SelectSpell</button>
-          </mat-card>
         </mat-card>
         <mat-card formGroupName="price">
           <mat-card-header>
@@ -47,7 +44,7 @@
         <mat-card>
           <mat-form-field appearance="outline" style="width: 100%; height: 10em;">
             <mat-label>description</mat-label>
-            <textarea matInput formControlName="description" style="width: 100%; height: 10em;"></textarea>
+            <textarea formControlName="description" style="width: 100%; height: 10em;"></textarea>
           </mat-form-field>
         </mat-card>
       </form>
@@ -59,25 +56,16 @@
           *ngIf="editFormVisible" style="margin: 5px ">
     Save
   </button>
+  <button mat-raised-button color="primary" (click)="addToDatabaseWrapper()"
+          *ngIf="editFormVisible" style="margin: 5px ">
+    Save and Select  potion
+  </button>
   <button mat-raised-button color="primary" style="margin: 5px "
           (click)="addNew()">{{editFormVisible ? "reset" : "Add Potion"}}</button>
-  <button mat-raised-button color="primary" (click)="editFormVisible = false"
+  <button mat-raised-button color="primary" (click)="cancell()"
           *ngIf="editFormVisible" style="margin: 5px ">
     cancell
   </button>
 
 </div>
 
-<!--
-   name: new FormControl(this.potion.name),
-      description: new FormControl(this.potion.description),
-      source: new FormControl(this.potion.source),
-      price: new FormGroup({
-        value: new FormControl(this.potion.price.value),
-        coin: new FormControl(this.potion.price.coin)
-      }),
-      spellName: new FormControl(this.potion.spellName.name),
-      levell: new FormControl(this.potion.levell)
-
-
--->

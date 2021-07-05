@@ -6,6 +6,10 @@ export enum CoinType
   PlatinumCoin
 }
 
+export class Filter {
+ constructor(public names: Array<string> = new Array<string>(0)) {
+ }
+}
 export class Price
 {
 
@@ -15,9 +19,6 @@ export class Price
      return this.value.toString() + " " + CoinType[this.coin];
     }
 
-    private coinToString(){
-
-    }
 }
 
 export class Base {
@@ -28,6 +29,7 @@ export class Base {
     public description: string ="",
     public source: string ="",
     public price: Price = new Price(),
+    public filter:Filter = new Filter()
 ) {
   }
 }

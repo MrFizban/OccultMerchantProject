@@ -1,11 +1,12 @@
 <mat-toolbar>
-  <span>My App</span>
+  <img src="assets/77b56dc71da03bc.png" style="width: 35px; height: 35px">
+  <span>Showcase</span>
   <span class="example-spacer"></span>
-  <button mat-button [routerLink]="['/potion']" class="example-icon favorite-icon">
-    <h2>Potions</h2>
-  </button>
   <button [routerLink]="['/shop']" mat-button class="example-icon favorite-icon">
     <h2>Shops</h2>
+  </button>
+  <button mat-button [routerLink]="['/potion']" class="example-icon favorite-icon">
+    <h2>Potions</h2>
   </button>
   <button [routerLink]="['/spell']" mat-button class="example-icon favorite-icon">
     <h2>Spells</h2>
@@ -13,3 +14,5 @@
 </mat-toolbar>
 
 <router-outlet></router-outlet>
+
+

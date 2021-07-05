@@ -1,1 +1,60 @@
-<p>shop-view works!</p>
+<div gdGap="10px" gdAreas="base">
+  <mat-card class="container" gdArea="base">
+
+    <form>
+      <mat-card-header>
+        <h3 *ngIf="!addNew"> {{shop.name}} </h3>
+
+        <button mat-icon-button (click)="showTabel = !showTabel" *ngIf="!addNew">
+          <mat-icon>{{showTabel ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</mat-icon>
+        </button>
+        <button mat-button (click)="router.navigate(['editor',{idShop: localShop.id}])">edit</button>
+        <span class="example-spacer"></span>
+        <mat-card fxFlexAlign="center"
+                  [style.color]="shop.isActive? 'green' : 'red'">{{shop.isActive ? "Open" : "Close"}}</mat-card>
+      </mat-card-header>
+      <mat-card-content>
+        <p *ngIf="!addNew"> {{shop.description}} </p><br>
+
+        <section *ngIf="!addNew">
+          <table *ngIf="showTabel" mat-table [dataSource]="shop.potionReserv" style="width: 100%">
+            <!-- Position Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name</th>
+              <td mat-cell *matCellDef="let element"> {{element.potion.name}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Price</th>
+              <td mat-cell *matCellDef="let element"> {{element.potion.price.toString()}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef> Quantity</th>
+              <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+            </ng-container>
+
+            <tr mat-row *matRowDef="let row; columns: ['name','price','quantity'];"></tr>
+          </table>
+        </section>
+
+      </mat-card-content>
+
+    </form>
+  </mat-card>
+
+  <mat-card *ngIf="deleting" class="containerB" gdRow="base-start / base-end" gdColumn="base-start / base-end">
+
+    <mat-card fxFlexAlign="center" style="width: 40px; height: 40px; margin: 0 auto; top: 30px; background: red">
+      <div style="margin: 0 auto">
+      <button mat-icon-button (click)="deleteShop()">
+        <mat-icon >delete_forever</mat-icon>
+      </button>
+      </div>
+    </mat-card>
+
+
+  </mat-card>
+</div>

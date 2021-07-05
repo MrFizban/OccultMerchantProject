@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Routing.Template;
 using Microsoft.Data.Sqlite;
+using warehouse.Controllers;
 using warehouse.Database;
 
 namespace warehouse.items
@@ -32,7 +33,7 @@ namespace warehouse.items
             this.proficiency = "Exotic";
         }
 
-        public Weapon(long id, string _name, string _description, string _source, Price _price, Dice dmgM, string critical, WeaponsType typeWeapons, int range, string proficiency, string category) : base(id, _name, _description, _source, _price)
+        public Weapon(long id, string _name, string _description, string _source, Price _price, Filter filter, Dice dmgM, string critical, WeaponsType typeWeapons, int range, string proficiency, string category) : base(id, _name, _description, _source, _price, filter)
         {
             this.dmgM = dmgM;
             this.critical = critical;
@@ -42,22 +43,26 @@ namespace warehouse.items
             this.category = category;
         }
 
-         public  static List<Weapon> getAll(string name = "")
+        public  static List<Weapon> getAll(long id = 0, string name = "")
         {
             List<Weapon> result = new List<Weapon>();
             using (SqliteConnection connection = new SqliteConnection(DatabaseManager.connectionStrin))
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
-                    if (name == "")
+                    
+                    command.CommandText = @"SELECT * FROM 'Weapon'";
+                    
+                    if (id > -1)
                     {
-                        command.CommandText = @"SELECT * FROM 'Weapon'";
+                        command.CommandText += @" WHERE id=@id";
+                        command.Parameters.AddWithValue("@id", id.ToString());
                     }
-                    else
+                    else if(name != "")
                     {
-                        command.CommandText = @"SELECT * FROM 'Weapon' WHERE name=name";
+                        command.CommandText = @" WHERE name=@name";
                         command.Parameters.AddWithValue("@name", $"%{name}%");
-                    }
+                    } 
 
                     connection.Open();
                     using (SqliteDataReader reader = command.ExecuteReader())

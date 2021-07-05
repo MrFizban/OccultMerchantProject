@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Potion} from "./Items/Potion";
+import {Potion, SpellName} from "./Items/Potion";
 import {Spell} from "./Items/Spell";
+import {Price} from "./Items/Base";
+import {Shop} from "./Items/Shop";
 
 
 @Injectable({
@@ -9,20 +11,32 @@ import {Spell} from "./Items/Spell";
 })
 export class FetchDataService {
   baseurl: string = "https://localhost:5001/";
+
+
   constructor(private http:HttpClient) { }
 
-  private getAllRequest(url:string, filter: any){
+  private getAllRequest(url:string){
     let headers: HttpHeaders = new  HttpHeaders();
     headers.set('Content-Type', 'application/json; charset=utf-8');
     return this.http.get<Array<any>>( this.baseurl +url,{headers:headers});
   }
 
+  getShop(id: number){
+    let headers: HttpHeaders = new  HttpHeaders();
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.get<Shop>( this.baseurl +"shop/id/" + id.toString(),{headers:headers});
+  }
+
   getAllPotion(){
-   return  this.getAllRequest("potion/gettAll",{})
+   return  this.getAllRequest("potion/gettAll")
   }
 
   getAllSpell() {
-    return  this.getAllRequest("spell/gettAll",{})
+    return  this.getAllRequest("spell/gettAll")
+  }
+
+  getAllShop(){
+    return  this.getAllRequest("shop/gettAll");
   }
 
   private postRequest(url:string, body:any){
@@ -52,6 +66,10 @@ export class FetchDataService {
     return this.updateRequest("spell", spells);
   }
 
+  updateShopPotion(stock: Shop) {
+      return this.postRequest("shop/addPotion",stock);
+  }
+
   private deleteRequest(url:string,id:number){
     console.log("id:\t" + id);
     let str: string = this.baseurl + url +"/" + id.toString();
@@ -69,8 +87,23 @@ export class FetchDataService {
 
   }
 
+  deletePotionFromStock(idShop:number, idPotio:number){
+
+    let str: string = this.baseurl + "shop/potionStock/" + idShop.toString() +"/" + idPotio.toString();
+    return this.http.delete(str);
+  }
 
 
+  updateShop(shop: Shop) {
+    return this.updateRequest("shop",shop);
+  }
 
+  postShop(tmp: Shop) {
+    return this.postRequest("shop",tmp);
+  }
 
+  deleteShop(shop: Shop) {
+    console.log(shop);
+    return this.deleteRequest("shop",shop.id);
+  }
 }

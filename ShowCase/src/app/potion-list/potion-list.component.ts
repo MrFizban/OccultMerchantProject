@@ -6,7 +6,8 @@ import {
   OnChanges,
   AfterContentChecked,
   AfterViewChecked,
-  ChangeDetectorRef
+  AfterContentInit,
+  ChangeDetectorRef, AfterViewInit
 } from '@angular/core';
 import {FetchDataService} from "../fetch-data.service";
 import {Potion, SpellName} from "../Items/Potion";
@@ -17,6 +18,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 import {isExtended} from "@angular/compiler-cli/src/ngtsc/shims/src/expando";
 import {PotionEditorComponent} from "./potion-editor/potion-editor.component";
 import {Position} from "../Items/Position";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-potion-list',
@@ -30,7 +32,7 @@ import {Position} from "../Items/Position";
     ]),
     ]
 })
-export class PotionListComponent implements OnInit {
+export class PotionListComponent implements OnInit, AfterViewChecked {
 
   public potions: Array<Potion> = new Array<Potion>();
   public columnList: Array<string> = ['name','spellName','levell','price',];
@@ -45,23 +47,38 @@ export class PotionListComponent implements OnInit {
   public newPotion: Potion = new Potion(0);
 
 
-  constructor(private fetcData:FetchDataService, public change: ChangeDetectorRef) {
-    this.pos.left
+  constructor(public fetcData:FetchDataService, public change: ChangeDetectorRef, private activatedRoute: ActivatedRoute) {
+
   }
 
   ngOnInit(): void {
     this.fetcData.getAllPotion().subscribe((result:Array<any>)=>{
-      result.forEach(value => {
-        console.log("value:\t" );
-        console.log(value);
-        console.log("spell:\t" + value['spellName']['name']);
-        console.log(value['spellName']['name'])
-        this.potions.push(new Potion(value['id'],value['name'],value['description'],value['source'],
-          new Price(value['price']['value'], value['price']['coin']),new SpellName(value['spellName']['id'],value['spellName']['name']),value['levell']))
-      })
+      console.log(result)
+      if(result.length != this.potions.length) {
+        result.forEach(value => {
+          this.potions.push(new Potion(
+            value['id'],
+            value['name'],
+            value['description'],
+            value['source'],
+            new Price(
+              value['price']['value'],
+              value['price']['coin']),
+            new SpellName(
+              value['spellName']['id'],
+              value['spellName']['name']),
+            value['levell']))
+        })
+
+      }
       this.table.renderRows();
-      console.log(this.potions)
     });
+
+  }
+
+  ngAfterViewChecked() {
+
+
   }
 
   swicthshow(){
@@ -73,7 +90,7 @@ export class PotionListComponent implements OnInit {
       this.pos.left += this.card.nativeElement.offsetLeft - 100;
       this.pos.top += this.card.nativeElement.offsetTop;
       this.change.detectChanges();
-      console.log("p:\t" + this.card.nativeElement.offsetTop + "\ts:\t" + this.card2.nativeElement.offsetTop);
+
 
     }
   }
@@ -94,16 +111,17 @@ export class PotionListComponent implements OnInit {
 
 
   delete (){
-    console.log("id:\t" + this.expandedElement!.id);
-    console.log(this.expandedElement!);
+
   this.fetcData.deletePotion(this.expandedElement!.id).subscribe(()=>{
-    console.log(this.potions.length)
+
     this.potions.splice(this.potions.indexOf(this.expandedElement!,0),1);
     this.expandedElement = null;
     this.table.renderRows();
-    console.log(this.potions.length)
+
   })
   }
+
+
 
 
 

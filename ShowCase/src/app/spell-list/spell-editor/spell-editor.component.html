@@ -1,7 +1,7 @@
 <div *ngIf="editFormVisible">
   <mat-card style="background: #E91E63;">
     <mat-card-header>
-      <mat-card-title>Add Potion</mat-card-title>
+      <mat-card-title>Add Spell</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="formController" fxLayout="column" style="margin: 10px auto">
@@ -19,9 +19,7 @@
           </mat-form-field>
           <span style="width: 100px"></span>
 
-          <mat-card fxFlexAlign="center">
-            <button mat-button>SelectSpell</button>
-          </mat-card>
+
         </mat-card>
         <mat-card formGroupName="price">
           <mat-card-header>

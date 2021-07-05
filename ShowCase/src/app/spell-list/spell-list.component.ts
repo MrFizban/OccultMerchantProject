@@ -5,6 +5,9 @@ import {FetchDataService} from "../fetch-data.service";
 import {Price} from "../Items/Base";
 import {Position} from "../Items/Position";
 import {SpellEditorComponent} from "./spell-editor/spell-editor.component";
+import {ActivatedRoute, Router} from "@angular/router";
+import {createLogErrorHandler} from "@angular/compiler-cli/ngcc/src/execution/tasks/completion";
+import {Potion} from "../Items/Potion";
 
 @Component({
   selector: 'app-spell-list',
@@ -15,7 +18,8 @@ export class SpellListComponent implements OnInit {
 
   public spells: Array<Spell> = new Array<Spell>();
   public columnList: Array<string> = ['name','levell','price'];
-
+  // utilizzato quando la panina viene chiamate per collegare pozione e incantesimo
+  public editingPotion : number = -1;
   @ViewChild("idTable") table!: MatTable<any>;
   @ViewChild("card",{read:ElementRef}) card!:ElementRef;
   @ViewChild("card2",{read:ElementRef}) card2!:ElementRef;
@@ -26,7 +30,7 @@ export class SpellListComponent implements OnInit {
   public newSpell: Spell = new Spell(0);
 
 
-  constructor(private fetcData:FetchDataService, public change: ChangeDetectorRef) {
+  constructor(private fetcData:FetchDataService, public change: ChangeDetectorRef, public activatedRoute:ActivatedRoute, public router:Router) {
     this.pos.left
   }
 
@@ -37,7 +41,15 @@ export class SpellListComponent implements OnInit {
           new Price(value['price']['value'], value['price']['coin']),value['casterPossibility'],value['levell']))
       })
       this.table.renderRows();
-      console.log(this.spells)
+
+
+      this.activatedRoute.paramMap.subscribe((param) =>{
+         if(param.get('id')){
+           this.editingPotion = parseInt(param.get('id')!);
+         }
+      });
+
+
     });
   }
 
@@ -50,20 +62,22 @@ export class SpellListComponent implements OnInit {
       this.pos.left += this.card.nativeElement.offsetLeft - 100;
       this.pos.top += this.card.nativeElement.offsetTop;
       this.change.detectChanges();
-      console.log("p:\t" + this.card.nativeElement.offsetTop + "\ts:\t" + this.card2.nativeElement.offsetTop);
 
     }
   }
 
   extendelement(element:Spell){
-    if(!this.editForm.editFormVisible) {
-      if (this.expandedElement != element) {
-        this.expandedElement = element;
-
-        this.swicthshow();
-      } else if (this.expandedElement === element) {
-        this.expandedElement = null;
+    if(this.editingPotion == -1) {
+      if (!this.editForm.editFormVisible) {
+        if (this.expandedElement != element) {
+          this.expandedElement = element;
+          this.swicthshow();
+        } else if (this.expandedElement === element) {
+          this.expandedElement = null;
+        }
       }
+    }else{
+      this.expandedElement = element;
     }
   }
 
@@ -71,17 +85,24 @@ export class SpellListComponent implements OnInit {
 
 
   delete (){
-    console.log("id:\t" + this.expandedElement!.id);
-    console.log(this.expandedElement!);
+
     this.fetcData.deleteSpell(this.expandedElement!.id).subscribe(()=>{
-      console.log(this.spells.length)
       this.spells.splice(this.spells.indexOf(this.expandedElement!,0),1);
       this.expandedElement = null;
       this.table.renderRows();
-      console.log(this.spells.length)
     })
   }
 
 
-
+  savePotionSpell() {
+    if(this.expandedElement){
+      let tmpPotion : Potion = new Potion(this.editingPotion);
+      tmpPotion.spellName.id = this.expandedElement.id;
+      tmpPotion.spellName.name = this.expandedElement.name;
+      tmpPotion.filter.names=["spell"];
+      console.log("this potion:")
+      this.fetcData.updatePotion(tmpPotion).subscribe();
+    }
+    this.router.navigate(['/potion',{newPotionSpell:true}]);
+  }
 }

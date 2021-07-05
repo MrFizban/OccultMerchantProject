@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.Data.Sqlite;
+using warehouse.Controllers;
 using warehouse.Database;
 
 namespace warehouse.items
@@ -8,6 +9,7 @@ namespace warehouse.items
     {
         // il livello a cui viene castato l'incantesimo
         public int spellLevel { get; set; }
+
         // il nome della classe del caster
         public string casterName { get; set; }
 
@@ -45,8 +47,8 @@ namespace warehouse.items
             {
                 restule += casterClass.ToString() + "|";
             }
-          
-            return  restule.Remove(1);
+
+            return restule.Remove(1);
         }
     }
 
@@ -57,27 +59,28 @@ namespace warehouse.items
         Material = 2,
         Focus = 3,
         DivineFocus = 4
-        
     }
+
     public class Spell : Base
     {
-        
-        
         // quali caste possono usare l'incantesimo e a che livello
         public List<CasterClass> castersPossibility { get; set; }
+
         // list of component
         public List<Component> componentList { get; set; }
-        
+
         public Spell() : base()
         {
             this.castersPossibility = new List<CasterClass>()
             {
-                new CasterClass(2,"Mirto")
+                new CasterClass(2, "Mirto")
             };
             this.componentList = new List<Component>();
         }
 
-        public Spell(long id,string _name, string _description, string _source, Price _price, List<CasterClass> castersPossibility, List<Component> componentList) : base(id, _name, _description, _source, _price)
+        public Spell(long id, string _name, string _description, string _source, Price _price, Filter filter,
+            List<CasterClass> castersPossibility, List<Component> componentList) : base(id, _name, _description,
+            _source, _price, filter)
         {
             this.castersPossibility = castersPossibility;
             this.componentList = componentList;
@@ -99,21 +102,21 @@ namespace warehouse.items
 
             return result;
         }
-        
+
         public static string componentsToString(List<Component> lista)
         {
             string result = "[";
             foreach (Component component in lista)
             {
                 result += (int) component;
-                result +=  ",";
+                result += ",";
             }
 
             result.Remove(result.Length - 1);
             result += "]";
             return result;
         }
-        
+
         public static List<Spell> getAll(string name = "")
         {
             List<Spell> result = new List<Spell>();
@@ -121,15 +124,14 @@ namespace warehouse.items
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
-                    if (name == "")
+                    command.CommandText = @"SELECT * FROM 'Spell'";
+
+                    if (name != "")
                     {
-                        command.CommandText = @"SELECT * FROM 'Spell'";
-                    }
-                    else
-                    {
-                        command.CommandText = @"SELECT * FROM 'Spell' WHERE name=name";
+                        command.CommandText = @" WHERE name=@name";
                         command.Parameters.AddWithValue("@name", $"%{name}%");
                     }
+
 
                     connection.Open();
                     using (SqliteDataReader reader = command.ExecuteReader())
@@ -143,39 +145,38 @@ namespace warehouse.items
                             tmp.source = reader.GetString(3);
                             tmp.price = Price.fromString(reader.GetString(4));
                             tmp.castersPossibility = CasterClass.fromString(reader.GetString(5));
-                            tmp.componentList = componentsFromString(reader.GetString(6)); 
+                            tmp.componentList = componentsFromString(reader.GetString(6));
                             result.Add(tmp);
                         }
                     }
-
                 }
             }
 
             return result;
         }
 
-       
+
         public void addToDatabase()
         {
             using (SqliteConnection connection = new SqliteConnection(DatabaseManager.connectionStrin))
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
-                   
-                command.CommandText = @"INSERT INTO Spell(name,description,source,price,casterPossibility,componentList) 
+                    command.CommandText =
+                        @"INSERT INTO Spell(name,description,source,price,casterPossibility,componentList) 
                                         VALUES (@name,@description,@source,@price,@casterPossibility,@componentList)";
 
-                command.Parameters.AddWithValue("@name",this.name);
-                command.Parameters.AddWithValue("@description",this.description);
-                command.Parameters.AddWithValue("@source",this.source);
-                command.Parameters.AddWithValue("@price",this.price.ToString());
-                command.Parameters.AddWithValue("@casterPossibility",CasterClass.ListToString(this.castersPossibility));
-                command.Parameters.AddWithValue("@componentList",Spell.componentsToString(this.componentList));
-                connection.Open();
-                command.ExecuteNonQuery();
+                    command.Parameters.AddWithValue("@name", this.name);
+                    command.Parameters.AddWithValue("@description", this.description);
+                    command.Parameters.AddWithValue("@source", this.source);
+                    command.Parameters.AddWithValue("@price", this.price.ToString());
+                    command.Parameters.AddWithValue("@casterPossibility",
+                        CasterClass.ListToString(this.castersPossibility));
+                    command.Parameters.AddWithValue("@componentList", Spell.componentsToString(this.componentList));
+                    connection.Open();
+                    command.ExecuteNonQuery();
                 }
             }
-            
         }
 
         public void saveToDatabase()
@@ -184,38 +185,36 @@ namespace warehouse.items
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
-                   
-                    command.CommandText = @"UPDATE 'Spell' SET name=@name,description=@description,source=@source,price=@price,casterPossibility=@casterPossibility,componentList=@componentList
+                    command.CommandText =
+                        @"UPDATE 'Spell' SET name=@name,description=@description,source=@source,price=@price,casterPossibility=@casterPossibility,componentList=@componentList
                                             WHERE id=@id";
 
-                    command.Parameters.AddWithValue("@id",this.id.ToString());
-                    command.Parameters.AddWithValue("@name",this.name);
-                    command.Parameters.AddWithValue("@description",this.description);
-                    command.Parameters.AddWithValue("@source",this.source);
-                    command.Parameters.AddWithValue("@price",this.price.ToString());
-                    command.Parameters.AddWithValue("@casterPossibility",CasterClass.ListToString(this.castersPossibility));
-                    command.Parameters.AddWithValue("@componentList",Spell.componentsToString( this.componentList));
+                    command.Parameters.AddWithValue("@id", this.id.ToString());
+                    command.Parameters.AddWithValue("@name", this.name);
+                    command.Parameters.AddWithValue("@description", this.description);
+                    command.Parameters.AddWithValue("@source", this.source);
+                    command.Parameters.AddWithValue("@price", this.price.ToString());
+                    command.Parameters.AddWithValue("@casterPossibility",
+                        CasterClass.ListToString(this.castersPossibility));
+                    command.Parameters.AddWithValue("@componentList", Spell.componentsToString(this.componentList));
                     connection.Open();
                     command.ExecuteNonQuery();
                 }
             }
-           
         }
-        
+
         public static void deleteToDatabase(int id)
         {
             using (SqliteConnection connection = new SqliteConnection(DatabaseManager.connectionStrin))
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
-                   
                     command.CommandText = @"DELETE FROM 'Spell' WHERE id=@id";
-                    command.Parameters.AddWithValue("@id",id.ToString());
+                    command.Parameters.AddWithValue("@id", id.ToString());
                     connection.Open();
                     command.ExecuteNonQuery();
                 }
             }
-           
         }
     }
 }
