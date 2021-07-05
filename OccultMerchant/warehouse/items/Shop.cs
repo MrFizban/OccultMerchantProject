@@ -176,6 +176,7 @@ namespace warehouse.items
                     command.CommandText = @"INSERT INTO ShopPotion(idShop, idPotion,quantity) 
                                         VALUES (@idShop,@idPotion,@quantity)";
 
+                    //cosa?
                     command.Parameters.Add("@idShop", SqliteType.Integer);
                     command.Parameters.Add("@idPotion",SqliteType.Integer);
                     command.Parameters.Add("@quantity",SqliteType.Integer);
@@ -186,7 +187,7 @@ namespace warehouse.items
                         command.Parameters["@idShop"].Value = this.id.ToString();
                         command.Parameters["@idPotion"].Value = potionStore.potion.id.ToString();
                         command.Parameters["@quantity"].Value = potionStore.quantity.ToString();
-                        try
+                        
                         {
                            
                             command.ExecuteNonQuery();
