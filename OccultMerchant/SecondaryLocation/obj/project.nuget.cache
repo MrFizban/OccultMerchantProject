@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "1WwVtpozK/Ga+6B/Q/1q/lLYLDmVT3wbWfi2LLeYSiYACp4neLuoqGEOVslYi9fCA7oNhsGsPeY+N9M2v8kUzg==",
+  "success": true,
+  "projectFilePath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/SecondaryLocation.csproj",
+  "expectedPackageFiles": [
+    "/home/mrfizban/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/home/mrfizban/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/mrfizban/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "/home/mrfizban/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "/home/mrfizban/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "/home/mrfizban/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}

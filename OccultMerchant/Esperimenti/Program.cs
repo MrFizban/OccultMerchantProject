@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Warehouse.items;
-using CasterClass = OccultMerchant.items.CasterClass;
-using CoinType = OccultMerchant.items.CoinType;
-using Price = OccultMerchant.items.Price;
+using CasterClass = Warehouse.items.CasterClass;
+using CoinType = Warehouse.items.CoinType;
+using Price = Warehouse.items.Price;
 
 
 namespace Esperimenti
