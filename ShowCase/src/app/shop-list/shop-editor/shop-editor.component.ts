@@ -42,21 +42,22 @@ export class ShopEditorComponent implements OnInit, AfterContentInit {
 
     this.activatedRoute.paramMap.subscribe((param) => {
       if (param.get('idShop')) {
-        this.fetchData.getShop(parseInt(param.get('idShop')!)).subscribe((result: Shop) => {
+        this.fetchData.getShop(parseInt(param.get('idShop')!)).subscribe((result: Shop[]) => {
+
           this.shop = new Shop(
-            result['id'],
-            result['name'],
-            result['description'],
-            result['source'],
+            result[0]['id'],
+            result[0]['name'],
+            result[0]['description'],
+            result[0]['source'],
             new Price(
-              result['price']['value'],
-              result['price']['coin']),
+              result[0]['price']['value'],
+              result[0]['price']['coin']),
             new Filter(),
-            result['space'],
-            result['isActive']
+            result[0]['space'],
+            result[0]['isActive']
           );
 
-          result['potionReserv'].forEach(valuePotion => {
+          result[0]['potionReserv'].forEach(valuePotion => {
             this.shop.potionReserv.push(new PotionStock(
               new Potion(
                 valuePotion['potion']['id'],
@@ -74,12 +75,12 @@ export class ShopEditorComponent implements OnInit, AfterContentInit {
           });
           console.log(this.shop)
 
-            this.name.setValue(  this.shop.name);
-          this.description.setValue( this.shop.description);
-            this.space.setValue( this.shop.space);
-              this.isActive.setValue( this.shop.isActive);
+          this.name.setValue(this.shop.name);
+          this.description.setValue(this.shop.description);
+          this.space.setValue(this.shop.space);
+          this.isActive.setValue(this.shop.isActive);
 
-          console.log("on init" +this.shop.isActive);
+          console.log("on init" + this.shop.isActive);
         });
       }
 
@@ -137,7 +138,7 @@ export class ShopEditorComponent implements OnInit, AfterContentInit {
     this.shop.description = this.description.value;
     this.shop.space = this.space.value;
     this.shop.isActive = this.isActive.value;
-    this.shop.space =  this.space.value;
+    this.shop.space = this.space.value;
     console.log("shopTmp")
     console.log(this.shop)
     this.fetchData.updateShop(this.shop).subscribe();

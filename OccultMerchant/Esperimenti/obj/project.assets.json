@@ -2470,7 +2470,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "warehouse/1.0.0": {
+      "Warehouse/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -2483,10 +2483,10 @@
           "Swashbuckle.AspNetCore": "5.6.3"
         },
         "compile": {
-          "bin/placeholder/warehouse.dll": {}
+          "bin/placeholder/Warehouse.dll": {}
         },
         "runtime": {
-          "bin/placeholder/warehouse.dll": {}
+          "bin/placeholder/Warehouse.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -8056,16 +8056,16 @@
       "path": "../OccultMerchant/OccultMerchant.csproj",
       "msbuildProject": "../OccultMerchant/OccultMerchant.csproj"
     },
-    "warehouse/1.0.0": {
+    "Warehouse/1.0.0": {
       "type": "project",
-      "path": "../warehouse/warehouse.csproj",
-      "msbuildProject": "../warehouse/warehouse.csproj"
+      "path": "../Warehouse/Warehouse.csproj",
+      "msbuildProject": "../Warehouse/Warehouse.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "OccultMerchant >= 1.0.0",
-      "warehouse >= 1.0.0"
+      "Warehouse >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -8096,8 +8096,8 @@
             "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/OccultMerchant.csproj": {
               "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/OccultMerchant.csproj"
             },
-            "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/warehouse.csproj": {
-              "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/warehouse.csproj"
+            "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj": {
+              "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj"
             }
           }
         }

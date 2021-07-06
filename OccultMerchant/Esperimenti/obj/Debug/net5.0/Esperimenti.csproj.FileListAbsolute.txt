@@ -139,3 +139,8 @@
 /home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/warehouse.dll
 /home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/warehouse.pdb
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/System.Net.Http.Formatting.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/System.Net.Http.Extensions.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/System.Net.Http.Primitives.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Microsoft.Net.Http.Server.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Newtonsoft.Json.Bson.dll

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using warehouse.items;
+using Warehouse.items;
 using CasterClass = OccultMerchant.items.CasterClass;
 using CoinType = OccultMerchant.items.CoinType;
 using Price = OccultMerchant.items.Price;
@@ -16,11 +16,22 @@ namespace Esperimenti
     class Program
     {
        
+        
         static void Main(string[] args)
         {
-            test3();
+            guidTest();
+
         }
 
+        public static void guidTest()
+        {
+            GuidTest test =new ();
+            Console.WriteLine(test.test.ToString());
+            GuidTest test2 = new GuidTest(test.test.ToString());
+            Console.WriteLine(test2.test.ToString());
+            GuidTest test3 = new GuidTest();
+            Console.WriteLine(test3.test.ToString());
+        }
         public void test1()
         {
             Price pr = new Price(20,CoinType.SilverCoin);

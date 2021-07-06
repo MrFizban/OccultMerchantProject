@@ -29,8 +29,8 @@
               "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/OccultMerchant.csproj": {
                 "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/OccultMerchant.csproj"
               },
-              "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/warehouse.csproj": {
-                "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/warehouse.csproj"
+              "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj": {
+                "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj"
               }
             }
           }
@@ -139,14 +139,14 @@
         }
       }
     },
-    "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/warehouse.csproj": {
+    "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/warehouse.csproj",
-        "projectName": "warehouse",
-        "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/warehouse.csproj",
+        "projectUniqueName": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj",
+        "projectName": "Warehouse",
+        "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj",
         "packagesPath": "/home/mrfizban/.nuget/packages/",
-        "outputPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/warehouse/obj/",
+        "outputPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/mrfizban/.nuget/NuGet/NuGet.Config"
