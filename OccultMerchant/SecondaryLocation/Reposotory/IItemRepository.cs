@@ -12,6 +12,6 @@ namespace SecondaryLocation.Reposotory
         Task<IItem> getItem(Guid id);
         Task<IItem> addItem(IItem item);
         Task<IItem> updateItem(IItem item);
-        Task<IItem> deleteItem(IItem item);
+        Task<bool> deleteItem(Guid id);
     }
 }

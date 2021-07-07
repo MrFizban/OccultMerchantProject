@@ -114,21 +114,21 @@ namespace SecondaryLocation.Reposotory
             return item;
         }
         
-        public async Task<IItem> deleteItem(IItem item)
+        public async Task<bool>  deleteItem(Guid id)
         {
             using (SqliteConnection connection = Database.connection)
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
                     command.CommandText = @"DELETE FROM 'Item' WHERE id=@id";
-                    command.Parameters.AddWithValue("@id", item.id.ToString());
+                    command.Parameters.AddWithValue("@id", id.ToString());
                     
                     connection.Open();
                     command.ExecuteNonQuery();
                 }
             }
 
-            return item;
+            return true;
         }
         
     }

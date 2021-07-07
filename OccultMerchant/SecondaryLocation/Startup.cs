@@ -33,6 +33,14 @@ namespace SecondaryLocation
 
             services.AddSingleton<IItemRepository, ItemRepository>();
             
+            services.AddSingleton<ISpell, Spell>();
+
+            services.AddSingleton<ISpellRepository, SpellRepository>();
+            
+            services.AddSingleton<IPotion, Potion>();
+
+            services.AddSingleton<IPotionReposotory, PotionRepository>();
+            
             services.AddControllers();
             
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>

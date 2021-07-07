@@ -52,7 +52,7 @@ namespace SecondaryLocation.Controllers
             item.id = Guid.NewGuid();
 
             await this.itemRepository.addItem(item);
-            return  new ObjectResult(item){StatusCode = 201};Ok(item);
+            return  new ObjectResult(item){StatusCode = 201};
         }
         
         [HttpPatch]
@@ -62,12 +62,12 @@ namespace SecondaryLocation.Controllers
             return Ok(item);
         }
         
-        [HttpDelete]
-        public async Task<ActionResult<IItem>> deleteItem([FromBody] Item item)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<String>> deleteItem(Guid id)
         {
            
-            await this.itemRepository.deleteItem(item);
-            return Ok(item);
+            await this.itemRepository.deleteItem(id);
+            return Ok(id.ToString());
         }
     }
 }

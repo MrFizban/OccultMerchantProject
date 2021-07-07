@@ -9,9 +9,9 @@ namespace SecondaryLocation.Reposotory
     public interface ISpellRepository
     {
         Task<IEnumerable<ISpell>> getAllSpell();
-        Task<ActionResult<ISpell>> getSpell(Guid id);
-        Task<ActionResult<ISpell>> addSpell(ISpell spell);
-        Task<ActionResult<ISpell>> updateSpell(ISpell spell);
-        Task<ActionResult<ISpell>> deleteSpell(ISpell spell);
+        Task<ISpell> getSpell(Guid id);
+        Task<ISpell> addSpell(ISpell spell);
+        Task<ISpell> updateSpell(ISpell spell);
+        Task<bool> deleteSpell(Guid id);
     }
 }
