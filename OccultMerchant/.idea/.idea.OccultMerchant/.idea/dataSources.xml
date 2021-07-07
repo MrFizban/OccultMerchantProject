@@ -9,11 +9,11 @@
       <jdbc-url>jdbc:sqlite:ItemsDatabase.sqlite</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="SecondaryLocation.sqlite" uuid="ab3bb181-beba-456f-8e48-8084d5133f53">
+    <data-source source="LOCAL" name="SecondaryLocation.sqlite" uuid="ce13e75c-3e1f-4e31-84db-b1aab5e3fb29">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:SecondaryLocation.sqlite</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/SecondaryLocation/SecondaryLocation.sqlite</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

@@ -7,7 +7,13 @@
 
     <ItemGroup>
         <ProjectReference Include="..\OccultMerchant\OccultMerchant.csproj" />
+        <ProjectReference Include="..\SecondaryLocation\SecondaryLocation.csproj" />
         <ProjectReference Include="..\Warehouse\Warehouse.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.7" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="5.0.7" />
     </ItemGroup>
 
 </Project>

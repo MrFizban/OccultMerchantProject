@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using SecondaryLocation.Items;
+using SecondaryLocation.Reposotory;
 
 namespace SecondaryLocation
 {
@@ -26,7 +28,20 @@ namespace SecondaryLocation
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // singelton Item
+            services.AddSingleton<IItem, Item>();
+
+            services.AddSingleton<IItemRepository, ItemRepository>();
+            
             services.AddControllers();
+            
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "SecondaryLocation", Version = "v1"});
@@ -47,6 +62,8 @@ namespace SecondaryLocation
 
             app.UseRouting();
 
+            app.UseCors();
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
