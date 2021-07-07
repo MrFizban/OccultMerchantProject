@@ -95,12 +95,40 @@ namespace SecondaryLocation.Reposotory
         
         public async Task<IItem> updateItem(IItem item)
         {
-            throw new NotImplementedException();
+            using (SqliteConnection connection = Database.connection)
+            {
+                using (SqliteCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"UPDATE 'Item' SET name=@name, description=@description,source=@source, price=@price, type=@type WHERE id=@id";
+                    command.Parameters.AddWithValue("@id", item.id.ToString());
+                    command.Parameters.AddWithValue("@name", item.name.ToString());
+                    command.Parameters.AddWithValue("@description", item.description.ToString());
+                    command.Parameters.AddWithValue("@source", item.source.ToString());
+                    command.Parameters.AddWithValue("@price", item.price.ToString());
+                    command.Parameters.AddWithValue("@type", item.ItemType.ToString());
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            return item;
         }
         
         public async Task<IItem> deleteItem(IItem item)
         {
-            throw new NotImplementedException();
+            using (SqliteConnection connection = Database.connection)
+            {
+                using (SqliteCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"DELETE FROM 'Item' WHERE id=@id";
+                    command.Parameters.AddWithValue("@id", item.id.ToString());
+                    
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            return item;
         }
         
     }

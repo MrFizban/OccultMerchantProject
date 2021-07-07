@@ -52,6 +52,21 @@ namespace SecondaryLocation.Controllers
             item.id = Guid.NewGuid();
 
             await this.itemRepository.addItem(item);
+            return  new ObjectResult(item){StatusCode = 201};Ok(item);
+        }
+        
+        [HttpPatch]
+        public async Task<ActionResult<IItem>> updateItem([FromBody] Item item)
+        {
+            await this.itemRepository.updateItem(item);
+            return Ok(item);
+        }
+        
+        [HttpDelete]
+        public async Task<ActionResult<IItem>> deleteItem([FromBody] Item item)
+        {
+           
+            await this.itemRepository.deleteItem(item);
             return Ok(item);
         }
     }

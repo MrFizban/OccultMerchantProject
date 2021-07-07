@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\OccultMerchant",
+    "\\OccultMerchant\\SecondaryLocation",
+    "\\OccultMerchant\\SecondaryLocation\\Dto",
+    "\\OccultMerchant\\SecondaryLocation\\Items"
+  ],
+  "SelectedNode": "\\OccultMerchant\\SecondaryLocation\\Dto\\ItemDTot.cs",
+  "PreviewInSolutionExplorer": false
+}
