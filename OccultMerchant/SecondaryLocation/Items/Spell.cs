@@ -1,6 +1,6 @@
 namespace SecondaryLocation.Items
 {
-    public record Spell : Item,ISpell
+    public class Spell : Item,ISpell
     {
         public int range { get; set; }
         public string target { get; set; }

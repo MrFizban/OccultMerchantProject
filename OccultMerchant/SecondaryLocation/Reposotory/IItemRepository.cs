@@ -10,8 +10,8 @@ namespace SecondaryLocation.Reposotory
     {
         Task<IEnumerable<IItem>> getAllItem();
         Task<IItem> getItem(Guid id);
-        Task<ActionResult<IItem>> addItem(IItem item);
-        Task<ActionResult<IItem>> updateItem(IItem item);
-        Task<ActionResult<IItem>> deleteItem(IItem item);
+        Task<IItem> addItem(IItem item);
+        Task<IItem> updateItem(IItem item);
+        Task<IItem> deleteItem(IItem item);
     }
 }

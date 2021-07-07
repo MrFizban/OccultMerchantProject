@@ -9,7 +9,7 @@ namespace SecondaryLocation.Items
         public string description { get; set; }
         public string source { get; set; }
         public int price { get; set; }
-        public int type { get; set; }
+        public int ItemType { get; set; }
     }
     
 

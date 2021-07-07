@@ -32,7 +32,7 @@ namespace SecondaryLocation.Reposotory
                             tmp.description = reader.GetString(2);
                             tmp.source = reader.GetString(3);
                             tmp.price = reader.GetInt32(4);
-                            tmp.type = reader.GetInt32(5);
+                            tmp.ItemType = reader.GetInt32(5);
                             result.Add(tmp);
                         }
                     }
@@ -61,7 +61,7 @@ namespace SecondaryLocation.Reposotory
                             tmp.description = reader.GetString(2);
                             tmp.source = reader.GetString(3);
                             tmp.price = reader.GetInt32(4);
-                            tmp.type = reader.GetInt32(5);
+                            tmp.ItemType = reader.GetInt32(5);
                             return tmp;
                         }
                     }
@@ -71,17 +71,34 @@ namespace SecondaryLocation.Reposotory
             return null;
         }
 
-        public async Task<ActionResult<IItem>> addItem(IItem item)
+        public async Task<IItem> addItem(IItem item)
+        {
+            using (SqliteConnection connection = Database.connection)
+            {
+                using (SqliteCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"INSERT INTO 'Item'(id, name, description, source, price, type) 
+                                            VALUES (@id, @name, @description, @source, @price, @type)";
+                    command.Parameters.AddWithValue("@id", item.id.ToString());
+                    command.Parameters.AddWithValue("@name", item.name.ToString());
+                    command.Parameters.AddWithValue("@description", item.description.ToString());
+                    command.Parameters.AddWithValue("@source", item.source.ToString());
+                    command.Parameters.AddWithValue("@price", item.price.ToString());
+                    command.Parameters.AddWithValue("@type", item.ItemType.ToString());
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            return item;
+        }
+        
+        public async Task<IItem> updateItem(IItem item)
         {
             throw new NotImplementedException();
         }
         
-        public async Task<ActionResult<IItem>> updateItem(IItem item)
-        {
-            throw new NotImplementedException();
-        }
-        
-        public async Task<ActionResult<IItem>> deleteItem(IItem item)
+        public async Task<IItem> deleteItem(IItem item)
         {
             throw new NotImplementedException();
         }
