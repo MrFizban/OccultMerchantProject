@@ -29,6 +29,9 @@
               "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/OccultMerchant.csproj": {
                 "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/OccultMerchant.csproj"
               },
+              "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/SecondaryLocation.csproj": {
+                "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/SecondaryLocation.csproj"
+              },
               "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj": {
                 "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj"
               }
@@ -44,6 +47,16 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite.Core": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -66,14 +79,14 @@
         }
       }
     },
-    "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/OccultMerchant.csproj": {
+    "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/SecondaryLocation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/OccultMerchant.csproj",
-        "projectName": "OccultMerchant",
-        "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/OccultMerchant.csproj",
+        "projectUniqueName": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/SecondaryLocation.csproj",
+        "projectName": "SecondaryLocation",
+        "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/SecondaryLocation.csproj",
         "packagesPath": "/home/mrfizban/.nuget/packages/",
-        "outputPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/obj/",
+        "outputPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/mrfizban/.nuget/NuGet/NuGet.Config"
@@ -100,21 +113,21 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.AspNetCore.SpaServices.Extensions": {
+            "Microsoft.Data.Sqlite.Core": {
               "target": "Package",
               "version": "[5.0.7, )"
             },
-            "Microsoft.Data.Sqlite": {
+            "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[5.0.7, )"
             },
-            "Microsoft.EntityFrameworkCore.InMemory": {
+            "Microsoft.EntityFrameworkCore.Sqlite.Core": {
               "target": "Package",
               "version": "[5.0.7, )"
             },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.6.3, )"
             }
           },
           "imports": [

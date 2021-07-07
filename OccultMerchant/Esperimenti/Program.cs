@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+
 using Warehouse.items;
 using CasterClass = Warehouse.items.CasterClass;
 using CoinType = Warehouse.items.CoinType;
@@ -19,7 +20,7 @@ namespace Esperimenti
         
         static void Main(string[] args)
         {
-            guidTest();
+          Console.WriteLine(new Guid().ToString());
 
         }
 
