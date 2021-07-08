@@ -10,8 +10,24 @@ using SecondaryLocation.Reposotory;
 
 namespace SecondaryLocation.Reposotory
 {
+    
+   
+    
     public class ItemRepository : IItemRepository
     {
+        
+        private IItem passToObject(SqliteDataReader reader){
+            IItem tmp = new Item();
+            tmp.id = reader.GetGuid(0);
+            tmp.name = reader.GetString(1);
+            tmp.description = reader.GetString(2);
+            tmp.source = reader.GetString(3);
+            tmp.price = reader.GetInt32(4);
+            tmp.ItemType = reader.GetInt32(5);
+            return tmp;
+        }
+        
+        
         public async Task<IEnumerable<IItem>> getAllItem()
         {
             List<IItem> result = new ();
@@ -26,14 +42,7 @@ namespace SecondaryLocation.Reposotory
                     {
                         while (reader.Read())
                         {
-                            IItem tmp = new Item();
-                            tmp.id = reader.GetGuid(0);
-                            tmp.name = reader.GetString(1);
-                            tmp.description = reader.GetString(2);
-                            tmp.source = reader.GetString(3);
-                            tmp.price = reader.GetInt32(4);
-                            tmp.ItemType = reader.GetInt32(5);
-                            result.Add(tmp);
+                            result.Add(this.passToObject(reader));
                         }
                     }
                 }
@@ -55,14 +64,7 @@ namespace SecondaryLocation.Reposotory
                     {
                         while (reader.Read())
                         {
-                            IItem tmp = new Item();
-                            tmp.id = reader.GetGuid(0);
-                            tmp.name = reader.GetString(1);
-                            tmp.description = reader.GetString(2);
-                            tmp.source = reader.GetString(3);
-                            tmp.price = reader.GetInt32(4);
-                            tmp.ItemType = reader.GetInt32(5);
-                            return tmp;
+                            return this.passToObject(reader);
                         }
                     }
                 }
@@ -129,6 +131,152 @@ namespace SecondaryLocation.Reposotory
             }
 
             return true;
+        }
+
+
+        // FIND FUNCTION
+
+        public async Task<HashSet<IItem>> find(Filter filter)
+        {
+            HashSet<IItem> items = new HashSet<IItem>();
+            Console.WriteLine(filter);
+            if (filter.name != "")
+            {
+                Console.WriteLine("find by name");
+                this.findByName(ref items, filter.name);
+            }
+            
+            if (filter.description != null)
+            {
+                Console.WriteLine("find by desc");
+                this.findByDescription(ref items, filter.description);
+            }
+            
+            if (filter.source != null)
+            {
+                this.findBySource(ref items, filter.source);
+            }
+            
+            if (filter.price.Item1 != null && filter.price.Item2 != null )
+            {
+                this.findByPrice(ref items,filter.price.Item1 ,filter.price.Item2);
+            }
+            
+            if (filter.itemType != null)
+            {
+                this.findBytype(ref items, filter.itemType);
+            }
+
+
+            return items;
+        }
+        
+        private void findByName(ref HashSet<IItem> items, string name)
+        {
+            using (SqliteConnection connection = Database.connection)
+            {
+                using (SqliteCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"SELECT * FROM 'Item' WHERE name LIKE @name;";
+                    command.Parameters.AddWithValue("@name", $"@{name}@");
+                    
+                    connection.Open();
+                    using (SqliteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            items.Add(this.passToObject(reader));
+                        }
+                    }
+                }
+            }
+        }
+        
+        private void findByDescription(ref HashSet<IItem> items, string description)
+        {
+            using (SqliteConnection connection = Database.connection)
+            {
+                using (SqliteCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"SELECT * FROM 'Item' WHERE description=@description";
+                    command.Parameters.AddWithValue("@description", description);
+                    
+                    connection.Open();
+                    using (SqliteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            items.Add(this.passToObject(reader));
+                        }
+                    }
+                }
+            }
+        }
+        
+        private void findBySource(ref HashSet<IItem> items, string source)
+        {
+            using (SqliteConnection connection = Database.connection)
+            {
+                using (SqliteCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"SELECT * FROM 'Item' WHERE source=@source";
+                    command.Parameters.AddWithValue("@source", source);
+                    
+                    connection.Open();
+                    using (SqliteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            items.Add(this.passToObject(reader));
+                        }
+                    }
+                }
+            }
+        }
+        
+        private void findByPrice(ref HashSet<IItem> items, char op, int price)
+        {
+            using (SqliteConnection connection = Database.connection)
+            {
+                using (SqliteCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"SELECT * FROM 'Item'  WHERE (price>@price and @op='>') or 
+                                                                        (price=@price and @op='=') or
+                                                                        (price<@price and @op='<') ";
+                    command.Parameters.AddWithValue("@op", op.ToString());
+                    command.Parameters.AddWithValue("@price", price.ToString());
+                    
+                    connection.Open();
+                    using (SqliteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            items.Add(this.passToObject(reader));
+                        }
+                    }
+                }
+            }
+        }
+        
+        private void findBytype(ref HashSet<IItem> items, ItemType itemType)
+        {
+            using (SqliteConnection connection = Database.connection)
+            {
+                using (SqliteCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"SELECT * FROM 'Item' WHERE type=@type";
+                    command.Parameters.AddWithValue("@type", ((int) itemType).ToString());
+                    
+                    connection.Open();
+                    using (SqliteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            items.Add(this.passToObject(reader));
+                        }
+                    }
+                }
+            }
         }
         
     }

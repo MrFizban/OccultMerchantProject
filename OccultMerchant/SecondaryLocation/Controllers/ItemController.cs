@@ -45,6 +45,14 @@ namespace SecondaryLocation.Controllers
                 return Ok(result);
             }
         }
+        
+        
+        [HttpGet("find")]
+        public async Task<ActionResult<IEnumerable<IItem>>> findItme([FromQuery] Filter filter)
+        {
+            return Ok(this.itemRepository.find(filter));
+        }
+
 
         [HttpPost]
         public async Task<ActionResult<IItem>> createItem([FromBody] Item item)

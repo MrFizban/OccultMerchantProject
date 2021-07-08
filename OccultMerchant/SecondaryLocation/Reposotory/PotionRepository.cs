@@ -132,8 +132,18 @@ namespace SecondaryLocation.Reposotory
                     command.Parameters.AddWithValue("@casterLevell", potion.casterLevel.ToString());
                     command.Parameters.AddWithValue("@wheight", potion.wheight.ToString());
                     command.Parameters.AddWithValue("@idSpell", potion.spell.id.ToString());
-                    
-                    command.ExecuteNonQuery();
+
+                    try
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Microsoft.Data.Sqlite.SqliteException e)
+                    {
+                        if (e.SqliteErrorCode == 19)
+                        {
+                            return new Potion(){name = "FOREIGN KEY constraint failed" };
+                        }
+                    }
                 }
             }
 

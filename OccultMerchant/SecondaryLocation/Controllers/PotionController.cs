@@ -39,19 +39,23 @@ namespace SecondaryLocation.Controllers
             {
                 return NotFound();
             }
-            else
-            {
-                Console.WriteLine("found: \t" + result);
-                return Ok(result);
-            }
+            
+            Console.WriteLine("found: \t" + result);
+            return Ok(result);
+            
         }
+        
+        
 
         [HttpPost]
         public async Task<ActionResult<IPotion>> createSpell([FromBody] Potion potion)
         {
             potion.id = Guid.NewGuid();
 
-            await this.potionReposotory.addPotion(potion);
+            if ((await this.potionReposotory.addPotion(potion)).name == "FOREIGN KEY constraint failed")
+            {
+                return new ObjectResult(new {error = "Id dell oggeto spell invalido",obj = potion}) {StatusCode = 500};
+            }
             return  new ObjectResult(potion){StatusCode = 201};
         }
         
