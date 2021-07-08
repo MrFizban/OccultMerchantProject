@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Giulio\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj": {}
+    "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Giulio\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj": {
+    "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Giulio\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj",
+        "projectUniqueName": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj",
         "projectName": "Warehouse",
-        "projectPath": "C:\\Users\\Giulio\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj",
-        "packagesPath": "C:\\Users\\Giulio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Giulio\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\obj\\",
+        "projectPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj",
+        "packagesPath": "C:\\Users\\Lucia Predeli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Giulio\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Lucia Predeli\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

@@ -101,7 +101,8 @@ namespace SecondaryLocation.Reposotory
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = @"UPDATE 'Item' SET name=@name, description=@description,source=@source, price=@price, type=@type WHERE id=@id";
+                    command.CommandText = @"UPDATE 'Item' SET name=@name, description=@description,source=@source, 
+                                            price=@price, type=@type WHERE id=@id";
                     command.Parameters.AddWithValue("@id", item.id.ToString());
                     command.Parameters.AddWithValue("@name", item.name.ToString());
                     command.Parameters.AddWithValue("@description", item.description.ToString());
@@ -142,13 +143,11 @@ namespace SecondaryLocation.Reposotory
             Console.WriteLine(filter);
             if (filter.name != "")
             {
-                Console.WriteLine("find by name");
                 this.findByName(ref items, filter.name);
             }
             
             if (filter.description != null)
             {
-                Console.WriteLine("find by desc");
                 this.findByDescription(ref items, filter.description);
             }
             
@@ -156,18 +155,18 @@ namespace SecondaryLocation.Reposotory
             {
                 this.findBySource(ref items, filter.source);
             }
-            
+           
             if (filter.price.Item1 != null && filter.price.Item2 != null )
             {
                 this.findByPrice(ref items,filter.price.Item1 ,filter.price.Item2);
             }
             
-            if (filter.itemType != null)
+            if (filter.itemType != ItemType.undefined)
             {
                 this.findBytype(ref items, filter.itemType);
             }
 
-
+            
             return items;
         }
         
@@ -177,14 +176,16 @@ namespace SecondaryLocation.Reposotory
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = @"SELECT * FROM 'Item' WHERE name LIKE @name;";
-                    command.Parameters.AddWithValue("@name", $"@{name}@");
                     
+                    command.CommandText = @"SELECT * FROM 'Item' WHERE name LIKE @name;";
+                    command.Parameters.AddWithValue("@name", $"%{name}%");
+                   
                     connection.Open();
                     using (SqliteDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
+                            Console.WriteLine("iterate");
                             items.Add(this.passToObject(reader));
                         }
                     }
@@ -198,8 +199,8 @@ namespace SecondaryLocation.Reposotory
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = @"SELECT * FROM 'Item' WHERE description=@description";
-                    command.Parameters.AddWithValue("@description", description);
+                    command.CommandText = @"SELECT * FROM 'Item' WHERE description LIKE @description";
+                    command.Parameters.AddWithValue("@description", $"%{description}%");
                     
                     connection.Open();
                     using (SqliteDataReader reader = command.ExecuteReader())
@@ -219,8 +220,8 @@ namespace SecondaryLocation.Reposotory
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = @"SELECT * FROM 'Item' WHERE source=@source";
-                    command.Parameters.AddWithValue("@source", source);
+                    command.CommandText = @"SELECT * FROM 'Item' WHERE source LIKE @source";
+                    command.Parameters.AddWithValue("@source", $"%{source}%" );
                     
                     connection.Open();
                     using (SqliteDataReader reader = command.ExecuteReader())
@@ -240,9 +241,21 @@ namespace SecondaryLocation.Reposotory
             {
                 using (SqliteCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = @"SELECT * FROM 'Item'  WHERE (price>@price and @op='>') or 
-                                                                        (price=@price and @op='=') or
-                                                                        (price<@price and @op='<') ";
+                    command.CommandText = @"SELECT * FROM 'Item'  WHERE (price>@price and @op=1) or 
+                                                                        (price=@price and @op=0) or
+                                                                        (price<@price and @op=-1) ;";
+                    var tmp = -2;
+                    if (op == '>')
+                    {
+                        tmp = 1;
+                    }
+                    else if(op == '=')
+                    {
+                        tmp = 0;
+                    } else if (op == '<')
+                    {
+                        tmp = -1;
+                    }
                     command.Parameters.AddWithValue("@op", op.ToString());
                     command.Parameters.AddWithValue("@price", price.ToString());
                     
@@ -265,7 +278,7 @@ namespace SecondaryLocation.Reposotory
                 using (SqliteCommand command = connection.CreateCommand())
                 {
                     command.CommandText = @"SELECT * FROM 'Item' WHERE type=@type";
-                    command.Parameters.AddWithValue("@type", ((int) itemType).ToString());
+                    command.Parameters.AddWithValue("@type", $"%{((int) itemType).ToString()}%");
                     
                     connection.Open();
                     using (SqliteDataReader reader = command.ExecuteReader())
