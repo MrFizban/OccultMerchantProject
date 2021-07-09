@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -16,9 +17,11 @@ namespace SecondaryLocation.Controllers
     {
         private ISpellRepository spellRepository;
         private readonly ILogger<ItemController> logger;
+        private readonly ApplicationDbContext context;
 
-        public SpellController(ISpellRepository spellRepository, ILogger<ItemController> logger)
+        public SpellController(ISpellRepository spellRepository, ILogger<ItemController> logger, ApplicationDbContext context )
         {
+            this.context = context;
             this.spellRepository = spellRepository;
             this.logger = logger;
         }
@@ -27,23 +30,35 @@ namespace SecondaryLocation.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Spell>>> getAllSpell()
         {
-            return Ok(this.spellRepository.getAllSpell());
+            var query = (from Item in this.context.Item
+                join Spell in this.context.Spell on Item.id equals Spell.id
+                select new {Item,Spell}).ToList();
+            Console.WriteLine(query.ToString());
+            List<Spell> res = new List<Spell>();
+            foreach (var VARIABLE in query)
+            {
+                res.Add(new Spell(VARIABLE.Item,VARIABLE.Spell));
+            }
+            return Ok(res);
         }
 
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Spell>> getSpell(Guid id)
         {
-            var result = await this.spellRepository.getSpell(id);
-            if (result == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                Console.WriteLine("found: \t" + result);
-                return Ok(result);
-            }
+            var query = (from Item in this.context.Item
+                join Spell in this.context.Spell on Item.id equals Spell.id
+                
+                select new {Item,Spell}).SingleOrDefault();
+            
+           
+           Spell res =  new Spell(query.Item,query.Spell);
+           Console.WriteLine(res);
+           if (res == null)
+           {
+               return NotFound();
+           }
+           return Ok(res);
         }
 
         [HttpPost]

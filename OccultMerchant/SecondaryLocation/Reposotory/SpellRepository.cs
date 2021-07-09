@@ -8,9 +8,8 @@ using SecondaryLocation.Items;
 
 namespace SecondaryLocation.Reposotory
 {
-    public class SpellRepository : ItemRepository, ISpellRepository
+    public class SpellRepository :  ISpellRepository
     {
-
 
 
         public async Task<IEnumerable<ISpell>> getAllSpell()
@@ -50,6 +49,11 @@ namespace SecondaryLocation.Reposotory
             }
 
             return result;
+        }
+        
+        public async Task<IEnumerable<ISpell>> getAllSpellContext()
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<ISpell> getSpell(Guid id)

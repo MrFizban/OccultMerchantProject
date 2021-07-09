@@ -13,5 +13,6 @@ namespace SecondaryLocation.Reposotory
         Task<ISpell> addSpell(ISpell spell);
         Task<ISpell> updateSpell(ISpell spell);
         Task<bool> deleteSpell(Guid id);
+        Task<IEnumerable<ISpell>> getAllSpellContext();
     }
 }

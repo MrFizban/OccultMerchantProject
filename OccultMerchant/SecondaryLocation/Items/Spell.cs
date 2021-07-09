@@ -2,7 +2,7 @@ using System;
 
 namespace SecondaryLocation.Items
 {
-    public class Spell : Item,ISpell
+    public class Spell : ISpell
     {
         public Guid id { get; set; }
         public string name { get; set; }
@@ -19,5 +19,27 @@ namespace SecondaryLocation.Items
         public string component { get; set; }
         public string school { get; set; }
         public string level { get; set; }
+
+        public Spell()
+        {
+            
+        }
+
+        public Spell(Item item, SpellWrappper spellWrappper)
+        {
+            this.id = item.id;
+            this.name = item.name;
+            this.description = item.description;
+            this.source = item.source;
+            this.price = item.price;
+            this.ItemType = item.ItemType;
+            this.range = spellWrappper.range;
+            this.target = spellWrappper.target;
+            this.duration = spellWrappper.duration;
+            this.savingThrow = spellWrappper.savingThrow;
+            this.casting = spellWrappper.casting;
+            this.school = spellWrappper.school;
+            this.level = spellWrappper.level;
+        }
     }
 }

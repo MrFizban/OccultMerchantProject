@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -54,11 +57,30 @@ namespace SecondaryLocation
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "SecondaryLocation", Version = "v1"});
             });
+            
+            services.AddHttpsRedirection(options =>
+            {
+                options.RedirectStatusCode = (int) HttpStatusCode.TemporaryRedirect;
+                options.HttpsPort = 5001;
+            });
+            
+            //database
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("ApplicationDbContext")));
+            
+            //container
+            
+            //container
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // contriner
+           
+            app.UseForwardedHeaders();
+            //container
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

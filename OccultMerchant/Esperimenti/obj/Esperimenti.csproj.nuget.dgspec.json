@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Esperimenti\\Esperimenti.csproj": {}
+    "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/Esperimenti.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Esperimenti\\Esperimenti.csproj": {
+    "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/Esperimenti.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Esperimenti\\Esperimenti.csproj",
+        "projectUniqueName": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/Esperimenti.csproj",
         "projectName": "Esperimenti",
-        "projectPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Esperimenti\\Esperimenti.csproj",
-        "packagesPath": "C:\\Users\\Lucia Predeli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Esperimenti\\obj\\",
+        "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/Esperimenti.csproj",
+        "packagesPath": "/home/mrfizban/.nuget/packages/",
+        "outputPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lucia Predeli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/mrfizban/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -26,14 +26,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\OccultMerchant\\OccultMerchant.csproj": {
-                "projectPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\OccultMerchant\\OccultMerchant.csproj"
+              "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/OccultMerchant.csproj": {
+                "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/OccultMerchant/OccultMerchant.csproj"
               },
-              "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\SecondaryLocation\\SecondaryLocation.csproj": {
-                "projectPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\SecondaryLocation\\SecondaryLocation.csproj"
+              "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/SecondaryLocation.csproj": {
+                "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/SecondaryLocation.csproj"
               },
-              "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj": {
-                "projectPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj"
+              "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj": {
+                "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj"
               }
             }
           }
@@ -75,21 +75,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/5.0.301/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\SecondaryLocation\\SecondaryLocation.csproj": {
+    "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/SecondaryLocation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\SecondaryLocation\\SecondaryLocation.csproj",
+        "projectUniqueName": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/SecondaryLocation.csproj",
         "projectName": "SecondaryLocation",
-        "projectPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\SecondaryLocation\\SecondaryLocation.csproj",
-        "packagesPath": "C:\\Users\\Lucia Predeli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\SecondaryLocation\\obj\\",
+        "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/SecondaryLocation.csproj",
+        "packagesPath": "/home/mrfizban/.nuget/packages/",
+        "outputPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lucia Predeli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/mrfizban/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -148,21 +148,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/5.0.301/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj": {
+    "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj",
+        "projectUniqueName": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj",
         "projectName": "Warehouse",
-        "projectPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj",
-        "packagesPath": "C:\\Users\\Lucia Predeli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\obj\\",
+        "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj",
+        "packagesPath": "/home/mrfizban/.nuget/packages/",
+        "outputPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lucia Predeli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/mrfizban/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -233,7 +233,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/5.0.301/RuntimeIdentifierGraph.json"
         }
       }
     }

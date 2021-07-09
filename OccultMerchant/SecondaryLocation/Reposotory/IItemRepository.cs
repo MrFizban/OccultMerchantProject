@@ -14,5 +14,7 @@ namespace SecondaryLocation.Reposotory
         Task<IItem> updateItem(IItem item);
         Task<bool> deleteItem(Guid id);
         Task<HashSet<IItem>> find(Filter filter);
+        Task<IEnumerable<IItem>> getItemsContext();
+        Task<IItem> getItemContext(Guid id);
     }
 }

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 using Warehouse.items;
 using CasterClass = Warehouse.items.CasterClass;
@@ -21,7 +20,7 @@ namespace Esperimenti
         static void Main(string[] args)
         {
           Console.WriteLine(new Guid().ToString());
-
+          
         }
 
         public static void guidTest()

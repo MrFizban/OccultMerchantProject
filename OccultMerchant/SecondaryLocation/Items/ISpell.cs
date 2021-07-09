@@ -2,7 +2,7 @@ using System;
 
 namespace SecondaryLocation.Items
 {
-    public interface ISpell : IItem
+    public interface ISpell 
     {
         public Guid id { get; set; }
         public string name { get; set; }

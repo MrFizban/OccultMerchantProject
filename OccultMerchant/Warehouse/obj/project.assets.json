@@ -6969,19 +6969,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lucia Predeli\\.nuget\\packages\\": {}
+    "/home/mrfizban/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj",
+      "projectUniqueName": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj",
       "projectName": "Warehouse",
-      "projectPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\Warehouse.csproj",
-      "packagesPath": "C:\\Users\\Lucia Predeli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lucia Predeli\\RiderProjects\\OccultMerchantProject\\OccultMerchant\\Warehouse\\obj\\",
+      "projectPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/Warehouse.csproj",
+      "packagesPath": "/home/mrfizban/.nuget/packages/",
+      "outputPath": "/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Warehouse/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lucia Predeli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/mrfizban/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -7052,7 +7052,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/5.0.301/RuntimeIdentifierGraph.json"
       }
     }
   },

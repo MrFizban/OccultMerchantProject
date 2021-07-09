@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using SecondaryLocation.Items;
 using SecondaryLocation.Reposotory;
 
@@ -15,6 +16,7 @@ namespace SecondaryLocation.Reposotory
     
     public class ItemRepository : IItemRepository
     {
+ 
         
         private IItem passToObject(SqliteDataReader reader){
             IItem tmp = new Item();
@@ -72,7 +74,32 @@ namespace SecondaryLocation.Reposotory
 
             return null;
         }
+    
+        
+        public async Task<IEnumerable<IItem>> getItemsContext()
+        {
+            
+            ApplicationDbContext context = new ApplicationDbContext(
+                new DbContextOptionsBuilder<ApplicationDbContext>()
+                    .UseSqlite("Data Source=SecondaryLocation.sqlite")
+                    .Options );
+            
+            return context.Item.ToList();;
+        }
+        
 
+        public async Task<IItem> getItemContext(Guid id)
+        {
+            
+            ApplicationDbContext context = new ApplicationDbContext(
+                new DbContextOptionsBuilder<ApplicationDbContext>()
+                    .UseSqlite("Data Source=SecondaryLocation.sqlite")
+                    .Options );
+            
+            return context.Item.Where(I => I.id == id ).Single();
+        }
+        
+        
         public async Task<IItem> addItem(IItem item)
         {
             using (SqliteConnection connection = Database.connection)
@@ -163,7 +190,7 @@ namespace SecondaryLocation.Reposotory
             
             if (filter.itemType != ItemType.undefined)
             {
-                this.findBytype(ref items, filter.itemType);
+                this.findByType(ref items, filter.itemType);
             }
 
             
@@ -271,7 +298,7 @@ namespace SecondaryLocation.Reposotory
             }
         }
         
-        private void findBytype(ref HashSet<IItem> items, ItemType itemType)
+        private void findByType(ref HashSet<IItem> items, ItemType itemType)
         {
             using (SqliteConnection connection = Database.connection)
             {
