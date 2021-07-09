@@ -14,5 +14,30 @@ namespace SecondaryLocation.Items
         public int price { get; set; }
         [Column("type")]
         public int ItemType { get; set; }
+
+        public Item()
+        {
+            
+        }
+
+        public Item(Spell spell)
+        {
+            this.id = spell.id;
+            this.name = spell.name;
+            this.description = spell.description;
+            this.source = spell.source;
+            this.price = spell.price;
+            this.ItemType = spell.ItemType;
+        }
+
+        public Item(Potion potion)
+        {
+            this.id = potion.id;
+            this.name = potion.name;
+            this.description = potion.description;
+            this.source = potion.source;
+            this.price = potion.price;
+            this.ItemType = potion.ItemType;
+        }
     }
 }

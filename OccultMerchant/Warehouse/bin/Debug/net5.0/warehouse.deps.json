@@ -31,7 +31,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "warehouse/1.0.0": {
+      "Warehouse/1.0.0": {
         "dependencies": {
           "Microsoft.AspNet.WebApi.Client": "5.2.7",
           "Microsoft.Data.Sqlite.Core": "5.0.7",
@@ -323,10 +323,10 @@
           "WindowsBase": "4.0.0.0"
         },
         "runtime": {
-          "warehouse.dll": {}
+          "Warehouse.dll": {}
         },
         "compile": {
-          "warehouse.dll": {}
+          "Warehouse.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.7": {
@@ -3321,7 +3321,7 @@
     }
   },
   "libraries": {
-    "warehouse/1.0.0": {
+    "Warehouse/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

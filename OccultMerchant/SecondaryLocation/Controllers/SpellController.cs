@@ -64,9 +64,8 @@ namespace SecondaryLocation.Controllers
         [HttpPost]
         public async Task<ActionResult<ISpell>> createSpell([FromBody] Spell spell)
         {
-            spell.id = Guid.NewGuid();
-
-            await this.spellRepository.addSpell(spell);
+            this.context.Item.Add(new Item(spell));
+            this.context.Spell.Add(new SpellWrappper(spell));
             return  new ObjectResult(spell){StatusCode = 201};
         }
         

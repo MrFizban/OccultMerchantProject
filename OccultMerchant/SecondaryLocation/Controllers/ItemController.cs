@@ -68,7 +68,7 @@ namespace SecondaryLocation.Controllers
         [HttpPatch]
         public async Task<ActionResult<IItem>> updateItem([FromBody] Item item)
         {
-            var res = this.context.Item.Update(item).Entity;
+          
             if (this.context.Item.FromSqlRaw($"SELECT * FROM Item WHERE id='{item.id.ToString()}'").SingleOrDefault() ==
                 null)
             {
@@ -76,9 +76,9 @@ namespace SecondaryLocation.Controllers
             }
             else
             {
-                this.context.Item.Update(item);
+               Ok(this.context.Item.Update(item).Entity);
             }
-            return Ok();
+            return Ok(item);
         }
         
         [HttpDelete("{id}")]

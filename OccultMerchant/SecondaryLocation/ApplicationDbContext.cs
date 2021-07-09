@@ -40,5 +40,18 @@ namespace SecondaryLocation
         public string school { get; set; }
         public string level { get; set; }
 
+        public SpellWrappper(Spell spell)
+        {
+            this.id = spell.id;
+            this.range = spell.range;
+            this.duration = spell.duration;
+            this.savingThrow = spell.savingThrow;
+            this.spellResistence = spell.spellResistence;
+            this.casting = spell.casting;
+            this.component = spell.component;
+            this.school = spell.school;
+            this.level = spell.level;
+        }
+        
     }
 }
