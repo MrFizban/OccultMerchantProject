@@ -14,8 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using SecondaryLocation.Items;
-using SecondaryLocation.Reposotory;
+using SecondaryLocation.Entities;
+
 
 namespace SecondaryLocation
 {
@@ -32,17 +32,12 @@ namespace SecondaryLocation
         public void ConfigureServices(IServiceCollection services)
         {
             // singelton Item
-            services.AddSingleton<IItem, Item>();
+            services.AddScoped<IItem, Item>();
 
-            services.AddSingleton<IItemRepository, ItemRepository>();
+            services.AddScoped<ISpell, Spell>();
             
-            services.AddSingleton<ISpell, Spell>();
+            services.AddScoped<IPotion, Potion>();
 
-            services.AddSingleton<ISpellRepository, SpellRepository>();
-            
-            services.AddSingleton<IPotion, Potion>();
-
-            services.AddSingleton<IPotionReposotory, PotionRepository>();
             
             services.AddControllers();
             

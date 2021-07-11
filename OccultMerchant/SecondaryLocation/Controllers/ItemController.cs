@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using SecondaryLocation.Items;
-using SecondaryLocation.Reposotory;
+using SecondaryLocation.Entities;
+
 
 namespace SecondaryLocation.Controllers
 {
@@ -40,12 +40,12 @@ namespace SecondaryLocation.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<IItem>> getItem(Guid id)
         {
-            //var res = this.context.Item.Where(I => I.id.CompareTo(id)>0).SingleOrDefault();
-            var res = this.context.Item.FromSqlRaw($"SELECT * FROM Item WHERE id='{id.ToString()}'").SingleOrDefault();
+            var res = this.context.Item.Where(I => I.id == id).SingleOrDefault();
             if (res == null)
             {
                 return NotFound();
             }
+            
             return Ok(res);
         }
         
@@ -61,14 +61,17 @@ namespace SecondaryLocation.Controllers
         public async Task<ActionResult<IItem>> createItem([FromBody] Item item)
         {
             item.id = Guid.NewGuid();
-            this.context.Item.Add(item);
-            return item;
+            var res = Ok(this.context.Item.Add(item).Entity);
+            this.context.SaveChanges();
+            logger.Log(LogLevel.Information, "[POST] post new item");
+            return res;
+
         }
         
         [HttpPatch]
         public async Task<ActionResult<IItem>> updateItem([FromBody] Item item)
         {
-          
+            var res = this.context.Item.Update(item).Entity;
             if (this.context.Item.FromSqlRaw($"SELECT * FROM Item WHERE id='{item.id.ToString()}'").SingleOrDefault() ==
                 null)
             {
@@ -76,15 +79,21 @@ namespace SecondaryLocation.Controllers
             }
             else
             {
-               Ok(this.context.Item.Update(item).Entity);
+                this.context.Item.Update(item);
             }
-            return Ok(item);
+
+            this.context.SaveChanges();
+            return Ok();
         }
         
         [HttpDelete("{id}")]
         public async Task<ActionResult<String>> deleteItem(Guid id)
         {
-            throw new NotImplementedException();
+            var res = Ok(this.context.Item.Remove(new Item(id)).Entity);
+            this.context.SaveChanges();
+            return res;
         }
     }
+
+    
 }

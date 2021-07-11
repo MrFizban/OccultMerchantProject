@@ -1,8 +1,9 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
-namespace SecondaryLocation.Items
+namespace SecondaryLocation.Entities
 {
     public class Item : IItem
     {
@@ -17,7 +18,11 @@ namespace SecondaryLocation.Items
 
         public Item()
         {
-            
+        }
+        
+        public Item(Guid id)
+        {
+            this.id = id;
         }
 
         public Item(Spell spell)
@@ -26,17 +31,17 @@ namespace SecondaryLocation.Items
             this.name = spell.name;
             this.description = spell.description;
             this.source = spell.source;
-            this.price = spell.price;
+            this.price = this.price;
             this.ItemType = spell.ItemType;
         }
-
+        
         public Item(Potion potion)
         {
             this.id = potion.id;
             this.name = potion.name;
             this.description = potion.description;
             this.source = potion.source;
-            this.price = potion.price;
+            this.price = this.price;
             this.ItemType = potion.ItemType;
         }
     }

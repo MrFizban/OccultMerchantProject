@@ -1,7 +1,11 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Server.IIS.Core;
 using Microsoft.EntityFrameworkCore;
-using SecondaryLocation.Items;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using SecondaryLocation.Entities;
+
 
 namespace SecondaryLocation
 {
@@ -14,44 +18,39 @@ namespace SecondaryLocation
             : base(options)
         {
         }
-    }
 
-    
-    
-    public class PotionWrapper
-    {
-        [Key]
-        public Guid id { get; set; }
-        public int casterLevel { get; set; }
-        public int wheight { get; set; }
-    }
+     
 
-    public class SpellWrappper
-    {
-        [Key]
-        public Guid id { get; set; }
-        public int range { get; set; }
-        public string target { get; set; }
-        public string duration { get; set; }
-        public string savingThrow { get; set; }
-        public bool spellResistence { get; set; }
-        public string casting { get; set; }
-        public string component { get; set; }
-        public string school { get; set; }
-        public string level { get; set; }
-
-        public SpellWrappper(Spell spell)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            this.id = spell.id;
-            this.range = spell.range;
-            this.duration = spell.duration;
-            this.savingThrow = spell.savingThrow;
-            this.spellResistence = spell.spellResistence;
-            this.casting = spell.casting;
-            this.component = spell.component;
-            this.school = spell.school;
-            this.level = spell.level;
+            modelBuilder
+                .Entity<Item>()
+                .Property(e => e.id)
+                .HasConversion(
+                    g => g.ToString(),
+                    s => Guid.Parse(s));
+
+            modelBuilder
+                .Entity<SpellWrappper>()
+                .Property(e => e.id)
+                .HasConversion(
+                    g => g.ToString(),
+                    s => Guid.Parse(s));
+
+            modelBuilder
+                .Entity<PotionWrapper>()
+                .Property(e => e.id)
+                .HasConversion(
+                    g => g.ToString(),
+                    s => Guid.Parse(s));
         }
         
+        
+        
     }
+    
+    
+ 
+
+   
 }

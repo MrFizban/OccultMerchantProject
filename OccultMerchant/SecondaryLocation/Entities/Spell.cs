@@ -1,6 +1,6 @@
 using System;
 
-namespace SecondaryLocation.Items
+namespace SecondaryLocation.Entities
 {
     public class Spell : ISpell
     {
