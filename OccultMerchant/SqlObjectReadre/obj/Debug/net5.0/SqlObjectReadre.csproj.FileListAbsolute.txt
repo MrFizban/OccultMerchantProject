@@ -1,0 +1,12 @@
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SqlObjectReadre/obj/Debug/net5.0/SqlObjectReadre.csproj.AssemblyReference.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SqlObjectReadre/obj/Debug/net5.0/SqlObjectReadre.GeneratedMSBuildEditorConfig.editorconfig
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SqlObjectReadre/obj/Debug/net5.0/SqlObjectReadre.AssemblyInfoInputs.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SqlObjectReadre/obj/Debug/net5.0/SqlObjectReadre.AssemblyInfo.cs
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SqlObjectReadre/obj/Debug/net5.0/SqlObjectReadre.csproj.CoreCompileInputs.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SqlObjectReadre/bin/Debug/net5.0/SqlObjectReadre.deps.json
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SqlObjectReadre/bin/Debug/net5.0/SqlObjectReadre.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SqlObjectReadre/bin/Debug/net5.0/ref/SqlObjectReadre.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SqlObjectReadre/bin/Debug/net5.0/SqlObjectReadre.pdb
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SqlObjectReadre/obj/Debug/net5.0/SqlObjectReadre.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SqlObjectReadre/obj/Debug/net5.0/ref/SqlObjectReadre.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SqlObjectReadre/obj/Debug/net5.0/SqlObjectReadre.pdb

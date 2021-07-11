@@ -1,0 +1,16 @@
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Esperimenti
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Esperimenti.deps.json
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Esperimenti.runtimeconfig.json
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Esperimenti.runtimeconfig.dev.json
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Esperimenti.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/ref/Esperimenti.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/bin/Debug/net5.0/Esperimenti.pdb
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/Debug/net5.0/Esperimenti.csproj.AssemblyReference.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/Debug/net5.0/Esperimenti.GeneratedMSBuildEditorConfig.editorconfig
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/Debug/net5.0/Esperimenti.AssemblyInfoInputs.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/Debug/net5.0/Esperimenti.AssemblyInfo.cs
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/Debug/net5.0/Esperimenti.csproj.CoreCompileInputs.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/Debug/net5.0/Esperimenti.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/Debug/net5.0/ref/Esperimenti.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/Debug/net5.0/Esperimenti.pdb
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/Esperimenti/obj/Debug/net5.0/Esperimenti.genruntimeconfig.cache
