@@ -30,9 +30,9 @@ namespace SecondaryLocation.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<IPotion>>> getAllSpell()
         {
-            var query = (from Item in this.context.Item
+            var query = await (from Item in this.context.Item
                 join Potion in this.context.Potion on Item.id equals Potion.id
-                select new {Item, Potion}).ToList();
+                select new {Item, Potion}).ToListAsync();
             Console.WriteLine(query.ToString());
             
             // lista pozioni
@@ -50,10 +50,10 @@ namespace SecondaryLocation.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<IPotion>> getSpell(Guid id)
         {
-            var query = (from item in context.Item
+            var query = await (from item in context.Item
                 join potion in context.Potion on item.id equals potion.id
                 where item.id == id
-                select new {item, potion}).SingleOrDefault();
+                select new {item, potion}).SingleOrDefaultAsync();
 
 
             if (query == null)
@@ -82,7 +82,7 @@ namespace SecondaryLocation.Controllers
             
             this.context.Item.Add(new Item(potion));
             this.context.Potion.Add(new PotionWrapper(potion));
-            this.context.SaveChanges();
+            await this.context.SaveChangesAsync();
             logger.Log(LogLevel.Information, "[POST] post new spell");
 
             return Ok(potion);
@@ -109,7 +109,7 @@ namespace SecondaryLocation.Controllers
                 this.context.Potion.Update(new PotionWrapper(potion));
             }
 
-            this.context.SaveChanges();
+            await this.context.SaveChangesAsync();
             return Ok(potion);
         }
         
@@ -125,9 +125,9 @@ namespace SecondaryLocation.Controllers
             */
             
             var potion = this.context.Potion.Remove(new PotionWrapper(id)).Entity;
-            this.context.SaveChanges();
+            await this.context.SaveChangesAsync();
             var item =this.context.Item.Remove(new Item(id)).Entity;
-            this.context.SaveChanges();
+            await this.context.SaveChangesAsync();
             
             return Ok(new Potion(item, potion));
         }

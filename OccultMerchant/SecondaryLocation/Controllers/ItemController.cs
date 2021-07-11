@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SecondaryLocation.Entities;
+using SecondaryLocation.Filters;
 
 
 namespace SecondaryLocation.Controllers
@@ -17,13 +18,11 @@ namespace SecondaryLocation.Controllers
     [EnableCors("MyPolicy")]
     public class ItemController : ControllerBase
     {
-        
         private readonly ILogger<ItemController> logger;
         private readonly ApplicationDbContext context;
 
-        public ItemController( ILogger<ItemController> logger,ApplicationDbContext context )
+        public ItemController(ILogger<ItemController> logger, ApplicationDbContext context)
         {
-            
             this.logger = logger;
             this.context = context;
         }
@@ -31,29 +30,46 @@ namespace SecondaryLocation.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<IItem>>> getAllItme()
         {
-            return Ok(this.context.Item.ToList());
+            return Ok(await this.context.Item.ToListAsync());
         }
-        
-       
 
 
         [HttpGet("{id}")]
         public async Task<ActionResult<IItem>> getItem(Guid id)
         {
-            var res = this.context.Item.Where(I => I.id == id).SingleOrDefault();
+            var res = await this.context.Item.Where(I => I.id == id).SingleOrDefaultAsync();
             if (res == null)
             {
                 return NotFound();
             }
-            
+
             return Ok(res);
         }
-        
-        
+
+
         [HttpGet("find")]
-        public async Task<ActionResult<IEnumerable<IItem>>> findItme([FromQuery] Filter filter)
+        public async Task<ActionResult<IEnumerable<IItem>>> findItme([FromQuery] ItemFilter filter)
         {
-            throw new NotImplementedException();
+            HashSet<Item> items = new HashSet<Item>();
+            if (filter.id != null)
+            {
+                items.Add(await this.context.Item.Where(item => item.id == filter.id).SingleOrDefaultAsync());
+            }
+
+            if (filter.name != null)
+            {
+                var lista = await this.context.Item.Where(item => item.name == filter.name).ToListAsync();
+                items.UnionWith(lista);
+            }
+            
+            
+
+            if (items.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(items);
         }
 
 
@@ -62,12 +78,11 @@ namespace SecondaryLocation.Controllers
         {
             item.id = Guid.NewGuid();
             var res = Ok(this.context.Item.Add(item).Entity);
-            this.context.SaveChanges();
+            await this.context.SaveChangesAsync();
             logger.Log(LogLevel.Information, "[POST] post new item");
             return res;
-
         }
-        
+
         [HttpPatch]
         public async Task<ActionResult<IItem>> updateItem([FromBody] Item item)
         {
@@ -82,18 +97,16 @@ namespace SecondaryLocation.Controllers
                 this.context.Item.Update(item);
             }
 
-            this.context.SaveChanges();
+            await this.context.SaveChangesAsync();
             return Ok();
         }
-        
+
         [HttpDelete("{id}")]
         public async Task<ActionResult<String>> deleteItem(Guid id)
         {
             var res = Ok(this.context.Item.Remove(new Item(id)).Entity);
-            this.context.SaveChanges();
+            await this.context.SaveChangesAsync();
             return res;
         }
     }
-
-    
 }
