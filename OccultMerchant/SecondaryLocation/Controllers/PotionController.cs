@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SecondaryLocation.Entities;
+using SecondaryLocation.Filters;
 
 
 namespace SecondaryLocation.Controllers
@@ -16,25 +17,24 @@ namespace SecondaryLocation.Controllers
     [EnableCors("MyPolicy")]
     public class PotionController : ControllerBase
     {
-
         private readonly ILogger<ItemController> logger;
         private readonly ApplicationDbContext context;
 
-        public PotionController( ILogger<ItemController> logger, ApplicationDbContext context)
+        public PotionController(ILogger<ItemController> logger, ApplicationDbContext context)
         {
             this.context = context;
             this.logger = logger;
         }
-        
-        
+
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<IPotion>>> getAllSpell()
         {
             var query = await (from Item in this.context.Item
                 join Potion in this.context.Potion on Item.id equals Potion.id
                 select new {Item, Potion}).ToListAsync();
-            Console.WriteLine(query.ToString());
-            
+
+
             // lista pozioni
             List<Potion> res = new List<Potion>();
             foreach (var VARIABLE in query)
@@ -66,20 +66,264 @@ namespace SecondaryLocation.Controllers
             Console.WriteLine(res);
 
             return Ok(res);
-            
         }
-        
-        
+
+        [HttpGet("find")]
+        public async Task<ActionResult<IEnumerable<IItem>>> findItme([FromQuery] PotionFilter filter)
+        {
+            HashSet<Potion> potions = new HashSet<Potion>();
+            if (filter.id != null)
+            {
+                //find by id
+                var query = await (from item in context.Item
+                    join potion in context.Potion on item.id equals potion.id
+                    where item.id == filter.id
+                    select new {item, potion}).SingleOrDefaultAsync();
+
+
+                if (query == null)
+                {
+                    return NotFound();
+                }
+
+                potions.Add(new Potion(query.item, query.potion));
+            }
+
+            if (filter.name != null)
+            {
+                var query = await (from Item in this.context.Item
+                    join Potion in this.context.Potion on Item.id equals Potion.id
+                    where Item.name.Contains(filter.name)
+                    select new {Item, Potion}).ToListAsync();
+
+
+                // lista pozioni
+
+                foreach (var VARIABLE in query)
+                {
+                    potions.Add(new Potion(VARIABLE.Item, VARIABLE.Potion));
+                }
+            }
+
+            if (filter.description != null)
+            {
+                var query = await (from Item in this.context.Item
+                    join Potion in this.context.Potion on Item.id equals Potion.id
+                    where Item.description.Contains(filter.description)
+                    select new {Item, Potion}).ToListAsync();
+
+
+                // lista pozioni
+
+                foreach (var VARIABLE in query)
+                {
+                    potions.Add(new Potion(VARIABLE.Item, VARIABLE.Potion));
+                }
+            }
+
+            if (filter.source != null)
+            {
+                var query = await (from Item in this.context.Item
+                    join Potion in this.context.Potion on Item.id equals Potion.id
+                    where Item.source.Contains(filter.source)
+                    select new {Item, Potion}).ToListAsync();
+
+
+                // lista pozioni
+
+                foreach (var VARIABLE in query)
+                {
+                    potions.Add(new Potion(VARIABLE.Item, VARIABLE.Potion));
+                }
+            }
+
+
+            if (filter.price != null)
+            {
+                if (filter.priceOp == '=')
+                {
+                    var query = await (from Item in this.context.Item
+                        join Potion in this.context.Potion on Item.id equals Potion.id
+                        where Item.price == filter.price
+                        select new {Item, Potion}).ToListAsync();
+
+
+                    // lista pozioni
+
+                    foreach (var VARIABLE in query)
+                    {
+                        potions.Add(new Potion(VARIABLE.Item, VARIABLE.Potion));
+                    }
+                }
+                else if (filter.priceOp == '>')
+                {
+                    var query = await (from Item in this.context.Item
+                        join Potion in this.context.Potion on Item.id equals Potion.id
+                        where Item.price > filter.price
+                        select new {Item, Potion}).ToListAsync();
+
+
+                    // lista pozioni
+
+                    foreach (var VARIABLE in query)
+                    {
+                        potions.Add(new Potion(VARIABLE.Item, VARIABLE.Potion));
+                    }
+                }
+                else if (filter.priceOp == '<')
+                {
+                    var query = await (from Item in this.context.Item
+                        join Potion in this.context.Potion on Item.id equals Potion.id
+                        where Item.price < filter.price
+                        select new {Item, Potion}).ToListAsync();
+
+
+                    // lista pozioni
+
+                    foreach (var VARIABLE in query)
+                    {
+                        potions.Add(new Potion(VARIABLE.Item, VARIABLE.Potion));
+                    }
+                }
+                else
+                {
+                    var query = await (from Item in this.context.Item
+                        join Potion in this.context.Potion on Item.id equals Potion.id
+                        where Item.price == filter.price
+                        select new {Item, Potion}).ToListAsync();
+
+
+                    // lista pozioni
+
+                    foreach (var VARIABLE in query)
+                    {
+                        potions.Add(new Potion(VARIABLE.Item, VARIABLE.Potion));
+                    }
+                }
+            }
+
+            // TODO casterLevell
+
+            if (filter.casterLevell != null)
+            {
+                var query = await (from Item in this.context.Item
+                    join Potion in this.context.Potion on Item.id equals Potion.id
+                    where Potion.casterLevell == filter.casterLevell
+                    select new {Item, Potion}).ToListAsync();
+
+
+                // lista pozioni
+
+                foreach (var VARIABLE in query)
+                {
+                    potions.Add(new Potion(VARIABLE.Item, VARIABLE.Potion));
+                }
+            }
+
+            // TODO wheight
+
+            if (filter.wheight != null)
+            {
+                if (filter.wheightOp == '=')
+                {
+                    var query = await (from Item in this.context.Item
+                        join Potion in this.context.Potion on Item.id equals Potion.id
+                        where Potion.wheight == filter.wheight
+                        select new {Item, Potion}).ToListAsync();
+
+
+                    // lista pozioni
+
+                    foreach (var VARIABLE in query)
+                    {
+                        potions.Add(new Potion(VARIABLE.Item, VARIABLE.Potion));
+                    }
+                }
+                else if (filter.wheightOp == '>')
+                {
+                    var query = await (from Item in this.context.Item
+                        join Potion in this.context.Potion on Item.id equals Potion.id
+                        where Potion.wheight > filter.wheight
+                        select new {Item, Potion}).ToListAsync();
+
+
+                    // lista pozioni
+
+                    foreach (var VARIABLE in query)
+                    {
+                        potions.Add(new Potion(VARIABLE.Item, VARIABLE.Potion));
+                    }
+                }
+                else if (filter.wheightOp == '<')
+                {
+                    var query = await (from Item in this.context.Item
+                        join Potion in this.context.Potion on Item.id equals Potion.id
+                        where Potion.wheight < filter.wheight
+                        select new {Item, Potion}).ToListAsync();
+
+
+                    // lista pozioni
+
+                    foreach (var VARIABLE in query)
+                    {
+                        potions.Add(new Potion(VARIABLE.Item, VARIABLE.Potion));
+                    }
+                }
+                else
+                {
+                    var query = await (from Item in this.context.Item
+                        join Potion in this.context.Potion on Item.id equals Potion.id
+                        where Potion.wheight == filter.wheight
+                        select new {Item, Potion}).ToListAsync();
+
+
+                    // lista pozioni
+
+                    foreach (var VARIABLE in query)
+                    {
+                        potions.Add(new Potion(VARIABLE.Item, VARIABLE.Potion));
+                    }
+                }
+
+
+                // TODO idSpell
+
+                if (filter.idSpell != null)
+                {
+                    var query = await (from Item in this.context.Item
+                        join Potion in this.context.Potion on Item.id equals Potion.id
+                        where Potion.idSpell == filter.idSpell
+                        select new {Item, Potion}).ToListAsync();
+
+
+                    // lista pozioni
+
+                    foreach (var VARIABLE in query)
+                    {
+                        potions.Add(new Potion(VARIABLE.Item, VARIABLE.Potion));
+                    }
+                }
+            }
+
+            if (potions.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(potions);
+        }
+
 
         [HttpPost]
         public async Task<ActionResult<IPotion>> createSpell([FromBody] Potion potion)
         {
             potion.id = Guid.NewGuid();
+            potion.ItemType = 2;
             if (this.context.Spell.Where(spell => spell.id == potion.id).SingleOrDefault() == null)
             {
                 potion.spell.id = Guid.Empty;
             }
-            
+
             this.context.Item.Add(new Item(potion));
             this.context.Potion.Add(new PotionWrapper(potion));
             await this.context.SaveChangesAsync();
@@ -87,9 +331,9 @@ namespace SecondaryLocation.Controllers
 
             return Ok(potion);
         }
-        
+
         [HttpPatch]
-        public async Task<ActionResult<IPotion>> updateSpell([FromBody]Potion potion)
+        public async Task<ActionResult<IPotion>> updateSpell([FromBody] Potion potion)
         {
             if (!this.context.Item.Any(item => item.id == potion.id))
             {
@@ -98,6 +342,7 @@ namespace SecondaryLocation.Controllers
                 {
                     potion.spell.id = Guid.Empty;
                 }
+
                 logger.Log(LogLevel.Information, "[PATCH] post new spell");
                 this.context.Item.Add(new Item(potion));
                 this.context.Potion.Add(new PotionWrapper(potion));
@@ -112,7 +357,7 @@ namespace SecondaryLocation.Controllers
             await this.context.SaveChangesAsync();
             return Ok(potion);
         }
-        
+
         [HttpDelete("{id}")]
         public async Task<ActionResult<String>> deleteSpell(Guid id)
         {
@@ -123,14 +368,13 @@ namespace SecondaryLocation.Controllers
             logger.Log(LogLevel.Information, "[DELETE] delete spell");
             return Ok(id.ToString());
             */
-            
+
             var potion = this.context.Potion.Remove(new PotionWrapper(id)).Entity;
             await this.context.SaveChangesAsync();
-            var item =this.context.Item.Remove(new Item(id)).Entity;
+            var item = this.context.Item.Remove(new Item(id)).Entity;
             await this.context.SaveChangesAsync();
-            
+
             return Ok(new Potion(item, potion));
         }
-        
     }
 }

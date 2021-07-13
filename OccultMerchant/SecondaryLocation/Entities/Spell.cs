@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SecondaryLocation.Entities
 {
@@ -14,6 +15,7 @@ namespace SecondaryLocation.Entities
         public string target { get; set; }
         public string duration { get; set; }
         public string savingThrow { get; set; }
+        
         public bool spellResistence { get; set; }
         public string casting { get; set; }
         public string component { get; set; }
@@ -37,7 +39,9 @@ namespace SecondaryLocation.Entities
             this.target = spellWrappper.target;
             this.duration = spellWrappper.duration;
             this.savingThrow = spellWrappper.savingThrow;
+            this.spellResistence = spellWrappper.spellResistence;
             this.casting = spellWrappper.casting;
+            this.component = spellWrappper.component;
             this.school = spellWrappper.school;
             this.level = spellWrappper.level;
         }

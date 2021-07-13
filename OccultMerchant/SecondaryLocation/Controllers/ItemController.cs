@@ -58,11 +58,53 @@ namespace SecondaryLocation.Controllers
 
             if (filter.name != null)
             {
-                var lista = await this.context.Item.Where(item => item.name == filter.name).ToListAsync();
+                var lista = await this.context.Item.Where(item => item.name.Contains(filter.name)).ToListAsync();
                 items.UnionWith(lista);
             }
-            
-            
+
+            if (filter.description != null)
+            {
+                var lista = await this.context.Item.Where(item => item.description.Contains(filter.description))
+                    .ToListAsync();
+                items.UnionWith(lista);
+            }
+
+            if (filter.source != null)
+            {
+                var lista = await this.context.Item.Where(item => item.source.Contains(filter.source)).ToListAsync();
+                items.UnionWith(lista);
+            }
+
+            if (filter.ItemType != null)
+            {
+                //var lista = await this.context.Item.Where(item => item.ItemType == filter.ItemType).ToListAsync();
+                //items.UnionWith(lista);
+            }
+
+            if (filter.price != null)
+            {
+                List<Item> lista = new List<Item>();
+
+                if (filter.priceOp == '=')
+                {
+                    lista = await this.context.Item.Where(item => item.price == filter.price).ToListAsync();
+                }
+                else if (filter.priceOp == '>')
+                {
+                    lista = await this.context.Item.Where(item => item.price > filter.price).ToListAsync();
+                }
+                else if (filter.priceOp == '<')
+                {
+                    lista = await this.context.Item.Where(item => item.price < filter.price).ToListAsync();
+                }
+                else
+                {
+                    lista = await this.context.Item.Where(item => item.price == filter.price).ToListAsync();
+                }
+
+
+                items.UnionWith(lista);
+            }
 
             if (items.Count == 0)
             {

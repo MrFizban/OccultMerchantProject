@@ -1,8 +1,15 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
 EXPOSE 5001
+EXPOSE 5000
 EXPOSE  443
-ENV ASPNETCORE_URLS=http://+:5001;https://+:443/
+ARG BUILD_CONFIGURATION=Debug
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV DOTNET_USE_POLLING_FILE_WATCHER=true 
+ENV ASPNETCORE_URLS="http://+:5000;https://+:5001"
+
+
+ENV ASPNETCORE_Kestrel__Certificates__Default__Path="/https/localhost.crt"
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
