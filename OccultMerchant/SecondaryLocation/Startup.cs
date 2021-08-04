@@ -32,12 +32,13 @@ namespace SecondaryLocation
         public void ConfigureServices(IServiceCollection services)
         {
             // singelton Item
+            /*
             services.AddScoped<IItem, Item>();
 
             services.AddScoped<ISpell, Spell>();
             
             services.AddScoped<IPotion, Potion>();
-
+            */
             
             services.AddControllers();
             
@@ -62,6 +63,7 @@ namespace SecondaryLocation
             //database
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("ApplicationDbContext")));
+            
             
             //container
             
