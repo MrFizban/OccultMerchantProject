@@ -1,0 +1,252 @@
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/appsettings.Development.json
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/appsettings.json
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.deps.json
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.runtimeconfig.json
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.runtimeconfig.dev.json
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/ref/SecondaryLocation.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.pdb
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.Data.Sqlite.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.OpenApi.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.core.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Swashbuckle.AspNetCore.Swagger.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.csproj.AssemblyReference.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.GeneratedMSBuildEditorConfig.editorconfig
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.AssemblyInfoInputs.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.AssemblyInfo.cs
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.csproj.CoreCompileInputs.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.MvcApplicationPartsAssemblyInfo.cs
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.MvcApplicationPartsAssemblyInfo.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/staticwebassets/SecondaryLocation.StaticWebAssets.Manifest.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/staticwebassets/SecondaryLocation.StaticWebAssets.xml
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/scopedcss/bundle/SecondaryLocation.styles.css
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.RazorTargetAssemblyInfo.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.csproj.CopyComplete
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/ref/SecondaryLocation.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.pdb
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.genruntimeconfig.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.DotNet.PlatformAbstractions.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Sqlite.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.Extensions.DependencyInjection.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.Extensions.DependencyModel.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/System.Diagnostics.DiagnosticSource.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.batteries_v2.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.nativelibrary.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.provider.dynamic_cdecl.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/alpine-x64/native/libe_sqlite3.so
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-arm/native/libe_sqlite3.so
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-arm64/native/libe_sqlite3.so
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-armel/native/libe_sqlite3.so
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-mips64/native/libe_sqlite3.so
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-musl-x64/native/libe_sqlite3.so
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-x64/native/libe_sqlite3.so
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-x86/native/libe_sqlite3.so
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/osx-x64/native/libe_sqlite3.dylib
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-arm/native/e_sqlite3.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-arm64/native/e_sqlite3.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-x64/native/e_sqlite3.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-x86/native/e_sqlite3.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/appsettings.Development.json
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/appsettings.json
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.exe
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.deps.json
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.runtimeconfig.json
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.runtimeconfig.dev.json
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/ref/SecondaryLocation.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.pdb
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.Data.Sqlite.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.DotNet.PlatformAbstractions.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Sqlite.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.Extensions.DependencyInjection.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.Extensions.DependencyModel.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.OpenApi.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.batteries_v2.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.nativelibrary.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.core.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/System.Diagnostics.DiagnosticSource.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/alpine-x64/native/libe_sqlite3.so
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-arm/native/libe_sqlite3.so
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-arm64/native/libe_sqlite3.so
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-armel/native/libe_sqlite3.so
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-mips64/native/libe_sqlite3.so
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-musl-x64/native/libe_sqlite3.so
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-x64/native/libe_sqlite3.so
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-x86/native/libe_sqlite3.so
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/osx-x64/native/libe_sqlite3.dylib
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-arm/native/e_sqlite3.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-arm64/native/e_sqlite3.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-x64/native/e_sqlite3.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-x86/native/e_sqlite3.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.csproj.AssemblyReference.cache
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.AssemblyInfoInputs.cache
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.AssemblyInfo.cs
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.csproj.CoreCompileInputs.cache
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/staticwebassets/SecondaryLocation.StaticWebAssets.Manifest.cache
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/staticwebassets/SecondaryLocation.StaticWebAssets.xml
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/scopedcss/bundle/SecondaryLocation.styles.css
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.RazorTargetAssemblyInfo.cache
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.csproj.CopyComplete
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/ref/SecondaryLocation.dll
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.pdb
+C:/Users/Giulio/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.genruntimeconfig.cache
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/appsettings.Development.json
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/appsettings.json
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.exe
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.deps.json
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.runtimeconfig.json
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.runtimeconfig.dev.json
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/ref/SecondaryLocation.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.pdb
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.Data.Sqlite.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.DotNet.PlatformAbstractions.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Sqlite.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.Extensions.DependencyInjection.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.Extensions.DependencyModel.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.OpenApi.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.batteries_v2.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.nativelibrary.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.core.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/System.Diagnostics.DiagnosticSource.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/alpine-x64/native/libe_sqlite3.so
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-arm/native/libe_sqlite3.so
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-arm64/native/libe_sqlite3.so
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-armel/native/libe_sqlite3.so
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-mips64/native/libe_sqlite3.so
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-musl-x64/native/libe_sqlite3.so
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-x64/native/libe_sqlite3.so
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-x86/native/libe_sqlite3.so
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/osx-x64/native/libe_sqlite3.dylib
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-arm/native/e_sqlite3.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-arm64/native/e_sqlite3.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-x64/native/e_sqlite3.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-x86/native/e_sqlite3.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.csproj.AssemblyReference.cache
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.AssemblyInfoInputs.cache
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.AssemblyInfo.cs
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.csproj.CoreCompileInputs.cache
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/staticwebassets/SecondaryLocation.StaticWebAssets.Manifest.cache
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/staticwebassets/SecondaryLocation.StaticWebAssets.xml
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/scopedcss/bundle/SecondaryLocation.styles.css
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.RazorTargetAssemblyInfo.cache
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.csproj.CopyComplete
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/ref/SecondaryLocation.dll
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.pdb
+C:/Users/Lucia Predeli/RiderProjects/OccultMerchantProject/OccultMerchant/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.genruntimeconfig.cache
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/EntityFramework.SqlServer.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/EntityFramework.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Humanizer.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/System.CodeDom.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/System.Configuration.ConfigurationManager.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/System.Data.SqlClient.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/System.Security.Cryptography.ProtectedData.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-arm64/native/sni.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-x64/native/sni.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win-x86/native/sni.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/home/mrfizban/Project/OccultMerchantProject/OccultMerchant/SecondaryLocation/bin/Debug/net5.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/appsettings.Development.json
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/appsettings.json
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.deps.json
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.runtimeconfig.json
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.runtimeconfig.dev.json
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/ref/SecondaryLocation.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/SecondaryLocation.pdb
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/EntityFramework.SqlServer.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/EntityFramework.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Humanizer.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Microsoft.Data.Sqlite.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Microsoft.DotNet.PlatformAbstractions.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Sqlite.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Microsoft.Extensions.DependencyInjection.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Microsoft.Extensions.DependencyModel.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Microsoft.OpenApi.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.batteries_v2.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.nativelibrary.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.core.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/SQLitePCLRaw.provider.dynamic_cdecl.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Swashbuckle.AspNetCore.Swagger.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/System.CodeDom.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/System.Configuration.ConfigurationManager.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/System.Data.SqlClient.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/System.Diagnostics.DiagnosticSource.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/System.Security.Cryptography.ProtectedData.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/win-arm64/native/sni.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/win-x64/native/sni.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/win-x86/native/sni.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/alpine-x64/native/libe_sqlite3.so
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-arm/native/libe_sqlite3.so
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-arm64/native/libe_sqlite3.so
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-armel/native/libe_sqlite3.so
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-mips64/native/libe_sqlite3.so
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-musl-x64/native/libe_sqlite3.so
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-x64/native/libe_sqlite3.so
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/linux-x86/native/libe_sqlite3.so
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/osx-x64/native/libe_sqlite3.dylib
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/win-arm/native/e_sqlite3.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/win-arm64/native/e_sqlite3.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/win-x64/native/e_sqlite3.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/win-x86/native/e_sqlite3.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.csproj.AssemblyReference.cache
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.GeneratedMSBuildEditorConfig.editorconfig
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.AssemblyInfoInputs.cache
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.AssemblyInfo.cs
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.csproj.CoreCompileInputs.cache
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.MvcApplicationPartsAssemblyInfo.cs
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.MvcApplicationPartsAssemblyInfo.cache
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/staticwebassets/SecondaryLocation.StaticWebAssets.Manifest.cache
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/staticwebassets/SecondaryLocation.StaticWebAssets.xml
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/scopedcss/bundle/SecondaryLocation.styles.css
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.RazorTargetAssemblyInfo.cache
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.csproj.CopyComplete
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/ref/SecondaryLocation.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.pdb
+/home/mrfizban/Project/Experiment/SecondaryLocation/obj/Debug/net5.0/SecondaryLocation.genruntimeconfig.cache
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Microsoft.AspNetCore.JsonPatch.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Newtonsoft.Json.dll
+/home/mrfizban/Project/Experiment/SecondaryLocation/bin/Debug/net5.0/Newtonsoft.Json.Bson.dll
